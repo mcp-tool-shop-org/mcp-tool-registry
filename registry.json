@@ -1,168 +1,136 @@
 {
   "schema_version": "0.1",
-  "generated_at": "2026-01-25",
+  "generated_at": "2026-01-27",
   "tools": [
     {
-      "id": "comfy-headless",
-      "name": "Comfy Headless",
-      "description": "Run ComfyUI workflows without the UI — headless execution for automation.",
-      "repo": "https://github.com/mcp-tool-shop/comfy-headless",
+      "id": "a11y-assist",
+      "name": "A11y Assist",
+      "description": "AI-powered accessibility assistance and remediation",
+      "repo": "https://github.com/mcp-tool-shop/a11y-assist",
       "install": {
         "type": "git",
-        "url": "https://github.com/mcp-tool-shop/comfy-headless.git",
+        "url": "https://github.com/mcp-tool-shop/a11y-assist.git",
         "default_ref": "main"
       },
-      "tags": ["comfyui", "headless", "automation", "image"],
+      "tags": [
+        "accessibility",
+        "ai",
+        "remediation"
+      ],
       "defaults": {
         "safe_run": true
       }
     },
     {
-      "id": "file-compass",
-      "name": "File Compass",
-      "description": "Deterministic file-system navigation and inspection for large repos.",
-      "repo": "https://github.com/mcp-tool-shop/file-compass",
+      "id": "a11y-ci",
+      "name": "A11y CI",
+      "description": "Continuous integration tools for accessibility testing",
+      "repo": "https://github.com/mcp-tool-shop/a11y-ci",
       "install": {
         "type": "git",
-        "url": "https://github.com/mcp-tool-shop/file-compass.git",
+        "url": "https://github.com/mcp-tool-shop/a11y-ci.git",
         "default_ref": "main"
       },
-      "tags": ["filesystem", "search", "navigation"],
+      "tags": [
+        "accessibility",
+        "ci",
+        "testing"
+      ],
       "defaults": {
         "safe_run": true
       }
     },
     {
-      "id": "dev-brain",
-      "name": "Dev Brain",
-      "description": "Orchestration and reasoning control plane for tool-driven agent workflows.",
-      "repo": "https://github.com/mcp-tool-shop/dev-brain",
+      "id": "a11y-demo-site",
+      "name": "A11y Demo Site",
+      "description": "Demonstration site for accessibility testing and best practices",
+      "repo": "https://github.com/mcp-tool-shop/a11y-demo-site",
       "install": {
         "type": "git",
-        "url": "https://github.com/mcp-tool-shop/dev-brain.git",
+        "url": "https://github.com/mcp-tool-shop/a11y-demo-site.git",
         "default_ref": "main"
       },
-      "tags": ["orchestration", "agents", "planning"],
+      "tags": [
+        "accessibility",
+        "demo",
+        "testing"
+      ],
       "defaults": {
         "safe_run": true
       }
     },
     {
-      "id": "tool-compass",
-      "name": "Tool Compass",
-      "description": "Discovery, classification, and ranking utilities for MCP-compatible tools.",
-      "repo": "https://github.com/mcp-tool-shop/tool-compass",
+      "id": "a11y-evidence-engine",
+      "name": "A11y Evidence Engine",
+      "description": "Evidence collection and analysis for accessibility compliance",
+      "repo": "https://github.com/mcp-tool-shop/a11y-evidence-engine",
       "install": {
         "type": "git",
-        "url": "https://github.com/mcp-tool-shop/tool-compass.git",
+        "url": "https://github.com/mcp-tool-shop/a11y-evidence-engine.git",
         "default_ref": "main"
       },
-      "tags": ["discovery", "ranking", "catalog"],
+      "tags": [
+        "accessibility",
+        "compliance",
+        "evidence"
+      ],
       "defaults": {
         "safe_run": true
       }
     },
     {
-      "id": "backpropagate",
-      "name": "Backpropagate",
-      "description": "Structured feedback loops for improving AI behavior through iteration.",
-      "repo": "https://github.com/mcp-tool-shop/backpropagate",
+      "id": "a11y-lint",
+      "name": "A11y Lint",
+      "description": "Linting tools for detecting accessibility issues",
+      "repo": "https://github.com/mcp-tool-shop/a11y-lint",
       "install": {
         "type": "git",
-        "url": "https://github.com/mcp-tool-shop/backpropagate.git",
+        "url": "https://github.com/mcp-tool-shop/a11y-lint.git",
         "default_ref": "main"
       },
-      "tags": ["evaluation", "feedback", "iteration"],
+      "tags": [
+        "accessibility",
+        "linting",
+        "quality"
+      ],
       "defaults": {
         "safe_run": true
       }
     },
     {
-      "id": "integradio",
-      "name": "Integradio",
-      "description": "Structure layer for building maintainable Gradio apps (UI + execution separation).",
-      "repo": "https://github.com/mcp-tool-shop/integradio",
+      "id": "a11y-mcp-tools",
+      "name": "A11y MCP Tools",
+      "description": "Accessibility tools and utilities for web applications",
+      "repo": "https://github.com/mcp-tool-shop/a11y-mcp-tools",
       "install": {
         "type": "git",
-        "url": "https://github.com/mcp-tool-shop/integradio.git",
+        "url": "https://github.com/mcp-tool-shop/a11y-mcp-tools.git",
         "default_ref": "main"
       },
-      "tags": ["gradio", "ui", "framework"],
+      "tags": [
+        "accessibility",
+        "web",
+        "tools"
+      ],
       "defaults": {
         "safe_run": true
       }
     },
     {
-      "id": "mcp-stress-test",
-      "name": "MCP Stress Test",
-      "description": "Load and stress testing utilities for MCP servers and tool ecosystems.",
-      "repo": "https://github.com/mcp-tool-shop/mcp-stress-test",
+      "id": "ally-demo-python",
+      "name": "Ally Demo Python",
+      "description": "Python demonstration of ally framework capabilities",
+      "repo": "https://github.com/mcp-tool-shop/ally-demo-python",
       "install": {
         "type": "git",
-        "url": "https://github.com/mcp-tool-shop/mcp-stress-test.git",
+        "url": "https://github.com/mcp-tool-shop/ally-demo-python.git",
         "default_ref": "main"
       },
-      "tags": ["performance", "load-testing", "concurrency"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
-      "id": "voice-soundboard",
-      "name": "Voice Soundboard",
-      "description": "Voice tooling repository (project-specific).",
-      "repo": "https://github.com/mcp-tool-shop/voice-soundboard",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop/voice-soundboard.git",
-        "default_ref": "main"
-      },
-      "tags": ["tts", "audio", "voice"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
-      "id": "headless-wheel-builder",
-      "name": "Headless Wheel Builder",
-      "description": "CLI-first build/validate/release tooling for Python wheels and sdists.",
-      "repo": "https://github.com/mcp-tool-shop/headless-wheel-builder",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop/headless-wheel-builder.git",
-        "default_ref": "main"
-      },
-      "tags": ["python", "packaging", "wheels", "release"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
-      "id": "tool-scan",
-      "name": "Tool Scan",
-      "description": "Static inspection utilities for MCP tools and repositories.",
-      "repo": "https://github.com/mcp-tool-shop/tool-scan",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop/tool-scan.git",
-        "default_ref": "main"
-      },
-      "tags": ["static-analysis", "security", "inspection"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
-      "id": "claude-collaborate",
-      "name": "Claude Collaborate",
-      "description": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows.",
-      "repo": "https://github.com/mcp-tool-shop/claude-collaborate",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop/claude-collaborate.git",
-        "default_ref": "main"
-      },
-      "tags": ["claude", "agents", "collaboration"],
+      "tags": [
+        "ally",
+        "demo",
+        "python"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -177,7 +145,88 @@
         "url": "https://github.com/mcp-tool-shop/aspire-ai.git",
         "default_ref": "main"
       },
-      "tags": ["evaluation", "experimentation", "metrics"],
+      "tags": [
+        "evaluation",
+        "experimentation",
+        "metrics"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "audiobooker",
+      "name": "Audiobooker",
+      "description": "Audio book generation and management system",
+      "repo": "https://github.com/mcp-tool-shop/audiobooker",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/audiobooker.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "audio",
+        "ebook",
+        "generation"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "backpropagate",
+      "name": "Backpropagate",
+      "description": "Structured feedback loops for improving AI behavior through iteration.",
+      "repo": "https://github.com/mcp-tool-shop/backpropagate",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/backpropagate.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "evaluation",
+        "feedback",
+        "iteration"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "claude-collaborate",
+      "name": "Claude Collaborate",
+      "description": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows.",
+      "repo": "https://github.com/mcp-tool-shop/claude-collaborate",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/claude-collaborate.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "claude",
+        "agents",
+        "collaboration"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "comfy-headless",
+      "name": "Comfy Headless",
+      "description": "Run ComfyUI workflows without the UI \u00e2\u20ac\u201d headless execution for automation.",
+      "repo": "https://github.com/mcp-tool-shop/comfy-headless",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/comfy-headless.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "comfyui",
+        "headless",
+        "automation",
+        "image"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -192,7 +241,355 @@
         "url": "https://github.com/mcp-tool-shop/context-window-manager.git",
         "default_ref": "main"
       },
-      "tags": ["context", "tokens", "rag", "memory"],
+      "tags": [
+        "context",
+        "tokens",
+        "rag",
+        "memory"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "dev-brain",
+      "name": "Dev Brain",
+      "description": "Orchestration and reasoning control plane for tool-driven agent workflows.",
+      "repo": "https://github.com/mcp-tool-shop/dev-brain",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/dev-brain.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "orchestration",
+        "agents",
+        "planning"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "file-compass",
+      "name": "File Compass",
+      "description": "Deterministic file-system navigation and inspection for large repos.",
+      "repo": "https://github.com/mcp-tool-shop/file-compass",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/file-compass.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "filesystem",
+        "search",
+        "navigation"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "headless-wheel-builder",
+      "name": "Headless Wheel Builder",
+      "description": "CLI-first build/validate/release tooling for Python wheels and sdists.",
+      "repo": "https://github.com/mcp-tool-shop/headless-wheel-builder",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/headless-wheel-builder.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "python",
+        "packaging",
+        "wheels",
+        "release"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "integradio",
+      "name": "Integradio",
+      "description": "Structure layer for building maintainable Gradio apps (UI + execution separation).",
+      "repo": "https://github.com/mcp-tool-shop/integradio",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/integradio.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "gradio",
+        "ui",
+        "framework"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcp-examples",
+      "name": "MCP Examples",
+      "description": "Example workspaces and templates for MCP tools",
+      "repo": "https://github.com/mcp-tool-shop/mcp-examples",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/mcp-examples.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "examples",
+        "templates",
+        "mcp"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcp-stress-test",
+      "name": "MCP Stress Test",
+      "description": "Load and stress testing utilities for MCP servers and tool ecosystems.",
+      "repo": "https://github.com/mcp-tool-shop/mcp-stress-test",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/mcp-stress-test.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "performance",
+        "load-testing",
+        "concurrency"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcp-tool-shop.github.io",
+      "name": "MCP Tool Shop Website",
+      "description": "Official website and documentation for MCP Tool Shop",
+      "repo": "https://github.com/mcp-tool-shop/mcp-tool-shop.github.io",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/mcp-tool-shop.github.io.git",
+        "default_ref": "master"
+      },
+      "tags": [
+        "website",
+        "documentation",
+        "organization"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcpt",
+      "name": "MCPT",
+      "description": "MCP Tool Shop command-line interface and utilities",
+      "repo": "https://github.com/mcp-tool-shop/mcpt",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/mcpt.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "cli",
+        "mcp",
+        "tools"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "nexus-router",
+      "name": "Nexus Router",
+      "description": "Intelligent routing and orchestration for distributed MCP tools",
+      "repo": "https://github.com/mcp-tool-shop/nexus-router",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/nexus-router.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "routing",
+        "orchestration",
+        "distributed"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "pathway",
+      "name": "Pathway",
+      "description": "Python journey engine for workflow progression tracking",
+      "repo": "https://github.com/mcp-tool-shop/pathway",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/pathway.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "workflow",
+        "journey",
+        "python"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "payroll-engine",
+      "name": "Payroll Engine",
+      "description": "Comprehensive payroll processing and SaaS platform",
+      "repo": "https://github.com/mcp-tool-shop/payroll-engine",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/payroll-engine.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "payroll",
+        "saas",
+        "hr"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "prov-engine-js",
+      "name": "Prov Engine JS",
+      "description": "JavaScript/TypeScript provenance and traceability engine",
+      "repo": "https://github.com/mcp-tool-shop/prov-engine-js",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/prov-engine-js.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "provenance",
+        "traceability",
+        "typescript"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "prov-spec",
+      "name": "Prov Spec",
+      "description": "Specification for provenance tracking across distributed systems",
+      "repo": "https://github.com/mcp-tool-shop/prov-spec",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/prov-spec.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "provenance",
+        "specification",
+        "distributed"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "synthesis",
+      "name": "Synthesis",
+      "description": "Composable tool framework for building complex AI workflows",
+      "repo": "https://github.com/mcp-tool-shop/synthesis",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/synthesis.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "workflow",
+        "composition",
+        "tools"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "tool-compass",
+      "name": "Tool Compass",
+      "description": "Discovery, classification, and ranking utilities for MCP-compatible tools.",
+      "repo": "https://github.com/mcp-tool-shop/tool-compass",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/tool-compass.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "discovery",
+        "ranking",
+        "catalog"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "tool-scan",
+      "name": "Tool Scan",
+      "description": "Static inspection utilities for MCP tools and repositories.",
+      "repo": "https://github.com/mcp-tool-shop/tool-scan",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/tool-scan.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "static-analysis",
+        "security",
+        "inspection"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "venvkit",
+      "name": "Venvkit",
+      "description": "Python virtual environment diagnostics and utilities",
+      "repo": "https://github.com/mcp-tool-shop/venvkit",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/venvkit.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "python",
+        "venv",
+        "diagnostics"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "voice-soundboard",
+      "name": "Voice Soundboard",
+      "description": "Voice tooling repository (project-specific).",
+      "repo": "https://github.com/mcp-tool-shop/voice-soundboard",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop/voice-soundboard.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "tts",
+        "audio",
+        "voice"
+      ],
       "defaults": {
         "safe_run": true
       }
