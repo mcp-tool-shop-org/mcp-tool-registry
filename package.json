@@ -1,0 +1,35 @@
+{
+  "name": "@mcp-tool-shop/mcp-tool-registry",
+  "version": "0.2.0",
+  "description": "Metadata-only registry for MCP Tool Shop tools",
+  "main": "registry.json",
+  "exports": {
+    ".": "./registry.json",
+    "./schema": "./schema/registry.schema.json",
+    "./bundles/core": "./bundles/core.json",
+    "./bundles/agents": "./bundles/agents.json",
+    "./bundles/ops": "./bundles/ops.json"
+  },
+  "files": [
+    "registry.json",
+    "schema/",
+    "bundles/"
+  ],
+  "keywords": [
+    "mcp",
+    "registry",
+    "tools",
+    "metadata",
+    "model-context-protocol"
+  ],
+  "author": "mcp-tool-shop <64996768+mcp-tool-shop@users.noreply.github.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcp-tool-shop/mcp-tool-registry.git"
+  },
+  "homepage": "https://github.com/mcp-tool-shop/mcp-tool-registry#readme",
+  "bugs": {
+    "url": "https://github.com/mcp-tool-shop/mcp-tool-registry/issues"
+  }
+}
