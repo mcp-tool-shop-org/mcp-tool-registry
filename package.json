@@ -1,5 +1,5 @@
 {
-  "name": "@mcp-tool-shop/mcp-tool-registry",
+  "name": "@mcptoolshop/mcp-tool-registry",
   "version": "0.2.0",
   "description": "Metadata-only registry for MCP Tool Shop tools",
   "main": "registry.json",
@@ -31,5 +31,9 @@
   "homepage": "https://github.com/mcp-tool-shop/mcp-tool-registry#readme",
   "bugs": {
     "url": "https://github.com/mcp-tool-shop/mcp-tool-registry/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
