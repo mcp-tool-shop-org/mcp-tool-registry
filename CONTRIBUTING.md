@@ -22,10 +22,10 @@ The MCP Tool Registry is a metadata-only registry for MCP Tool Shop tools. It ma
      "id": "my-tool",
      "name": "My Tool",
      "description": "Does something useful",
-     "repo": "https://github.com/mcp-tool-shop/my-tool",
+     "repo": "https://github.com/mcp-tool-shop-org/my-tool",
      "install": {
        "type": "git",
-       "url": "https://github.com/mcp-tool-shop/my-tool.git",
+       "url": "https://github.com/mcp-tool-shop-org/my-tool.git",
        "default_ref": "main"
      },
      "tags": ["category", "use-case"],

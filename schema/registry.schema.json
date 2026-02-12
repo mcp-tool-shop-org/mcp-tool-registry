@@ -10,6 +10,33 @@
     "generated_at": {
       "type": "string"
     },
+    "organization": {
+      "type": "string"
+    },
+    "archived": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "note": { "type": "string" },
+          "repo": { "type": "string", "format": "uri" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "ecosystems": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "docs": { "type": "string", "format": "uri" }
+        },
+        "additionalProperties": false
+      }
+    },
     "tools": {
       "type": "array",
       "items": {
@@ -62,6 +89,12 @@
               }
             },
             "additionalProperties": true
+          },
+          "ecosystem": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
           }
         },
         "additionalProperties": false

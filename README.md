@@ -5,8 +5,8 @@ Metadata-only registry for MCP Tool Shop tools.
 ## How MCP Tool Shop Fits Together
 
 - **Registry** → what tools exist (this repo)
-- **CLI** ([mcpt](https://github.com/mcp-tool-shop/mcpt)) → how you consume them
-- **Examples** ([mcp-examples](https://github.com/mcp-tool-shop/mcp-examples)) → how you learn the model
+- **CLI** ([mcpt](https://github.com/mcp-tool-shop-org/mcpt)) → how you consume them
+- **Examples** ([mcp-examples](https://github.com/mcp-tool-shop-org/mcp-examples)) → how you learn the model
 - **Tags** (v0.1.0, v0.2.0) → stability, reproducibility
 - **main** → development only; may change without notice; builds may break
 - **Tools default to least privilege** → no network, no writes, no side effects

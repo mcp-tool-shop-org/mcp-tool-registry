@@ -26,11 +26,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcp-tool-shop/mcp-tool-registry.git"
+    "url": "git+https://github.com/mcp-tool-shop-org/mcp-tool-registry.git"
   },
-  "homepage": "https://github.com/mcp-tool-shop/mcp-tool-registry#readme",
+  "homepage": "https://github.com/mcp-tool-shop-org/mcp-tool-registry#readme",
   "bugs": {
-    "url": "https://github.com/mcp-tool-shop/mcp-tool-registry/issues"
+    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues"
   },
   "publishConfig": {
     "access": "public",
