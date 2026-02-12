@@ -1,6 +1,6 @@
 {
   "name": "@mcptoolshop/mcp-tool-registry",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Metadata-only registry for MCP Tool Shop tools",
   "main": "registry.json",
   "exports": {
