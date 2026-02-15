@@ -310,7 +310,7 @@ function openModal(tool) {
                style="background: #238636; color: white; padding: 10px; text-align: center; border-radius: 6px; text-decoration: none;">
                Find Source (GitHub)
             </a>
-             <button onclick="navigator.clipboard.writeText('npx @mcptoolshop/cli install ${tool.id}'); alert('Copied!')"
+             <button onclick="navigator.clipboard.writeText('npx @mcptoolshop/mcpt install ${tool.id}'); alert('Copied!')"
                style="background: #1f6feb; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer;">
                Copy Install Command
             </button>
