@@ -2,10 +2,12 @@ import { readFile, writeFile, mkdir, readdir } from "fs/promises"
 import { join, dirname } from "path"
 import { fileURLToPath } from "url"
 import { createHash } from "crypto"
+import { execSync } from "child_process"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, "..")
 const distDir = join(rootDir, "dist")
+const curationDir = join(rootDir, "curation")
 
 async function buildDerived() {
   console.log("🏗️  Building derived metadata...")
@@ -18,11 +20,28 @@ async function buildDerived() {
     const registryPath = join(rootDir, "registry.json")
     const registryContent = await readFile(registryPath, "utf-8")
     const registry = JSON.parse(registryContent)
+
+    // Read Curation Data (Optional)
+    let featuredData = null
+    try {
+        const featuredContent = await readFile(join(curationDir, "featured.json"), "utf-8")
+        featuredData = JSON.parse(featuredContent)
+    } catch (e) {
+        // ignore if missing
+    }
     
     // Read Package Version
     const pkgPath = join(rootDir, "package.json")
     const pkgContent = await readFile(pkgPath, "utf-8")
     const pkg = JSON.parse(pkgContent)
+
+    // Read Git SHA
+    let commitSha = "unknown"
+    try {
+      commitSha = execSync("git rev-parse HEAD").toString().trim()
+    } catch (e) {
+      // ignore
+    }
 
     // 1. derived.meta.json
     console.log("   - Generating derived.meta.json")
@@ -34,7 +53,8 @@ async function buildDerived() {
           .digest("hex"),
         schema_version: registry.schema_version,
         registry_version: pkg.version,
-        tool_count: registry.tools.length
+        tool_count: registry.tools.length,
+        commit_sha: commitSha
       },
       null,
       2
@@ -73,6 +93,7 @@ async function buildDerived() {
         id: tool.id,
         name: tool.name,
         description: tool.description,
+        verification: tool.verification || "none",
         keywords: Array.from(keywords).sort(), // Stable order
         tags: (tool.tags || []).sort()
         // capabilities: tool.capabilities // If present in schema later
@@ -154,6 +175,47 @@ async function buildDerived() {
       join(distDir, "capabilities.json"),
       JSON.stringify(sortedCaps, null, 2)
     )
+
+    // 4. featured.json (Processed Copy)
+    // We copy this to dist/ so consumers can get the curated list from the same place as the index
+    if (featuredData) {
+        console.log("   - Generating featured.json")
+        // We could enable "enrichment" here (e.g. expanding tool details inline), 
+        // but for now we keep it normalized (IDs only) as per data-first principles.
+        // We do ensure stable key order though (canonicalization).
+        // Note: featuredData.collections is an Object (dictionary) in the source file, NOT an array.
+        // We will transform it to an array for the distribution format if we want consistency, 
+        // OR keep it as a map. The previous explorer code treated it as an array of objects with {id, ...}.
+        // Looking at the error "map is not a function", it confirms source is an object.
+        // Let's normalize it to an array of objects for easier consumption by clients.
+        
+        let normalizedCollections = [];
+        if (Array.isArray(featuredData.collections)) {
+             normalizedCollections = featuredData.collections;
+        } else if (typeof featuredData.collections === 'object') {
+             normalizedCollections = Object.entries(featuredData.collections).map(([key, value]) => ({
+                 id: key, // The key becomes the ID
+                 name: value.title || value.name, // Handle title vs name discrepancy
+                 description: value.description,
+                 tools: value.tools
+             }));
+        }
+
+        const canonFeatured = {
+            $schema: featuredData.$schema, 
+            featured: (featuredData.featured || []).sort(),
+            collections: normalizedCollections.map(c => ({
+                id: c.id,
+                name: c.name,
+                description: c.description,
+                tools: (c.tools || []).sort()
+            })).sort((a, b) => a.id.localeCompare(b.id)) 
+        }
+        await writeFile(
+            join(distDir, "featured.json"),
+            JSON.stringify(canonFeatured, null, 2)
+        )
+    }
 
     console.log("✅ Derived artifacts built successfully.")
   } catch (error) {

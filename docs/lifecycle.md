@@ -23,9 +23,24 @@ Add the following fields to the tool entry in `registry.json`:
   "id": "old-tool",
   ...
   "deprecated": true,
+  "deprecated_at": "2026-02-15T12:00:00Z",
+  "sunset_at": "2027-02-15T12:00:00Z",
   "deprecation_reason": "Replaced by new-tool-v2"
 }
 ```
+
+Fields:
+
+- `deprecated`: boolean (Required)
+- `deprecation_reason`: string (Required)
+- `deprecated_at`: ISO 8601 date (Required) - When the deprecation was effective.
+- `sunset_at`: ISO 8601 date (Optional) - When the tool will be removed from the registry.
+
+**Sunset Policy:**
+
+- Deprecated tools remain in the registry indefinitely unless `sunset_at` is specified.
+- If `sunset_at` is set, the tool is guaranteed to remain available until that date.
+- After `sunset_at`, the tool may be moved to the `archived` list.
 
 ### 3. Removed (Archived)
 

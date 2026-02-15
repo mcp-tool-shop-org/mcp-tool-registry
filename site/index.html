@@ -185,7 +185,7 @@
 <div class="container">
     <header>
         <div style="display:flex; align-items:center; gap:15px;">
-            <img src="../mcp-tool-registry_logo.png" alt="Logo" height="40">
+            <img src="./mcp-tool-registry_logo.png" alt="Logo" height="40">
             <h1>MCP Tool Registry Explorer</h1>
         </div>
         <div style="font-size: 0.9rem; color: #8b949e;">
@@ -206,6 +206,16 @@
     </aside>
 
     <main>
+        <!-- Featured Section -->
+        <div id="featured-section" style="display:none; margin-bottom: 30px;">
+            <h3 style="margin-top:0;">Featured Tools</h3>
+            <div id="featured-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-bottom: 20px;"></div>
+            
+            <h3 style="margin-top:0;">Curated Collections</h3>
+            <div id="collections-grid" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;"></div>
+            <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 20px;">
+        </div>
+
         <div id="results-header" style="margin-bottom: 10px; color: #8b949e; font-size: 0.9rem;">
             Loading registry...
         </div>

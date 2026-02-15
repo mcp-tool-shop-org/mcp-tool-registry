@@ -75,6 +75,11 @@
             },
             "additionalProperties": false
           },
+          "verification": {
+            "type": "string",
+            "enum": ["none", "community", "official"],
+            "description": "Validation level (default: none)"
+          },
           "tags": {
             "type": "array",
             "items": {
@@ -98,6 +103,14 @@
           },
           "deprecated": {
             "type": "boolean"
+          },
+          "deprecated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sunset_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "deprecation_reason": {
             "type": "string"

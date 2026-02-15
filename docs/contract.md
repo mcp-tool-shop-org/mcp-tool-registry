@@ -1,6 +1,42 @@
-# Platform Contract
+# Platform Contract & v1.0 Stability
 
-This document defines the stability guarantees and data flow of the MCP Tool Registry.
+This document defines the stability guarantees and data flow of the MCP Tool Registry for the v1.x lifecycle.
+
+## Stability Guarantees (v1.x)
+
+We treat the registry as critical infrastructure. As such, we guarantee stability for the following interfaces.
+
+### Guaranteed Stable (v1.x Compatibility)
+
+Breaking changes to these interfaces will require a major version bump (v2.0).
+
+1. **Core Data Structure**:
+   - `registry.json`: The top-level array structure and required fields (`id`, `description`, `capabilities`, `install`).
+   - `schema/registry.schema.json`: Location and validation logic.
+
+2. **Generated Artifacts**:
+   - `dist/registry.index.json`: The primary consumption artifact for `mcpt` and the Explorer.
+   - `dist/registry.llms.txt`: The AI-native context file location and availability.
+   - `dist/capabilities.json`: The list of known capabilities.
+
+3. **Bundle Definitions**:
+   - The core bundle names: `core`, `ops`, `agents`, `evaluation`.
+   - The semantic meaning of these bundles (e.g., `core` = highly stable, `ops` = infrastructure access).
+
+### Permitted Changes (Minor/Patch)
+
+We may introduce the following changes in minor releases without breaking v1.x compatibility:
+
+- **Additive Fields**: New optional fields in `registry.json` or `registry.index.json`.
+- **New Bundles**: Additional bundles beyond the core set.
+- **New Capabilities**: Expanding the taxonomy of tool permissions.
+- **Visual Tweaks**: Colors, icons, or descriptions in `mcpt` output.
+
+### Consumer Expectations
+
+- **Clients (`mcpt`)** can safely rely on `registry.index.json` having a stable schema.
+- **Agents** can rely on `registry.llms.txt` being available at the root of the distribution.
+- **Authors** can rely on the submission format in `registry.json` not changing requirements.
 
 ## Canonical vs. Generated Data
 

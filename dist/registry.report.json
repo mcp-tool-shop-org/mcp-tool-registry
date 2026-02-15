@@ -1,7 +1,7 @@
 {
   "stats": {
-    "generated_at": "2026-02-15T04:23:21.685Z",
-    "registry_hash": "6d5732bea7893c2e5df5c971a28d669b80e09d70886082998c5b81636ae37b7b",
+    "generated_at": "2026-02-15T06:34:13.054Z",
+    "registry_hash": "8c20f60fb04ace16a8be8ed4d6b8349e255868c4373d2ff4c519b7eaa08de47b",
     "totals": {
       "tools": 48,
       "bundles": 4,
@@ -11,19 +11,19 @@
     "bundles": {
       "agents": {
         "count": 4,
-        "size_bytes": 226
+        "size_bytes": 227
       },
       "core": {
         "count": 4,
-        "size_bytes": 171
+        "size_bytes": 172
       },
       "evaluation": {
         "count": 6,
-        "size_bytes": 227
+        "size_bytes": 228
       },
       "ops": {
         "count": 6,
-        "size_bytes": 228
+        "size_bytes": 229
       }
     },
     "tags": {

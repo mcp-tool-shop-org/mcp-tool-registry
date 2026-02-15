@@ -66,12 +66,43 @@ async function checkPolicy() {
           }
         })
       }
-      // 5. Deprecation logic
-      if (tool.deprecated === true && !tool.deprecation_reason) {
-        console.error(
-          `❌ Policy violation: Deprecated tool "${tool.id}" must have a "deprecation_reason".`
-        )
-        errors++
+      // 5. Lifecycle Policy (Verification & Deprecation)
+      if (tool.verification && !['none', 'community', 'official'].includes(tool.verification)) {
+          console.error(`❌ Policy violation: Tool "${tool.id}" has invalid verification level '${tool.verification}'.`);
+          errors++;
+      }
+
+      if (tool.deprecated === true) {
+        if (!tool.deprecation_reason) {
+          console.error(
+            `❌ Policy violation: Deprecated tool "${tool.id}" must have a "deprecation_reason".`
+          )
+          errors++
+        }
+        if (!tool.deprecated_at) {
+          console.error(
+            `❌ Policy violation: Deprecated tool "${tool.id}" must have a "deprecated_at" ISO date (YYYY-MM-DD).`
+          )
+          errors++
+        }
+      }
+
+      if (tool.deprecated_at) {
+          if (isNaN(Date.parse(tool.deprecated_at))) {
+              console.error(`❌ Policy violation: Tool "${tool.id}" 'deprecated_at' must be a valid ISO date.`);
+              errors++;
+          }
+      }
+
+      if (tool.sunset_at) {
+          if (isNaN(Date.parse(tool.sunset_at))) {
+              console.error(`❌ Policy violation: Tool "${tool.id}" 'sunset_at' must be a valid ISO date.`);
+              errors++;
+          }
+          if (tool.deprecated_at && !isNaN(Date.parse(tool.deprecated_at)) && new Date(tool.sunset_at) <= new Date(tool.deprecated_at)) {
+             console.error(`❌ Policy violation: Tool "${tool.id}" 'sunset_at' must be strictly after 'deprecated_at'.`);
+             errors++;
+          }
       }
     })
 

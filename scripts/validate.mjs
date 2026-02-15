@@ -31,8 +31,37 @@ async function validate() {
 
     console.log("✅ Registry is valid.")
 
+    // --- Featured Validation ---
+    console.log("\nValidating curation/featured.json...")
+    const featuredPath = join(rootDir, "curation", "featured.json");
+    const featuredSchemaPath = join(rootDir, "schema", "featured.schema.json");
+
+    try {
+      const featuredContent = await readFile(featuredPath, "utf-8");
+      const featured = JSON.parse(featuredContent);
+      const featuredSchema = JSON.parse(await readFile(featuredSchemaPath, "utf-8"));
+      
+      const ajvFeatured = new Ajv({ strict: false });
+      const validateFeatured = ajvFeatured.compile(featuredSchema);
+      
+      if (!validateFeatured(featured)) {
+        console.error("❌ Featured validation failed:");
+        console.error(JSON.stringify(validateFeatured.errors, null, 2));
+        process.exit(1);
+      }
+
+      // We'll check tool existence during the invariant loop or after loading tools
+    } catch (err) {
+      if (err.code === 'ENOENT') {
+         console.log("ℹ️ No curation/featured.json found, skipping.");
+      } else {
+         throw err;
+      }
+    }
+
+
     // --- Invariant Checks ---
-    console.log("Checking logic invariants...")
+    console.log("\nChecking logic invariants...")
     const tools = registry.tools || []
     const toolIds = new Set()
     let invariantErrors = 0
@@ -94,6 +123,29 @@ async function validate() {
           invariantErrors++
         }
       }
+    }
+
+    // --- Curation Integrity ---
+    const featuredPathCuration = join(rootDir, "curation", "featured.json");
+    try {
+      const content = await readFile(featuredPathCuration, "utf-8");
+      const feat = JSON.parse(content);
+      Array.isArray(feat.featured) && feat.featured.forEach(id => {
+          if (!toolIds.has(id)) {
+            console.error(`❌ Featured ID invariant failed: Unknown tool ID "${id}".`);
+            invariantErrors++;
+          }
+      });
+      feat.collections && Object.entries(feat.collections).forEach(([name, config]) => {
+          config.tools && config.tools.forEach(id => {
+              if (!toolIds.has(id)) {
+                console.error(`❌ Collection "${name}" invariant failed: Unknown tool ID "${id}".`);
+                invariantErrors++;
+              }
+          });
+      });
+    } catch (e) {
+      if (e.code !== 'ENOENT') console.error('Error checking curation:', e);
     }
 
     if (invariantErrors > 0) {

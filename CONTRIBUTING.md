@@ -49,6 +49,15 @@ npm install
 npm run lint
 ```
 
+## Curation & Collections
+
+Tools can be highlighted in `curation/featured.json`. This file drives the "Featured" section and "Collections" on the explorer site.
+
+- **Featured**: A list of high-quality, verified tools meant for broad visibility.
+- **Collections**: Thematic groupings (e.g., "Security Tools", "Starter Pack").
+
+To propose adding a tool to a collection, edit `curation/featured.json` in your PR. Ensure the `id` exactly matches the tool's ID in `registry.json`. Validations will fail if the ID does not exist.
+
 ## Breaking Business
 
 If you are modifying the schema itself (e.g., adding required fields):

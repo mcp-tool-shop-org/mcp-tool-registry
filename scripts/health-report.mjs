@@ -2,6 +2,7 @@ import { readFile, writeFile, readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createHash } from 'crypto';
+import chalk from 'chalk';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
@@ -138,13 +139,21 @@ async function generateHealthReport() {
 
     // 7. SLO Check (Optional CLI flag --check-slo)
     if (process.argv.includes('--check-slo')) {
-        console.log('🛡️  Running SLO Checks...');
+        console.log(chalk.bold('🛡️  Running Quality Gates & SLO Checks...'));
         const errors = [];
-        
-        // Rule 1: No more than 10% missing recommended fields
+        const warnings = [];
+
+        // Rule 1: No more than 10% missing recommended fields (Strict for some, lenient for others)
         Object.entries(quality.missing_fields).forEach(([field, count]) => {
             const pct = (count / tools.length);
-            if (pct > 0.10) errors.push(`SLO Violation: >10% tools missing '${field}' (${(pct*100).toFixed(1)}%)`);
+            // Description and Repo are critical
+            if (['description', 'repo'].includes(field)) {
+                if (pct > 0.05) errors.push(`SLO Violation: >5% tools missing '${field}' (${(pct*100).toFixed(1)}%)`);
+            }
+            // Tags and Ecosystem are nice-to-have for now (Warning only)
+            else if (pct > 0.10) {
+                warnings.push(`Quality Warning: >10% tools missing '${field}' (${(pct*100).toFixed(1)}%)`);
+            }
         });
 
         // Rule 2: Description Quality (Example: 95% pass)
@@ -152,12 +161,32 @@ async function generateHealthReport() {
         const descPct = descFailures / tools.length;
         if (descPct > 0.05) errors.push(`SLO Violation: >5% tools have description issues (${(descPct*100).toFixed(1)}%)`);
 
+        // Rule 3: Deprecation Budget (Hard Gate: <20%)
+        const depRate = stats.totals.deprecated / stats.totals.tools;
+        if (depRate > 0.20) {
+            errors.push(`Budget Exceeded: >20% tools are deprecated (${(depRate*100).toFixed(1)}%)`);
+        } else if (depRate > 0.10) {
+            warnings.push(`Budget Warning: >10% tools are deprecated (${(depRate*100).toFixed(1)}%)`);
+        }
+
+        // Rule 4: Bundle Integrity
+        if (!bundles['core']) {
+            errors.push('Critical: Core bundle is missing!');
+        } else if (bundles['core'].count < 5) {
+             warnings.push(`Core bundle is suspiciously small (${bundles['core'].count} tools)`);
+        }
+
+        if (warnings.length > 0) {
+            console.log(chalk.yellow('⚠️  Quality Warnings:'));
+            warnings.forEach(w => console.log(chalk.yellow(`   - ${w}`)));
+        }
+
         if (errors.length > 0) {
-            console.error('❌ SLO Validation Failed:');
-            errors.forEach(e => console.error(`   - ${e}`));
+            console.error(chalk.red('❌ Quality Gate Failed:'));
+            errors.forEach(e => console.error(chalk.red(`   - ${e}`)));
             process.exit(1);
         } else {
-            console.log('   ✅ All Service Level Objectives met.');
+            console.log(chalk.green('   ✅ All Quality Gates passed.'));
         }
     }
 

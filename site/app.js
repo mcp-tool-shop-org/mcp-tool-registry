@@ -3,16 +3,19 @@
 /**
  * MCP Tool Registry Explorer
  *
- * Fetches JSON artifacts from ../dist/ and renders them.
+ * Fetches JSON artifacts from ./dist/ and renders them.
  * No backend required.
  */
 
-const INDEX_URL = "../dist/registry.index.json"
-const META_URL = "../dist/derived.meta.json"
-const LOGO_URL = "../mcp-tool-registry_logo.png"
+const INDEX_URL = "./dist/registry.index.json"
+const META_URL = "./dist/derived.meta.json"
+const FEATURED_URL = "./dist/featured.json"
+const LOGO_URL = "./mcp-tool-registry_logo.png"
 
 let registry = []
 let filtered = []
+let featuredData = { featured: [], collections: [] }
+let activeCollectionId = null
 
 const searchInput = document.getElementById("search")
 const resultsContainer = document.getElementById("results")
@@ -21,20 +24,33 @@ const bundleFilters = document.getElementById("bundle-filters")
 const tagFilters = document.getElementById("tag-filters")
 const modal = document.getElementById("modal")
 const modalBody = document.getElementById("modal-body")
+const featuredSection = document.getElementById("featured-section")
+const featuredGrid = document.getElementById("featured-grid")
+const collectionsGrid = document.getElementById("collections-grid")
 
 // --- Init ---
 
 async function init() {
   try {
-    const [indexRes, metaRes] = await Promise.all([
+    const [indexRes, metaRes, featuredRes] = await Promise.all([
       fetch(INDEX_URL),
-      fetch(META_URL)
+      fetch(META_URL),
+      fetch(FEATURED_URL).catch(() => ({ ok: false }))
     ])
 
     if (!indexRes.ok) throw new Error("Failed to load registry index")
 
     registry = await indexRes.json()
     const meta = await metaRes.json()
+
+    if (featuredRes.ok) {
+      try {
+        featuredData = await featuredRes.json()
+        renderFeaturedSection()
+      } catch (e) {
+        console.warn("Failed to parse featured.json", e)
+      }
+    }
 
     document.getElementById("version").innerHTML = `
             v${meta.registry_version} <span style="opacity:0.6; font-size: 0.8em; margin-left: 5px;">(hash: ${meta.registry_hash.substring(0, 7)})</span>
@@ -54,6 +70,74 @@ async function init() {
   }
 }
 
+// --- Featured & Collections ---
+
+function renderFeaturedSection() {
+  if (!featuredData.featured.length && !featuredData.collections.length) return
+
+  // Only show if we haven't searched yet? For now, always show at top.
+  featuredSection.style.display = "block"
+
+  // Render Featured Tools
+  featuredGrid.innerHTML = ""
+  featuredData.featured.forEach(toolId => {
+    const tool = registry.find(t => t.id === toolId)
+    if (!tool) return
+
+    const card = createToolCard(tool, true)
+    featuredGrid.appendChild(card)
+  })
+
+  // Render Collections
+  collectionsGrid.innerHTML = ""
+  featuredData.collections.forEach(col => {
+    const div = document.createElement("div")
+    div.className = "card" // Reuse card style but smaller
+    div.style.minWidth = "200px"
+    div.style.flex = "1"
+    div.style.cursor = "pointer"
+
+    // Count tools in collection
+    const count = col.tools.filter(tid =>
+      registry.find(r => r.id === tid)
+    ).length
+
+    div.innerHTML = `
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 5px;">
+                <h3 style="margin:0; font-size:1rem; color: #58a6ff;">${col.name}</h3>
+                <span style="font-size:0.8rem; background:#238636; padding:2px 6px; border-radius:10px;">${count}</span>
+            </div>
+            <p style="font-size:0.8rem; color:#8b949e; margin:0;">${col.description}</p>
+        `
+    div.onclick = () => selectCollection(col.id)
+    collectionsGrid.appendChild(div)
+  })
+}
+
+function selectCollection(collectionId) {
+  if (activeCollectionId === collectionId) {
+    activeCollectionId = null
+  } else {
+    activeCollectionId = collectionId
+  }
+
+  updateCollectionUI()
+  filterAndRender()
+}
+
+function updateCollectionUI() {
+  const cards = collectionsGrid.querySelectorAll(".card")
+  cards.forEach((card, idx) => {
+    const colId = featuredData.collections[idx].id
+    if (colId === activeCollectionId) {
+      card.style.borderColor = "#238636"
+      // Reset others
+    } else {
+      card.style.borderColor = "#30363d"
+    }
+  })
+}
+
 // --- Filtering Logic (Replicates query.mjs) ---
 
 function filterAndRender() {
@@ -65,7 +149,17 @@ function filterAndRender() {
     document.querySelectorAll('input[name="tag"]:checked')
   ).map(cb => cb.value)
 
+  // Collection Filter Logic
+  let collectionToolIds = null
+  if (activeCollectionId) {
+    const col = featuredData.collections.find(c => c.id === activeCollectionId)
+    if (col) collectionToolIds = col.tools
+  }
+
   filtered = registry.filter(item => {
+    // Collection Filter
+    if (collectionToolIds && !collectionToolIds.includes(item.id)) return false
+
     // Bundle Filter
     if (activeBundles.length > 0) {
       const intersection = (item.bundle_membership || []).filter(b =>
@@ -95,33 +189,52 @@ function filterAndRender() {
 
 // --- Rendering ---
 
-function renderResults() {
-  resultsHeader.textContent = `Found ${filtered.length} tools`
-  resultsContainer.innerHTML = ""
+function createToolCard(tool, isFeatured = false) {
+  const card = document.createElement("div")
+  card.className = "card"
+  if (isFeatured) {
+    card.style.borderColor = "#58a6ff"
+    card.style.borderWidth = "1px" // Keep it subtle
+  }
+  card.onclick = () => openModal(tool)
 
-  filtered.forEach(tool => {
-    const card = document.createElement("div")
-    card.className = "card"
-    card.onclick = () => openModal(tool)
+  // Bundle badging
+  const bundles = (tool.bundle_membership || [])
+    .map(b => `<span class="bundle-badge">${b}</span>`)
+    .join(" ")
 
-    // Bundle badging
-    const bundles = (tool.bundle_membership || [])
-      .map(b => `<span class="bundle-badge">${b}</span>`)
-      .join(" ")
+  // Tags
+  const tags = (tool.tags || [])
+    .slice(0, 3)
+    .map(t => `<span class="tag">${t}</span>`)
+    .join("")
 
-    // Tags
-    const tags = (tool.tags || [])
-      .slice(0, 3)
-      .map(t => `<span class="tag">${t}</span>`)
-      .join("")
+  const featuredBadge = isFeatured
+    ? `<span style="background:#58a6ff; color:white; padding:2px 6px; border-radius:4px; font-size:0.75em; margin-right:5px; font-weight:bold; vertical-align:middle;">FEATURED</span>`
+    : ""
 
-    card.innerHTML = `
+  card.innerHTML = `
             ${bundles}
-            <h2>${tool.name}</h2>
+            <h2>${featuredBadge}${tool.name}</h2>
             <div style="font-size: 0.8em; color: #666; margin-bottom: 5px;">${tool.id}</div>
             <p>${tool.description || "No description provided."}</p>
             <div class="tags">${tags}</div>
         `
+  return card
+}
+
+function renderResults() {
+  resultsHeader.textContent = activeCollectionId
+    ? `Collection: ${featuredData.collections.find(c => c.id === activeCollectionId).name} (${filtered.length} tools)`
+    : `Found ${filtered.length} tools`
+
+  resultsContainer.innerHTML = ""
+
+  filtered.forEach(tool => {
+    // Check if tool is featured to add badge - only if not already in featured section?
+    // Actually consistent branding is good.
+    const isFeatured = featuredData.featured.includes(tool.id)
+    const card = createToolCard(tool, isFeatured)
     resultsContainer.appendChild(card)
   })
 }
@@ -167,9 +280,6 @@ function renderFacets() {
 
 function openModal(tool) {
   window.location.hash = `tool/${tool.id}`
-
-  // In a real app we might fetch more details from registry.json if index is slim,
-  // but our index is quite rich.
 
   const bundles = (tool.bundle_membership || [])
     .map(b => `<span class="bundle-badge">${b}</span>`)

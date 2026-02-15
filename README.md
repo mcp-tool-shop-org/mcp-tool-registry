@@ -17,21 +17,45 @@ This registry serves as the "source of truth" for the MCP ecosystem. By decoupli
 2. **Safety**: We enforce schema validation before a tool is listed.
 3. **Reproducibility**: You can pin your environment to a specific version of this registry.
 
-## Registry Philosophy
+## browse the Registry
 
+You can browse the registry visually using our [Web Explorer](site/index.html).
+_(Note: To view locally, open `site/index.html` in your browser)_
+
+## Ecosystem
+
+The MCP Tool Registry is the definitive source of truth for discoverable MCP tools. It connects tool authors with users across the ecosystem.
+
+- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)**: The official client to discover, install, and run tools.
+- **[Public Explorer](https://mcp-tool-shop-org.github.io/mcp-tool-registry/)**: Browse the registry on the web.
+- **[Submit a Tool](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)**: Add your tool to the ecosystem.
+
+## Versioning & Compatibility
+
+We adhere to SemVer. The current stable contract is **v1.x**.
+
+| Component         | Status      | Compatibility                   |
+| :---------------- | :---------- | :------------------------------ |
+| **registry.json** | Stable (v1) | Core data schema is frozen.     |
+| **mcpt CLI**      | v0.2.0+     | Supports v1 registry artifacts. |
+| **bundler**       | v1.0.0      | Generates v1 distribution.      |
+
+## Quick Links
+
+- [Start Here](START_HERE.md) ✨
+- [Contract & Stability](docs/contract.md)
+- [Submitting Tools](docs/submitting-tools.md)
+- [Bundle Definitions](docs/bundles.md)
+- [AI Native Context](dist/registry.llms.txt)
+- [Ecosystem Index](ECOSYSTEM.md)
+
+## Core Concepts
+
+- **Canonical Files**: The build process generates `registry.index.json`, the single static artifact that all clients (`mcpt`, explorer) consume.
+- **Rules-Generated Bundles**: Tools are organized into bundles (`core`, `ops`, `agents`, `evaluation`) based on objective rules, not manual curation.
 - **Least Privilege**: Tools allow no side effects (writes, network) by default.
 - **Explicit Opt-in**: Capabilities are listed in the registry so users know what they are installing.
 - **Data-Only**: This repo contains no code, only JSON metadata.
-
-## How MCP Tool Shop Fits Together
-
-- **Registry** → what tools exist (this repo)
-- **CLI** ([mcpt](https://github.com/mcp-tool-shop-org/mcpt)) → how you consume them
-- **Examples** ([mcp-examples](https://github.com/mcp-tool-shop-org/mcp-examples)) → how you learn the model
-- **Tags** (v0.1.0, v0.2.0) → stability, reproducibility
-- **main** → development only; may change without notice; builds may break
-- **Tools default to least privilege** → no network, no writes, no side effects
-- **Capability is always explicit and opt-in** → you decide when to enable
 
 ## Getting Started
 

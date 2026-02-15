@@ -2,6 +2,20 @@
 
 All notable changes to the MCP Tool Registry will be documented in this file.
 
+## [1.0.0] - 2026-02-15
+
+### Stability Guarantees Formalized
+
+- **v1.x Contract**: Established rigid stability guarantees for `registry.json` schema and `dist` artifacts.
+- **Ecosystem Index**: Added `ECOSYSTEM.md` as the central hub.
+- **Navigation**: Added `START_HERE.md` and "Quick Links" to README.
+- **Exports Verified**: CI now enforces the presence of all critical artifacts (`registry.json`, `dist/registry.index.json`, `registry.llms.txt`).
+
+### Changed
+
+- **Documentation**: Standardized terminology across registry and `mcpt` CLI.
+- **Package**: Bumped to `1.0.0` to signal production readiness.
+
 ## [0.3.0] - 2026-02-14
 
 ### Changed
