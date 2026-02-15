@@ -1,7 +1,7 @@
 # MCP Tool Registry
 
 <div align="center">
-  <img src="mcp-tool-registry_logo.png" alt="MCP Tool Registry Logo" height="150" />
+  <img src="logo.jpg" alt="MCP Tool Registry" width="500" />
 </div>
 
 [![Validate registry](https://github.com/mcp-tool-shop-org/mcp-tool-registry/actions/workflows/validate.yml/badge.svg)](https://github.com/mcp-tool-shop-org/mcp-tool-registry/actions/workflows/validate.yml)
