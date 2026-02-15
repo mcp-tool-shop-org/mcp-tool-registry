@@ -95,6 +95,12 @@
           },
           "note": {
             "type": "string"
+          },
+          "deprecated": {
+            "type": "boolean"
+          },
+          "deprecation_reason": {
+            "type": "string"
           }
         },
         "additionalProperties": false

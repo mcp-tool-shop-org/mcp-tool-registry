@@ -28,14 +28,54 @@ The MCP Tool Registry is a metadata-only registry for MCP Tool Shop tools. It ma
        "url": "https://github.com/mcp-tool-shop-org/my-tool.git",
        "default_ref": "main"
      },
-     "tags": ["category", "use-case"],
-     "defaults": {
-       "safe_run": true
-     }
+     "tags": ["utility"],
+     "defaults": { "safe_run": true }
    }
    ```
+   **Note**: Please keep the `tools` array sorted alphabetically by `id` to minimize merge conflicts.
+
+## Guidelines & Policy
+
+See [docs/registry-guidelines.md](docs/registry-guidelines.md) for detailed rules on IDs, tags, and required fields.
+
+## Validation & Formatting
+
+Before submitting a PR, ensure your changes are valid and formatted:
+
+```bash
+docker run --rm -v $(pwd):/app -w /app node:20 npm install && npm run lint
+# OR locally:
+npm install
+npm run lint
+```
+
+## Breaking Business
+
+If you are modifying the schema itself (e.g., adding required fields):
+
+1. Consult [docs/versioning.md](docs/versioning.md).
+2. Run the "Breaking Change Checklist":
+   - [ ] Bump `schema_version` in `registry.json`
+   - [ ] Update `schema/registry.schema.json`
+   - [ ] Verify backward compatibility for consumers where possible
+
+## Common Errors
+
+- **Missing ID**: Every tool must have a unique `id`.
+- **Invalid URL**: Ensure `repo` and `install.url` are valid HTTPS URLs.
+- **Validation Failure**: Run `npm run validate` to see exactly which field failed.
+  "tags": ["category", "use-case"],
+  "defaults": {
+  "safe_run": true
+  }
+  }
+
+  ```
+
+  ```
 
 3. **Validate the schema locally:**
+
    ```bash
    npx ajv validate -s schema/registry.schema.json -d registry.json
    ```
@@ -61,6 +101,7 @@ Tags help users discover tools by category or capability:
 - Include 2-4 relevant tags per tool
 
 Common tag categories:
+
 - **Functional**: automation, search, navigation, orchestration, scheduling
 - **Domain**: image, audio, video, filesystem, database, api
 - **Platform**: comfyui, pytorch, transformers, openai
@@ -98,6 +139,7 @@ Every PR is validated via GitHub Actions:
 - Install config format
 
 What may change:
+
 - Exact fields on tool entries (new optional fields may be added)
 - Bundle organization
 - Tag taxonomy

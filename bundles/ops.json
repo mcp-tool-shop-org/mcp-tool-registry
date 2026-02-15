@@ -1,9 +1,12 @@
 {
   "id": "ops",
-  "description": "Operations, testing, and infrastructure tools",
+  "description": "DevOps, infrastructure, and deployment tools",
   "tools": [
-    "mcp-stress-test",
+    "comfy-headless",
+    "control-room",
+    "flexiflow",
     "headless-wheel-builder",
-    "comfy-headless"
+    "homebrew-core",
+    "winget-pkgs"
   ]
 }

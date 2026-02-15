@@ -2,10 +2,9 @@
   "id": "agents",
   "description": "Full agent stack: orchestration, navigation, context, and tool selection",
   "tools": [
-    "dev-brain",
     "claude-collaborate",
-    "tool-compass",
+    "context-window-manager",
     "file-compass",
-    "context-window-manager"
+    "tool-compass"
   ]
 }

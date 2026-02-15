@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Tool Registry - Explorer</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --link: #58a6ff;
+            --accent: #238636;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 { margin: 0; font-size: 1.5rem; }
+
+        input[type="search"] {
+            width: 100%;
+            padding: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        /* Sidebar Filters */
+        aside h3 { 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            color: #8b949e; 
+            margin-top: 20px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Results Grid */
+        #results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.1s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            border-color: #8b949e;
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            color: var(--link);
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #8b949e;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            background: rgba(56, 139, 253, 0.15);
+            color: #58a6ff;
+            padding: 2px 8px;
+            border-radius: 2em;
+            font-size: 0.75rem;
+        }
+
+        .bundle-badge {
+            background: rgba(35, 134, 54, 0.2);
+            color: #3fb950;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Modal */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            width: 600px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #8b949e;
+        }
+
+        code {
+            background: rgba(110, 118, 129, 0.4);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: var(--surface);
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            aside { display: none; } /* Hide sidebar on mobile for MVP */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div style="display:flex; align-items:center; gap:15px;">
+            <img src="../mcp-tool-registry_logo.png" alt="Logo" height="40">
+            <h1>MCP Tool Registry Explorer</h1>
+        </div>
+        <div style="font-size: 0.9rem; color: #8b949e;">
+            v<span id="version">0.0.0</span>
+        </div>
+    </header>
+
+    <aside>
+        <input type="search" id="search" placeholder="Search tools (Press /)..." autocomplete="off">
+        
+        <div id="facets">
+            <h3>Bundles</h3>
+            <div id="bundle-filters" class="filter-group"></div>
+
+            <h3>Top Tags</h3>
+            <div id="tag-filters" class="filter-group"></div>
+        </div>
+    </aside>
+
+    <main>
+        <div id="results-header" style="margin-bottom: 10px; color: #8b949e; font-size: 0.9rem;">
+            Loading registry...
+        </div>
+        <div id="results"></div>
+    </main>
+</div>
+
+<div id="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

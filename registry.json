@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2",
+  "schema_version": "0.3",
   "generated_at": "2026-02-01",
   "organization": "mcp-tool-shop-org",
   "tools": [
@@ -85,7 +85,7 @@
       "defaults": { "safe_run": true }
     },
     {
-      "id": "ClaimLedger",
+      "id": "claim-ledger",
       "name": "ClaimLedger",
       "description": "Scientific claim provenance and verification ledger",
       "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger",
@@ -221,7 +221,7 @@
       "defaults": { "safe_run": true }
     },
     {
-      "id": "CreatorLedger",
+      "id": "creator-ledger",
       "name": "CreatorLedger",
       "description": "Creator attestation proofs and authorship verification",
       "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
@@ -340,7 +340,7 @@
       "defaults": { "safe_run": true }
     },
     {
-      "id": "mcp-tool-shop.github.io",
+      "id": "mcp-docs",
       "name": "MCP Tool Shop Website",
       "description": "Official website and documentation for MCP Tool Shop",
       "repo": "https://github.com/mcp-tool-shop-org/mcp-tool-shop.github.io",

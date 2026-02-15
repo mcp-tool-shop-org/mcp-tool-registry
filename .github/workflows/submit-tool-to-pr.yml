@@ -1,0 +1,117 @@
+name: Submit Tool to PR
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-pr:
+    if: contains(github.event.issue.labels.*.name, 'tool-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Parse Issue Body
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Simple parser for the specific Issue Template structure
+            const body = context.payload.issue.body;
+
+            // Helper to extract value between headers
+            const extract = (label) => {
+              const regex = new RegExp(`### ${label}\\s+([\\s\\S]*?)(?:###|$)`);
+              const match = body.match(regex);
+              return match ? match[1].trim() : null;
+            };
+
+            const id = extract('Tool ID');
+            const name = extract('Display Name');
+            const description = extract('Description');
+            const repo = extract('Repository URL');
+            const install = extract('Installation Instructions \\(JSON\\)');
+            const tags = extract('Tags');
+            const bundle = extract('Suggested Bundle \\(Optional\\)');
+
+            if (!id || !name || !repo) {
+                core.setFailed('Missing required fields in issue body.');
+                return;
+            }
+
+            const payload = { id, name, description, repo, install, tags, bundle };
+            core.setOutput('payload', JSON.stringify(payload));
+            core.setOutput('tool_id', id);
+
+      - name: Create Branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "tool/${{ steps.parse.outputs.tool_id }}"
+
+      - name: Patch Registry
+        env:
+          TOOL_SUBMISSION: ${{ steps.parse.outputs.payload }}
+        run: node scripts/patch-registry.mjs
+
+      - name: Format Code (Prettier)
+        run: npm run format || true
+
+      - name: Commit Changes
+        run: |
+          git add registry.json
+          git commit -m "feat: add/update tool ${{ steps.parse.outputs.tool_id }}" || echo "No changes to commit"
+
+      - name: Push Branch
+        run: git push -f origin "tool/${{ steps.parse.outputs.tool_id }}"
+
+      - name: Create Pull Request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { repo, owner } = context.repo;
+            const toolId = '${{ steps.parse.outputs.tool_id }}';
+            const head = `tool/${toolId}`;
+            const base = 'main';
+
+            // Check if PR exists
+            const existing = await github.rest.pulls.list({
+              owner, repo, head: `${owner}:${head}`, state: 'open'
+            });
+
+            let prNumber;
+
+            if (existing.data.length > 0) {
+              prNumber = existing.data[0].number;
+              console.log(`PR #${prNumber} already exists`);
+            } else {
+              const pr = await github.rest.pulls.create({
+                owner, repo, head, base,
+                title: `feat: add tool ${toolId}`,
+                body: `Automated PR generated from Issue #${context.issue.number}.\n\nCloses #${context.issue.number}`,
+                draft: true
+              });
+              prNumber = pr.data.number;
+              
+              // Add label
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number: prNumber,
+                labels: ['auto-generated', 'needs-review']
+              });
+            }
+
+            // Comment on Issue
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: context.issue.number,
+              body: `🚀 Automated PR created/updated: #${prNumber}\n\nThe system is now running validation checks on your submission.`
+            });
