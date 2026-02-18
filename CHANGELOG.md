@@ -2,6 +2,16 @@
 
 All notable changes to the MCP Tool Registry will be documented in this file.
 
+## [1.1.0] - 2026-02-18
+
+### Added
+
+- HANDBOOK.md -- comprehensive deep-dive covering architecture, data model, bundles, search, policy, health, consumer patterns, and contributing guide
+
+### Changed
+
+- README.md -- rewritten with "At a Glance" section, consumer quick start, standardized badge row, docs table
+
 ## [1.0.0] - 2026-02-15
 
 ### Stability Guarantees Formalized

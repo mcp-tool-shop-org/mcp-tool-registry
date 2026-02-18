@@ -1,159 +1,206 @@
-# MCP Tool Registry
+<p align="center"><img src="logo.png" alt="MCP Tool Registry logo" width="200"></p>
 
-<div align="center">
-  <img src="logo.jpg" alt="MCP Tool Registry" width="500" />
-</div>
+# mcp-tool-registry
 
-[![Validate registry](https://github.com/mcp-tool-shop-org/mcp-tool-registry/actions/workflows/validate.yml/badge.svg)](https://github.com/mcp-tool-shop-org/mcp-tool-registry/actions/workflows/validate.yml)
-[![NPM Version](https://img.shields.io/npm/v/@mcptoolshop/mcp-tool-registry)](https://www.npmjs.com/package/@mcptoolshop/mcp-tool-registry)
+> Part of [MCP Tool Shop](https://mcptoolshop.com)
 
-Metadata-only registry for MCP Tool Shop tools.
+**The metadata-only registry -- the single source of truth for all MCP Tool Shop tools.**
 
-## Why This Exists
+[![npm version](https://img.shields.io/npm/v/@mcptoolshop/mcp-tool-registry)](https://www.npmjs.com/package/@mcptoolshop/mcp-tool-registry)
+[![license](https://img.shields.io/npm/l/@mcptoolshop/mcp-tool-registry)](LICENSE)
+[![v1 stable](https://img.shields.io/badge/contract-v1%20stable-brightgreen)](#versioning--compatibility)
 
-This registry serves as the "source of truth" for the MCP ecosystem. By decoupling tool metadata (what tools exist) from tool implementations (the code itself), we allow:
+---
 
-1. **Fast discovery**: Clients can search tools without cloning them.
-2. **Safety**: We enforce schema validation before a tool is listed.
-3. **Reproducibility**: You can pin your environment to a specific version of this registry.
+## At a Glance
 
-## browse the Registry
-
-You can browse the registry visually using our [Web Explorer](site/index.html).
-_(Note: To view locally, open `site/index.html` in your browser)_
+- **Data-only** -- no executable code, just JSON metadata describing every tool in the ecosystem.
+- **Schema-validated** -- every entry is checked against a JSON Schema on commit and in CI.
+- **Bundle system** -- tools are grouped into opinionated bundles (`core`, `agents`, `ops`, `evaluation`) by rules, not manual curation.
+- **Fast discovery** -- a pre-built search index with keywords and facets ships inside the package.
+- **Least privilege** -- tools default to zero capabilities; side-effects are opt-in and declared explicitly.
+- **Reproducible** -- pin a registry version in your workspace and get deterministic metadata every time.
 
 ## Ecosystem
 
-The MCP Tool Registry is the definitive source of truth for discoverable MCP tools. It connects tool authors with users across the ecosystem.
+The registry sits at the center of the MCP Tool Shop ecosystem.
 
-- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)**: The official client to discover, install, and run tools.
-- **[Public Explorer](https://mcp-tool-shop-org.github.io/mcp-tool-registry/)**: Browse the registry on the web.
-- **[Submit a Tool](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)**: Add your tool to the ecosystem.
+- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** -- the official client to discover, install, and run tools.
+- **[Public Explorer](https://mcp-tool-shop-org.github.io/mcp-tool-registry/)** -- browse the registry on the web.
+- **[Submit a Tool](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** -- add your tool to the ecosystem.
 
-## Versioning & Compatibility
+## Quick Start
 
-We adhere to SemVer. The current stable contract is **v1.x**.
-
-| Component         | Status      | Compatibility                   |
-| :---------------- | :---------- | :------------------------------ |
-| **registry.json** | Stable (v1) | Core data schema is frozen.     |
-| **mcpt CLI**      | v0.2.0+     | Supports v1 registry artifacts. |
-| **bundler**       | v1.0.0      | Generates v1 distribution.      |
-
-## Quick Links
-
-- [Start Here](START_HERE.md) ✨
-- [Contract & Stability](docs/contract.md)
-- [Submitting Tools](docs/submitting-tools.md)
-- [Bundle Definitions](docs/bundles.md)
-- [AI Native Context](dist/registry.llms.txt)
-- [Ecosystem Index](ECOSYSTEM.md)
-
-## Core Concepts
-
-- **Canonical Files**: The build process generates `registry.index.json`, the single static artifact that all clients (`mcpt`, explorer) consume.
-- **Rules-Generated Bundles**: Tools are organized into bundles (`core`, `ops`, `agents`, `evaluation`) based on objective rules, not manual curation.
-- **Least Privilege**: Tools allow no side effects (writes, network) by default.
-- **Explicit Opt-in**: Capabilities are listed in the registry so users know what they are installing.
-- **Data-Only**: This repo contains no code, only JSON metadata.
-
-## Getting Started
-
-```bash
-# View available tags
-git tag -l
-
-# Validate schema locally
-npm run validate
-
-# Use with mcpt CLI (pin to a release)
-mcpt init --registry-ref v0.1.0
-```
-
-## Consumers (Using as a Library)
-
-The registry is published as a standard NPM package.
+### Install
 
 ```bash
 npm install @mcptoolshop/mcp-tool-registry
 ```
 
-### Canonical Metadata
+### Import the full registry
 
 ```javascript
-import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" }
-// or
-import coreBundle from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" }
+import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" };
+
+console.log(`${registry.tools.length} tools registered`);
 ```
 
-### Derived Metadata (Fast Lookups)
-
-The package includes pre-built indexes for easier consumption:
-
-- `dist/registry.index.json`: Optimized search index with keywords and bundle membership.
-- `dist/capabilities.json`: Reverse lookup map (Capability -> Tool IDs).
-- `dist/derived.meta.json`: Build metadata and registry hash.
+### Import a bundle
 
 ```javascript
-import toolIndex from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" }
-
-// Find tools related to "compliance"
-const relevantTools = toolIndex.filter(t => t.keywords.includes("compliance"))
+import coreBundle from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" };
 ```
+
+### Use the search index
+
+```javascript
+import toolIndex from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" };
+
+const hits = toolIndex.filter(t => t.keywords.includes("accessibility"));
+```
+
+## Consumers
+
+The registry is published as a standard npm package. There are three layers you can consume.
+
+### Canonical metadata
+
+`registry.json` is the source of truth. Every tool entry lives here.
+
+```javascript
+import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" };
+```
+
+### Bundles
+
+Bundles are curated subsets built by rules at publish time.
+
+```javascript
+import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { type: "json" };
+```
+
+Available bundles: `core`, `agents`, `ops`, `evaluation`.
+
+### Derived indexes
+
+Pre-built artifacts in `dist/` optimized for fast lookups.
+
+| Artifact | Purpose |
+| :--- | :--- |
+| `dist/registry.index.json` | Search index with keywords and bundle membership |
+| `dist/capabilities.json` | Reverse lookup: capability to tool IDs |
+| `dist/derived.meta.json` | Build metadata, registry hash, tool count |
+| `dist/registry.llms.txt` | Plain-text context file for LLM RAG pipelines |
+
+```javascript
+import meta from "@mcptoolshop/mcp-tool-registry/dist/derived.meta.json" with { type: "json" };
+
+console.log(`Registry hash: ${meta.registry_hash}`);
+```
+
+## Bundles
+
+Bundles group tools into installable collections. Membership is determined by declarative rules (tag matching or explicit ID lists), not manual curation. Deprecated tools are automatically excluded.
+
+| Bundle | Description | Selection logic |
+| :--- | :--- | :--- |
+| **core** | Essential utilities | Explicit ID list |
+| **agents** | Agent orchestration, navigation, context, tool selection | Explicit IDs + `agents` tag |
+| **ops** | DevOps, infrastructure, deployment | Tags: `automation`, `packaging`, `release`, `monitoring` |
+| **evaluation** | Testing, benchmarking, coverage | Tags: `testing`, `evaluation`, `benchmark`, `coverage` |
+
+Bundle rules live in `bundles/rules/*.rules.json`.
 
 ## Structure
 
 ```
 mcp-tool-registry/
-├── registry.json              # Canonical tool registry
-├── dist/                      # Derived artifacts (generated on publish)
-│   ├── registry.index.json    # Search index
-│   └── capabilities.json      # Capability map
+├── registry.json              # Canonical tool registry (source of truth)
 ├── schema/
 │   └── registry.schema.json   # JSON Schema for validation
-├── bundles/                   # Curated subsets
+├── bundles/                   # Rules-generated subsets
+│   ├── core.json
+│   ├── agents.json
+│   ├── ops.json
+│   ├── evaluation.json
+│   └── rules/                 # Declarative bundle rules
+├── dist/                      # Derived artifacts (generated at publish)
+│   ├── registry.index.json    # Search index
+│   ├── capabilities.json      # Capability reverse map
+│   ├── derived.meta.json      # Build metadata
+│   └── registry.llms.txt      # LLM-native context
+├── curation/
+│   └── featured.json          # Featured tools and collections
+├── docs/                      # Deep-dive documentation
+├── scripts/                   # Build, validate, search, policy tooling
+└── site/                      # Public Explorer source
 ```
-
-## Usage
-
-The registry is consumed by the `mcp` CLI tool. Tools are installed via git.
-
-## Adding a Tool
-
-1. Read [Contribution Guidelines](docs/registry-guidelines.md).
-2. Add an entry to `registry.json`.
-3. Ensure it validates against the schema.
-4. Submit a PR.
 
 ## Schema
 
-Each tool requires:
+Every tool entry in `registry.json` must conform to `schema/registry.schema.json`.
 
-- `id`: kebab-case identifier (e.g., `file-compass`)
-- `name`: Human-readable name
-- `description`: What the tool does
-- `repo`: GitHub repository URL
-- `install`: Installation config (`type`, `url`, `default_ref`)
-- `tags`: Array of tags for search/filtering
-- `defaults` (optional): Default settings like `safe_run`
+### Required fields
 
-## Bundles
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | `string` | Kebab-case identifier (e.g., `file-compass`) |
+| `name` | `string` | Human-readable display name |
+| `description` | `string` | What the tool does (min 10 characters) |
+| `repo` | `string` (URI) | GitHub repository URL (HTTPS) |
+| `install` | `object` | Installation config: `type`, `url`, `default_ref` |
+| `tags` | `string[]` | Searchable tags for discovery |
 
-Bundles are curated collections of tools:
+### Optional fields
 
-- **core**: Essential utilities
-- **agents**: Agent orchestration tools
-- **ops**: Operations and infrastructure
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `defaults` | `object` | Default settings (e.g., `safe_run: true`) |
+| `ecosystem` | `string` | Ecosystem grouping (e.g., `accessibility`) |
+| `verification` | `enum` | `none`, `community`, or `official` |
+| `deprecated` | `boolean` | Whether the tool is deprecated |
+| `deprecation_reason` | `string` | Why the tool was deprecated |
+| `note` | `string` | Freeform note |
 
-## Validation
+## Versioning & Compatibility
 
-The registry is validated on every PR/push via GitHub Actions.
+The registry follows SemVer. The current stable contract is **v1.x**.
 
-## What Does Pinning Mean?
+| Component | Status | Compatibility |
+| :--- | :--- | :--- |
+| **registry.json** | Stable (v1) | Core data schema is frozen |
+| **mcpt CLI** | v0.2.0+ | Supports v1 registry artifacts |
+| **Bundler** | v1.0.0 | Generates v1 distribution |
 
-When you set `ref: v0.1.0` in your `mcp.yaml`, you're pinning the **registry metadata**, not the tool code itself.
+New optional fields may be added in minor versions. Required fields and the shape of existing fields will not change within a major version.
 
-- **Registry ref** → which version of `registry.json` you read (tool IDs, descriptions, install URLs)
-- **Tool ref** → each tool has its own `default_ref` in the registry (usually `main` or a tag)
+## Adding a Tool
 
-To pin a specific tool version, use `mcpt add tool-id --ref v1.0.0` in your workspace.
+1. Read the [Registry Guidelines](docs/registry-guidelines.md).
+2. Add an entry to `registry.json` (keep the `tools` array sorted by `id`).
+3. Run `npm run validate` to check schema compliance.
+4. Run `npm run policy` to check policy rules (ID format, description quality, HTTPS).
+5. Submit a Pull Request.
+
+## Pinning
+
+When you set `registry-ref: v1.0.0` in your workspace, you are pinning the **registry metadata**, not the tool code.
+
+- **Registry ref** controls which version of `registry.json` you read (tool IDs, descriptions, install URLs).
+- **Tool ref** is the `default_ref` inside each tool entry (usually `main` or a release tag).
+
+To pin a specific tool version: `mcpt add tool-id --ref v2.0.0`.
+
+## Docs
+
+| Document | Description |
+| :--- | :--- |
+| [HANDBOOK.md](HANDBOOK.md) | Deep-dive: architecture, data model, bundles, search, policy, contributing |
+| [ECOSYSTEM.md](ECOSYSTEM.md) | Ecosystem navigation hub |
+| [START_HERE.md](START_HERE.md) | Quick orientation for new visitors |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to add tools, update schema, submit PRs |
+| [CHANGELOG.md](CHANGELOG.md) | Release history |
+
+## License
+
+[MIT](LICENSE)
