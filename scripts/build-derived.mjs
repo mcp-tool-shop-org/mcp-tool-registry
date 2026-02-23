@@ -24,12 +24,15 @@ async function buildDerived() {
     // Read Curation Data (Optional)
     let featuredData = null
     try {
-        const featuredContent = await readFile(join(curationDir, "featured.json"), "utf-8")
-        featuredData = JSON.parse(featuredContent)
+      const featuredContent = await readFile(
+        join(curationDir, "featured.json"),
+        "utf-8"
+      )
+      featuredData = JSON.parse(featuredContent)
     } catch (e) {
-        // ignore if missing
+      // ignore if missing
     }
-    
+
     // Read Package Version
     const pkgPath = join(rootDir, "package.json")
     const pkgContent = await readFile(pkgPath, "utf-8")
@@ -102,27 +105,31 @@ async function buildDerived() {
     })
 
     // Bundle Membership Logic
-    const bundlesDir = join(rootDir, 'bundles');
-    const bundleMap = new Map(); // toolId -> Set(bundleNames)
-    
+    const bundlesDir = join(rootDir, "bundles")
+    const bundleMap = new Map() // toolId -> Set(bundleNames)
+
     // Read generated bundles directly from file system
     // Filter for JSON files, exclude rules directory (though readdir is shallow)
-    const bundleFiles = (await readdir(bundlesDir)).filter(f => f.endsWith('.json') && !f.includes('rules'));
+    const bundleFiles = (await readdir(bundlesDir)).filter(
+      f => f.endsWith(".json") && !f.includes("rules")
+    )
 
     for (const file of bundleFiles) {
-        const bundleName = file.replace('.json', '');
-        try {
-            const bundleContent = await readFile(join(bundlesDir, file), 'utf-8');
-            const bundle = JSON.parse(bundleContent);
-            if (bundle.tools && Array.isArray(bundle.tools)) {
-                bundle.tools.forEach(tid => {
-                    if (!bundleMap.has(tid)) bundleMap.set(tid, new Set());
-                    bundleMap.get(tid).add(bundleName);
-                });
-            }
-        } catch (e) { 
-            console.warn(`    ⚠️ Warning: Failed to read bundle ${file}: ${e.message}`);
+      const bundleName = file.replace(".json", "")
+      try {
+        const bundleContent = await readFile(join(bundlesDir, file), "utf-8")
+        const bundle = JSON.parse(bundleContent)
+        if (bundle.tools && Array.isArray(bundle.tools)) {
+          bundle.tools.forEach(tid => {
+            if (!bundleMap.has(tid)) bundleMap.set(tid, new Set())
+            bundleMap.get(tid).add(bundleName)
+          })
         }
+      } catch (e) {
+        console.warn(
+          `    ⚠️ Warning: Failed to read bundle ${file}: ${e.message}`
+        )
+      }
     }
 
     // Attach bundle membership & default capabilities
@@ -134,7 +141,7 @@ async function buildDerived() {
       }
       // Capabilities placeholder - to be populated from tool definition if schema updates
       // For now, we initialize empty array to support querying
-      entry.capabilities = [] 
+      entry.capabilities = []
     })
 
     await writeFile(
@@ -179,42 +186,46 @@ async function buildDerived() {
     // 4. featured.json (Processed Copy)
     // We copy this to dist/ so consumers can get the curated list from the same place as the index
     if (featuredData) {
-        console.log("   - Generating featured.json")
-        // We could enable "enrichment" here (e.g. expanding tool details inline), 
-        // but for now we keep it normalized (IDs only) as per data-first principles.
-        // We do ensure stable key order though (canonicalization).
-        // Note: featuredData.collections is an Object (dictionary) in the source file, NOT an array.
-        // We will transform it to an array for the distribution format if we want consistency, 
-        // OR keep it as a map. The previous explorer code treated it as an array of objects with {id, ...}.
-        // Looking at the error "map is not a function", it confirms source is an object.
-        // Let's normalize it to an array of objects for easier consumption by clients.
-        
-        let normalizedCollections = [];
-        if (Array.isArray(featuredData.collections)) {
-             normalizedCollections = featuredData.collections;
-        } else if (typeof featuredData.collections === 'object') {
-             normalizedCollections = Object.entries(featuredData.collections).map(([key, value]) => ({
-                 id: key, // The key becomes the ID
-                 name: value.title || value.name, // Handle title vs name discrepancy
-                 description: value.description,
-                 tools: value.tools
-             }));
-        }
+      console.log("   - Generating featured.json")
+      // We could enable "enrichment" here (e.g. expanding tool details inline),
+      // but for now we keep it normalized (IDs only) as per data-first principles.
+      // We do ensure stable key order though (canonicalization).
+      // Note: featuredData.collections is an Object (dictionary) in the source file, NOT an array.
+      // We will transform it to an array for the distribution format if we want consistency,
+      // OR keep it as a map. The previous explorer code treated it as an array of objects with {id, ...}.
+      // Looking at the error "map is not a function", it confirms source is an object.
+      // Let's normalize it to an array of objects for easier consumption by clients.
 
-        const canonFeatured = {
-            $schema: featuredData.$schema, 
-            featured: (featuredData.featured || []).sort(),
-            collections: normalizedCollections.map(c => ({
-                id: c.id,
-                name: c.name,
-                description: c.description,
-                tools: (c.tools || []).sort()
-            })).sort((a, b) => a.id.localeCompare(b.id)) 
-        }
-        await writeFile(
-            join(distDir, "featured.json"),
-            JSON.stringify(canonFeatured, null, 2)
+      let normalizedCollections = []
+      if (Array.isArray(featuredData.collections)) {
+        normalizedCollections = featuredData.collections
+      } else if (typeof featuredData.collections === "object") {
+        normalizedCollections = Object.entries(featuredData.collections).map(
+          ([key, value]) => ({
+            id: key, // The key becomes the ID
+            name: value.title || value.name, // Handle title vs name discrepancy
+            description: value.description,
+            tools: value.tools
+          })
         )
+      }
+
+      const canonFeatured = {
+        $schema: featuredData.$schema,
+        featured: (featuredData.featured || []).sort(),
+        collections: normalizedCollections
+          .map(c => ({
+            id: c.id,
+            name: c.name,
+            description: c.description,
+            tools: (c.tools || []).sort()
+          }))
+          .sort((a, b) => a.id.localeCompare(b.id))
+      }
+      await writeFile(
+        join(distDir, "featured.json"),
+        JSON.stringify(canonFeatured, null, 2)
+      )
     }
 
     console.log("✅ Derived artifacts built successfully.")

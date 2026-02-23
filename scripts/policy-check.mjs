@@ -67,9 +67,14 @@ async function checkPolicy() {
         })
       }
       // 5. Lifecycle Policy (Verification & Deprecation)
-      if (tool.verification && !['none', 'community', 'official'].includes(tool.verification)) {
-          console.error(`❌ Policy violation: Tool "${tool.id}" has invalid verification level '${tool.verification}'.`);
-          errors++;
+      if (
+        tool.verification &&
+        !["none", "community", "official"].includes(tool.verification)
+      ) {
+        console.error(
+          `❌ Policy violation: Tool "${tool.id}" has invalid verification level '${tool.verification}'.`
+        )
+        errors++
       }
 
       if (tool.deprecated === true) {
@@ -88,21 +93,31 @@ async function checkPolicy() {
       }
 
       if (tool.deprecated_at) {
-          if (isNaN(Date.parse(tool.deprecated_at))) {
-              console.error(`❌ Policy violation: Tool "${tool.id}" 'deprecated_at' must be a valid ISO date.`);
-              errors++;
-          }
+        if (isNaN(Date.parse(tool.deprecated_at))) {
+          console.error(
+            `❌ Policy violation: Tool "${tool.id}" 'deprecated_at' must be a valid ISO date.`
+          )
+          errors++
+        }
       }
 
       if (tool.sunset_at) {
-          if (isNaN(Date.parse(tool.sunset_at))) {
-              console.error(`❌ Policy violation: Tool "${tool.id}" 'sunset_at' must be a valid ISO date.`);
-              errors++;
-          }
-          if (tool.deprecated_at && !isNaN(Date.parse(tool.deprecated_at)) && new Date(tool.sunset_at) <= new Date(tool.deprecated_at)) {
-             console.error(`❌ Policy violation: Tool "${tool.id}" 'sunset_at' must be strictly after 'deprecated_at'.`);
-             errors++;
-          }
+        if (isNaN(Date.parse(tool.sunset_at))) {
+          console.error(
+            `❌ Policy violation: Tool "${tool.id}" 'sunset_at' must be a valid ISO date.`
+          )
+          errors++
+        }
+        if (
+          tool.deprecated_at &&
+          !isNaN(Date.parse(tool.deprecated_at)) &&
+          new Date(tool.sunset_at) <= new Date(tool.deprecated_at)
+        ) {
+          console.error(
+            `❌ Policy violation: Tool "${tool.id}" 'sunset_at' must be strictly after 'deprecated_at'.`
+          )
+          errors++
+        }
       }
     })
 

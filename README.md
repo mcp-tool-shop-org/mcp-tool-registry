@@ -41,23 +41,23 @@ npm install @mcptoolshop/mcp-tool-registry
 ### Import the full registry
 
 ```javascript
-import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" };
+import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" }
 
-console.log(`${registry.tools.length} tools registered`);
+console.log(`${registry.tools.length} tools registered`)
 ```
 
 ### Import a bundle
 
 ```javascript
-import coreBundle from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" };
+import coreBundle from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" }
 ```
 
 ### Use the search index
 
 ```javascript
-import toolIndex from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" };
+import toolIndex from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" }
 
-const hits = toolIndex.filter(t => t.keywords.includes("accessibility"));
+const hits = toolIndex.filter(t => t.keywords.includes("accessibility"))
 ```
 
 ## Consumers
@@ -69,7 +69,7 @@ The registry is published as a standard npm package. There are three layers you 
 `registry.json` is the source of truth. Every tool entry lives here.
 
 ```javascript
-import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" };
+import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" }
 ```
 
 ### Bundles
@@ -77,7 +77,7 @@ import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type:
 Bundles are curated subsets built by rules at publish time.
 
 ```javascript
-import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { type: "json" };
+import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { type: "json" }
 ```
 
 Available bundles: `core`, `agents`, `ops`, `evaluation`.
@@ -86,29 +86,29 @@ Available bundles: `core`, `agents`, `ops`, `evaluation`.
 
 Pre-built artifacts in `dist/` optimized for fast lookups.
 
-| Artifact | Purpose |
-| :--- | :--- |
+| Artifact                   | Purpose                                          |
+| :------------------------- | :----------------------------------------------- |
 | `dist/registry.index.json` | Search index with keywords and bundle membership |
-| `dist/capabilities.json` | Reverse lookup: capability to tool IDs |
-| `dist/derived.meta.json` | Build metadata, registry hash, tool count |
-| `dist/registry.llms.txt` | Plain-text context file for LLM RAG pipelines |
+| `dist/capabilities.json`   | Reverse lookup: capability to tool IDs           |
+| `dist/derived.meta.json`   | Build metadata, registry hash, tool count        |
+| `dist/registry.llms.txt`   | Plain-text context file for LLM RAG pipelines    |
 
 ```javascript
-import meta from "@mcptoolshop/mcp-tool-registry/dist/derived.meta.json" with { type: "json" };
+import meta from "@mcptoolshop/mcp-tool-registry/dist/derived.meta.json" with { type: "json" }
 
-console.log(`Registry hash: ${meta.registry_hash}`);
+console.log(`Registry hash: ${meta.registry_hash}`)
 ```
 
 ## Bundles
 
 Bundles group tools into installable collections. Membership is determined by declarative rules (tag matching or explicit ID lists), not manual curation. Deprecated tools are automatically excluded.
 
-| Bundle | Description | Selection logic |
-| :--- | :--- | :--- |
-| **core** | Essential utilities | Explicit ID list |
-| **agents** | Agent orchestration, navigation, context, tool selection | Explicit IDs + `agents` tag |
-| **ops** | DevOps, infrastructure, deployment | Tags: `automation`, `packaging`, `release`, `monitoring` |
-| **evaluation** | Testing, benchmarking, coverage | Tags: `testing`, `evaluation`, `benchmark`, `coverage` |
+| Bundle         | Description                                              | Selection logic                                          |
+| :------------- | :------------------------------------------------------- | :------------------------------------------------------- |
+| **core**       | Essential utilities                                      | Explicit ID list                                         |
+| **agents**     | Agent orchestration, navigation, context, tool selection | Explicit IDs + `agents` tag                              |
+| **ops**        | DevOps, infrastructure, deployment                       | Tags: `automation`, `packaging`, `release`, `monitoring` |
+| **evaluation** | Testing, benchmarking, coverage                          | Tags: `testing`, `evaluation`, `benchmark`, `coverage`   |
 
 Bundle rules live in `bundles/rules/*.rules.json`.
 
@@ -143,35 +143,35 @@ Every tool entry in `registry.json` must conform to `schema/registry.schema.json
 
 ### Required fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | `string` | Kebab-case identifier (e.g., `file-compass`) |
-| `name` | `string` | Human-readable display name |
-| `description` | `string` | What the tool does (min 10 characters) |
-| `repo` | `string` (URI) | GitHub repository URL (HTTPS) |
-| `install` | `object` | Installation config: `type`, `url`, `default_ref` |
-| `tags` | `string[]` | Searchable tags for discovery |
+| Field         | Type           | Description                                       |
+| :------------ | :------------- | :------------------------------------------------ |
+| `id`          | `string`       | Kebab-case identifier (e.g., `file-compass`)      |
+| `name`        | `string`       | Human-readable display name                       |
+| `description` | `string`       | What the tool does (min 10 characters)            |
+| `repo`        | `string` (URI) | GitHub repository URL (HTTPS)                     |
+| `install`     | `object`       | Installation config: `type`, `url`, `default_ref` |
+| `tags`        | `string[]`     | Searchable tags for discovery                     |
 
 ### Optional fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `defaults` | `object` | Default settings (e.g., `safe_run: true`) |
-| `ecosystem` | `string` | Ecosystem grouping (e.g., `accessibility`) |
-| `verification` | `enum` | `none`, `community`, or `official` |
-| `deprecated` | `boolean` | Whether the tool is deprecated |
-| `deprecation_reason` | `string` | Why the tool was deprecated |
-| `note` | `string` | Freeform note |
+| Field                | Type      | Description                                |
+| :------------------- | :-------- | :----------------------------------------- |
+| `defaults`           | `object`  | Default settings (e.g., `safe_run: true`)  |
+| `ecosystem`          | `string`  | Ecosystem grouping (e.g., `accessibility`) |
+| `verification`       | `enum`    | `none`, `community`, or `official`         |
+| `deprecated`         | `boolean` | Whether the tool is deprecated             |
+| `deprecation_reason` | `string`  | Why the tool was deprecated                |
+| `note`               | `string`  | Freeform note                              |
 
 ## Versioning & Compatibility
 
 The registry follows SemVer. The current stable contract is **v1.x**.
 
-| Component | Status | Compatibility |
-| :--- | :--- | :--- |
-| **registry.json** | Stable (v1) | Core data schema is frozen |
-| **mcpt CLI** | v0.2.0+ | Supports v1 registry artifacts |
-| **Bundler** | v1.0.0 | Generates v1 distribution |
+| Component         | Status      | Compatibility                  |
+| :---------------- | :---------- | :----------------------------- |
+| **registry.json** | Stable (v1) | Core data schema is frozen     |
+| **mcpt CLI**      | v0.2.0+     | Supports v1 registry artifacts |
+| **Bundler**       | v1.0.0      | Generates v1 distribution      |
 
 New optional fields may be added in minor versions. Required fields and the shape of existing fields will not change within a major version.
 
@@ -194,13 +194,13 @@ To pin a specific tool version: `mcpt add tool-id --ref v2.0.0`.
 
 ## Docs
 
-| Document | Description |
-| :--- | :--- |
-| [HANDBOOK.md](HANDBOOK.md) | Deep-dive: architecture, data model, bundles, search, policy, contributing |
-| [ECOSYSTEM.md](ECOSYSTEM.md) | Ecosystem navigation hub |
-| [START_HERE.md](START_HERE.md) | Quick orientation for new visitors |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | How to add tools, update schema, submit PRs |
-| [CHANGELOG.md](CHANGELOG.md) | Release history |
+| Document                           | Description                                                                |
+| :--------------------------------- | :------------------------------------------------------------------------- |
+| [HANDBOOK.md](HANDBOOK.md)         | Deep-dive: architecture, data model, bundles, search, policy, contributing |
+| [ECOSYSTEM.md](ECOSYSTEM.md)       | Ecosystem navigation hub                                                   |
+| [START_HERE.md](START_HERE.md)     | Quick orientation for new visitors                                         |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to add tools, update schema, submit PRs                                |
+| [CHANGELOG.md](CHANGELOG.md)       | Release history                                                            |
 
 ## License
 

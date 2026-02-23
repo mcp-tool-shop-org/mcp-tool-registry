@@ -88,16 +88,16 @@ npm publish  (prepack runs the full pipeline)
 
 ### Build scripts
 
-| Script | Command | Purpose |
-| :--- | :--- | :--- |
-| `validate` | `npm run validate` | Check `registry.json` against `schema/registry.schema.json` |
-| `policy` | `npm run policy` | Enforce ID format, description quality, HTTPS, tags |
-| `bundles:build` | `npm run bundles:build` | Generate bundle JSON files from rule definitions |
-| `build:derived` | `npm run build:derived` | Generate search index, capability map, build metadata |
-| `report:health` | `npm run report:health` | Run SLO checks and produce `dist/REGISTRY_HEALTH.md` |
-| `verify-pack` | `npm run verify-pack` | Ensure the npm tarball contains all required files |
-| `facets` | `npm run facets` | Display tag and ecosystem facet counts |
-| `test:search` | `npm run test:search` | Run search integration tests |
+| Script          | Command                 | Purpose                                                     |
+| :-------------- | :---------------------- | :---------------------------------------------------------- |
+| `validate`      | `npm run validate`      | Check `registry.json` against `schema/registry.schema.json` |
+| `policy`        | `npm run policy`        | Enforce ID format, description quality, HTTPS, tags         |
+| `bundles:build` | `npm run bundles:build` | Generate bundle JSON files from rule definitions            |
+| `build:derived` | `npm run build:derived` | Generate search index, capability map, build metadata       |
+| `report:health` | `npm run report:health` | Run SLO checks and produce `dist/REGISTRY_HEALTH.md`        |
+| `verify-pack`   | `npm run verify-pack`   | Ensure the npm tarball contains all required files          |
+| `facets`        | `npm run facets`        | Display tag and ecosystem facet counts                      |
+| `test:search`   | `npm run test:search`   | Run search integration tests                                |
 
 The `prepack` hook chains `bundles:build`, `build:derived`, and `report:health`
 so that every `npm publish` produces a fully up-to-date package.
@@ -110,14 +110,14 @@ so that every `npm publish` produces a fully up-to-date package.
 
 `registry.json` is a JSON object with these top-level fields:
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `schema_version` | `string` | Schema version (currently `"0.3"`) |
-| `generated_at` | `string` | ISO date when the file was last updated |
-| `organization` | `string` | Owning GitHub organization |
-| `tools` | `array` | The list of tool entries |
-| `archived` | `array` | Tools that have been removed (optional) |
-| `ecosystems` | `object` | Ecosystem definitions (optional) |
+| Field            | Type     | Description                             |
+| :--------------- | :------- | :-------------------------------------- |
+| `schema_version` | `string` | Schema version (currently `"0.3"`)      |
+| `generated_at`   | `string` | ISO date when the file was last updated |
+| `organization`   | `string` | Owning GitHub organization              |
+| `tools`          | `array`  | The list of tool entries                |
+| `archived`       | `array`  | Tools that have been removed (optional) |
+| `ecosystems`     | `object` | Ecosystem definitions (optional)        |
 
 ### Tool entry
 
@@ -125,27 +125,27 @@ Each object in the `tools` array describes one tool.
 
 **Required fields:**
 
-| Field | Type | Rules |
-| :--- | :--- | :--- |
-| `id` | `string` | Must match `^[a-z0-9]+(-[a-z0-9]+)*$` (lower-kebab-case) |
-| `name` | `string` | Human-readable display name |
-| `description` | `string` | At least 10 characters, no "TODO" placeholders |
-| `repo` | `string` (URI) | HTTPS GitHub repository URL |
-| `install` | `object` | Contains `type` (`"git"`), `url` (HTTPS URI), `default_ref` |
-| `tags` | `string[]` | 1 or more searchable tags |
+| Field         | Type           | Rules                                                       |
+| :------------ | :------------- | :---------------------------------------------------------- |
+| `id`          | `string`       | Must match `^[a-z0-9]+(-[a-z0-9]+)*$` (lower-kebab-case)    |
+| `name`        | `string`       | Human-readable display name                                 |
+| `description` | `string`       | At least 10 characters, no "TODO" placeholders              |
+| `repo`        | `string` (URI) | HTTPS GitHub repository URL                                 |
+| `install`     | `object`       | Contains `type` (`"git"`), `url` (HTTPS URI), `default_ref` |
+| `tags`        | `string[]`     | 1 or more searchable tags                                   |
 
 **Optional fields:**
 
-| Field | Type | Purpose |
-| :--- | :--- | :--- |
-| `defaults` | `object` | Default settings, e.g. `{ "safe_run": true }` |
-| `ecosystem` | `string` | Groups related tools (e.g., `"accessibility"`) |
-| `verification` | `enum` | Trust tier: `"none"`, `"community"`, or `"official"` |
-| `deprecated` | `boolean` | Marks the tool as deprecated |
-| `deprecated_at` | `string` (date-time) | When the deprecation took effect |
-| `sunset_at` | `string` (date-time) | When the tool will be removed |
-| `deprecation_reason` | `string` | Why the tool was deprecated |
-| `note` | `string` | Freeform annotation |
+| Field                | Type                 | Purpose                                              |
+| :------------------- | :------------------- | :--------------------------------------------------- |
+| `defaults`           | `object`             | Default settings, e.g. `{ "safe_run": true }`        |
+| `ecosystem`          | `string`             | Groups related tools (e.g., `"accessibility"`)       |
+| `verification`       | `enum`               | Trust tier: `"none"`, `"community"`, or `"official"` |
+| `deprecated`         | `boolean`            | Marks the tool as deprecated                         |
+| `deprecated_at`      | `string` (date-time) | When the deprecation took effect                     |
+| `sunset_at`          | `string` (date-time) | When the tool will be removed                        |
+| `deprecation_reason` | `string`             | Why the tool was deprecated                          |
+| `note`               | `string`             | Freeform annotation                                  |
 
 ### How IDs work
 
@@ -168,12 +168,12 @@ should I install?"
 
 ### Available bundles
 
-| Bundle | Description | File |
-| :--- | :--- | :--- |
-| **core** | Essential utilities for any workspace | `bundles/core.json` |
-| **agents** | Full agent stack: orchestration, navigation, context | `bundles/agents.json` |
-| **ops** | DevOps, infrastructure, and deployment | `bundles/ops.json` |
-| **evaluation** | Testing, benchmarking, and coverage | `bundles/evaluation.json` |
+| Bundle         | Description                                          | File                      |
+| :------------- | :--------------------------------------------------- | :------------------------ |
+| **core**       | Essential utilities for any workspace                | `bundles/core.json`       |
+| **agents**     | Full agent stack: orchestration, navigation, context | `bundles/agents.json`     |
+| **ops**        | DevOps, infrastructure, and deployment               | `bundles/ops.json`        |
+| **evaluation** | Testing, benchmarking, and coverage                  | `bundles/evaluation.json` |
 
 ### Rules-based classification
 
@@ -210,12 +210,12 @@ The `npm run bundles:build` script reads each rule file, evaluates it against
 
 ```javascript
 // Import a bundle as an npm subpath export
-import coreBundle from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" };
+import coreBundle from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" }
 
 // Each bundle contains a tools array with full tool entries
 coreBundle.tools.forEach(tool => {
-  console.log(`${tool.id}: ${tool.description}`);
-});
+  console.log(`${tool.id}: ${tool.description}`)
+})
 ```
 
 From the CLI: `mcpt install --bundle core`.
@@ -286,11 +286,11 @@ Tokenization splits on whitespace, lowercases, and removes stopwords.
 The simplest search pattern is keyword filtering:
 
 ```javascript
-import index from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" };
+import index from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" }
 
 const results = index.filter(tool =>
   tool.keywords.some(kw => kw.includes("compliance"))
-);
+)
 ```
 
 ### Tag filtering
@@ -299,9 +299,7 @@ Tags are curated labels assigned by the tool author. They are more precise
 than keywords:
 
 ```javascript
-const securityTools = index.filter(tool =>
-  tool.tags.includes("security")
-);
+const securityTools = index.filter(tool => tool.tags.includes("security"))
 ```
 
 ### Facets
@@ -334,12 +332,12 @@ and as part of the local `npm run lint` pipeline.
 
 ### Current policy rules
 
-| Rule | What it checks |
-| :--- | :--- |
-| **ID format** | Must be lower-kebab-case (`^[a-z0-9]+(-[a-z0-9]+)*$`) |
-| **Description quality** | At least 10 characters; must not contain "TODO" |
-| **HTTPS enforcement** | `repo` and `install.url` must start with `https://` |
-| **Tag presence** | At least one tag is required (enforced by schema) |
+| Rule                    | What it checks                                        |
+| :---------------------- | :---------------------------------------------------- |
+| **ID format**           | Must be lower-kebab-case (`^[a-z0-9]+(-[a-z0-9]+)*$`) |
+| **Description quality** | At least 10 characters; must not contain "TODO"       |
+| **HTTPS enforcement**   | `repo` and `install.url` must start with `https://`   |
+| **Tag presence**        | At least one tag is required (enforced by schema)     |
 
 Policy violations cause a non-zero exit code, which fails CI.
 
@@ -380,10 +378,10 @@ a verified health status.
 Best for tools that need access to every tool entry.
 
 ```javascript
-import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" };
+import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" }
 
 for (const tool of registry.tools) {
-  console.log(`${tool.id} -> ${tool.repo}`);
+  console.log(`${tool.id} -> ${tool.repo}`)
 }
 ```
 
@@ -392,7 +390,7 @@ for (const tool of registry.tools) {
 Best for installing a curated set of tools for a specific use case.
 
 ```javascript
-import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { type: "json" };
+import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { type: "json" }
 
 // agents.tools contains only agent-related tools
 ```
@@ -402,15 +400,13 @@ import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { t
 Best for building search UIs, CLIs, or recommendation engines.
 
 ```javascript
-import index from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" };
+import index from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" }
 
 function search(query) {
-  const terms = query.toLowerCase().split(/\s+/);
+  const terms = query.toLowerCase().split(/\s+/)
   return index.filter(tool =>
-    terms.every(term =>
-      tool.keywords.some(kw => kw.includes(term))
-    )
-  );
+    terms.every(term => tool.keywords.some(kw => kw.includes(term)))
+  )
 }
 ```
 
@@ -419,10 +415,10 @@ function search(query) {
 Best for permission-aware tool selection.
 
 ```javascript
-import caps from "@mcptoolshop/mcp-tool-registry/dist/capabilities.json" with { type: "json" };
+import caps from "@mcptoolshop/mcp-tool-registry/dist/capabilities.json" with { type: "json" }
 
 // Find all tools that require network access
-const networkTools = caps["network"] || [];
+const networkTools = caps["network"] || []
 ```
 
 ### Pattern 5: Use build metadata for caching
@@ -430,7 +426,7 @@ const networkTools = caps["network"] || [];
 Best for clients that poll for updates.
 
 ```javascript
-import meta from "@mcptoolshop/mcp-tool-registry/dist/derived.meta.json" with { type: "json" };
+import meta from "@mcptoolshop/mcp-tool-registry/dist/derived.meta.json" with { type: "json" }
 
 if (meta.registry_hash !== cachedHash) {
   // Registry has changed, re-fetch
@@ -544,10 +540,10 @@ specific tool version, use `mcpt add tool-id --ref v2.0.0`.
 
 ### Registry ref vs. tool ref
 
-| Concept | Controls | Example |
-| :--- | :--- | :--- |
-| **Registry ref** | Which version of `registry.json` you read | `registry-ref: v1.0.0` |
-| **Tool ref** | Which commit/tag of the tool source you install | `mcpt add file-compass --ref v3.1.0` |
+| Concept          | Controls                                        | Example                              |
+| :--------------- | :---------------------------------------------- | :----------------------------------- |
+| **Registry ref** | Which version of `registry.json` you read       | `registry-ref: v1.0.0`               |
+| **Tool ref**     | Which commit/tag of the tool source you install | `mcpt add file-compass --ref v3.1.0` |
 
 ### Upgrade path
 
@@ -579,11 +575,11 @@ the user before granting it.
 
 The `verification` field indicates how much review a tool has received:
 
-| Tier | Meaning |
-| :--- | :--- |
-| `none` | No review beyond schema validation |
+| Tier        | Meaning                                       |
+| :---------- | :-------------------------------------------- |
+| `none`      | No review beyond schema validation            |
 | `community` | Reviewed and vouched for by community members |
-| `official` | Maintained by the MCP Tool Shop organization |
+| `official`  | Maintained by the MCP Tool Shop organization  |
 
 Consumers can filter by verification tier to control their risk exposure.
 

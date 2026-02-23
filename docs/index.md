@@ -8,13 +8,13 @@ The canonical metadata registry for all MCP Tool Shop tools.
 
 ## Key resources
 
-| Resource | Link |
-| :--- | :--- |
-| npm package | [@mcptoolshop/mcp-tool-registry](https://www.npmjs.com/package/@mcptoolshop/mcp-tool-registry) |
+| Resource        | Link                                                                                                    |
+| :-------------- | :------------------------------------------------------------------------------------------------------ |
+| npm package     | [@mcptoolshop/mcp-tool-registry](https://www.npmjs.com/package/@mcptoolshop/mcp-tool-registry)          |
 | Public Explorer | [mcp-tool-shop-org.github.io/mcp-tool-registry](https://mcp-tool-shop-org.github.io/mcp-tool-registry/) |
-| Submit a Tool | [Open an issue](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose) |
-| mcpt CLI | [mcp-tool-shop-org/mcpt](https://github.com/mcp-tool-shop-org/mcpt) |
-| MCP Tool Shop | [mcp-tool-shop.github.io](https://mcp-tool-shop.github.io/) |
+| Submit a Tool   | [Open an issue](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)               |
+| mcpt CLI        | [mcp-tool-shop-org/mcpt](https://github.com/mcp-tool-shop-org/mcpt)                                     |
+| MCP Tool Shop   | [mcp-tool-shop.github.io](https://mcp-tool-shop.github.io/)                                             |
 
 ## Documentation
 
@@ -35,6 +35,6 @@ npm install @mcptoolshop/mcp-tool-registry
 ```
 
 ```javascript
-import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" };
-console.log(`${registry.tools.length} tools registered`);
+import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" }
+console.log(`${registry.tools.length} tools registered`)
 ```
