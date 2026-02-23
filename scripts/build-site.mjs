@@ -44,10 +44,14 @@ async function buildSite() {
     }
 
     // 4. Copy Logo
-    await copyFile(
-      join(rootDir, "mcp-tool-registry_logo.png"),
-      join(siteOut, "mcp-tool-registry_logo.png")
-    )
+    try {
+      await copyFile(
+        join(rootDir, "logo.png"),
+        join(siteOut, "mcp-tool-registry_logo.png")
+      )
+    } catch (e) {
+      console.warn("⚠️  Logo not found, skipping copy.")
+    }
 
     // 5. Generate LLMs.txt (AI-Native Context)
     console.log("🤖 Generating LLMs.txt...")
