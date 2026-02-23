@@ -54,35 +54,19 @@ async function buildSite() {
     }
 
     // 5. Generate LLMs.txt (AI-Native Context)
-    console.log("🤖 Generating LLMs.txt...")
-    const index = JSON.parse(
-      await readFile(join(distSrc, "registry.index.json"), "utf-8")
-    )
-
-    let llmsTxt = `# MCP Tool Registry Context\n\n`
-    llmsTxt += `This file provides context for LLMs to understand the tools available in the registry.\n`
-    llmsTxt += `The registry contains ${index.length} tools for Model Context Protocol.\n\n`
-
-    if (featuredData.featured.length > 0) {
-      llmsTxt += `## Featured Tools\n`
-      featuredData.featured.forEach(id => (llmsTxt += `- ${id}\n`))
-      llmsTxt += `\n`
+    // We copy the canonical version from dist/registry.llms.txt to output as LLMs.txt
+    // This ensures consistency between the packaged artifact and the site file.
+    console.log("🤖 Copying LLMs.txt...")
+    
+    try {
+      await copyFile(
+        join(distSrc, "registry.llms.txt"),
+        join(siteOut, "LLMs.txt")
+      )
+      console.log("   ✅ Wrote LLMs.txt")
+    } catch (e) {
+      console.warn("⚠️  registry.llms.txt not found in dist/, skipping copy.")
     }
-
-    llmsTxt += `## Bundles\n`
-    llmsTxt += `- core: Essential utilities (start here)\n`
-    llmsTxt += `- agents: Autonomous agent frameworks\n`
-    llmsTxt += `- ops: DevOps and infrastructure management\n`
-    llmsTxt += `- evaluation: Benchmarking and testing tools\n\n`
-
-    llmsTxt += `## Tool Index\n`
-    index.forEach(tool => {
-      const tags = (tool.tags || []).join(", ")
-      llmsTxt += `- **${tool.id}**: ${tool.description} (Tags: ${tags})\n`
-    })
-
-    await writeFile(join(siteOut, "LLMs.txt"), llmsTxt)
-    console.log("   ✅ Wrote LLMs.txt")
 
     console.log("✅ Site build complete in _site/")
   } catch (error) {

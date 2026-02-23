@@ -228,6 +228,32 @@ async function buildDerived() {
       )
     }
 
+    // 5. registry.llms.txt (AI-Native Context)
+    console.log("   - Generating registry.llms.txt")
+    let llmsTxt = `# MCP Tool Registry Context\n\n`
+    llmsTxt += `This file provides context for LLMs to understand the tools available in the registry.\n`
+    llmsTxt += `The registry contains ${index.length} tools for Model Context Protocol.\n\n`
+
+    if (featuredData && featuredData.featured && featuredData.featured.length > 0) {
+      llmsTxt += `## Featured Tools\n`
+      featuredData.featured.forEach(id => (llmsTxt += `- ${id}\n`))
+      llmsTxt += `\n`
+    }
+
+    llmsTxt += `## Bundles\n`
+    llmsTxt += `- core: Essential utilities (start here)\n`
+    llmsTxt += `- agents: Autonomous agent frameworks\n`
+    llmsTxt += `- ops: DevOps and infrastructure management\n`
+    llmsTxt += `- evaluation: Benchmarking and testing tools\n\n`
+
+    llmsTxt += `## Tool Index\n`
+    index.forEach(tool => {
+      const tags = (tool.tags || []).join(", ")
+      llmsTxt += `- **${tool.id}**: ${tool.description} (Tags: ${tags})\n`
+    })
+
+    await writeFile(join(distDir, "registry.llms.txt"), llmsTxt)
+
     console.log("✅ Derived artifacts built successfully.")
   } catch (error) {
     console.error("❌ Error building derived metadata:", error)

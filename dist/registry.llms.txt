@@ -1,0 +1,64 @@
+# MCP Tool Registry Context
+
+This file provides context for LLMs to understand the tools available in the registry.
+The registry contains 48 tools for Model Context Protocol.
+
+## Featured Tools
+- accessibility-suite
+- codeteam
+
+## Bundles
+- core: Essential utilities (start here)
+- agents: Autonomous agent frameworks
+- ops: DevOps and infrastructure management
+- evaluation: Benchmarking and testing tools
+
+## Tool Index
+- **accessibility-suite**: Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling (Tags: accessibility, compliance, monorepo, wcag)
+- **ally-demo-python**: Python demonstration of accessibility framework capabilities (Tags: accessibility, demo, python)
+- **aspire-ai**: Goal-oriented framework for running and evaluating AI workflows over time (Tags: evaluation, experimentation, metrics)
+- **audiobooker**: Audio book generation and management system (Tags: audio, ebook, generation)
+- **backpropagate**: Structured feedback loops for improving AI behavior through iteration (Tags: evaluation, feedback, iteration)
+- **brain-dev**: MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions (Tags: ai, code-analysis, mcp-server, testing)
+- **claim-ledger**: Scientific claim provenance and verification ledger (Tags: cryptography, dotnet, provenance)
+- **claude-collaborate**: Collaboration primitives for multi-agent and human-in-the-loop Claude workflows (Tags: agents, claude, collaboration)
+- **code-covered**: Coverage visualization and reporting tool (Tags: coverage, testing, visualization)
+- **codeclone-suite**: Deterministic code coverage analysis as a protocol — CLI engine and editor extensions (Tags: coverage, monorepo, protocol)
+- **codecomfy-vscode**: VS Code extension for code analysis and coverage display (Tags: coverage, extension, vscode)
+- **codeteam**: Legacy code analysis CLI (see codeteam-suite) (Tags: cli, code-analysis, legacy)
+- **codeteam-suite**: Code analysis protocol and tools — CLI engine with editor extensions (Tags: code-analysis, monorepo, protocol)
+- **comfy-headless**: Run ComfyUI workflows without the UI — headless execution for automation (Tags: automation, comfyui, headless, image)
+- **context-window-manager**: Deterministic tools for shaping and allocating LLM context windows (Tags: context, memory, rag, tokens)
+- **control-room**: Dashboard and monitoring for MCP tool ecosystems (Tags: admin, dashboard, monitoring)
+- **creator-ledger**: Creator attestation proofs and authorship verification (Tags: attestation, dotnet, provenance)
+- **file-compass**: Deterministic file-system navigation and inspection for large repos (Tags: filesystem, navigation, search)
+- **flexiflow**: Flexible workflow automation framework (Tags: automation, framework, workflow)
+- **headless-wheel-builder**: CLI-first build/validate/release tooling for Python wheels and sdists (Tags: packaging, python, release, wheels)
+- **homebrew-core**: Homebrew formulae for mcp-tool-shop packages (Tags: homebrew, macos, packaging)
+- **integradio**: Structure layer for building maintainable Gradio apps (UI + execution separation) (Tags: framework, gradio, ui)
+- **ledger-suite**: Unified monorepo for cryptographic provenance ledgers — ClaimLedger and CreatorLedger (Tags: cryptography, dotnet, monorepo, provenance)
+- **mcp-docs**: Official website and documentation for MCP Tool Shop (Tags: documentation, organization, website)
+- **mcp-examples**: Example workspaces and templates for MCP tools (Tags: examples, mcp, templates)
+- **mcp-stress-test**: Load and stress testing utilities for MCP servers and tool ecosystems (Tags: concurrency, load-testing, performance)
+- **mcpt**: MCP Tool Shop command-line interface and utilities (Tags: cli, mcp, tools)
+- **next-gallery**: Windows desktop image gallery application (Tags: desktop, gallery, images, windows)
+- **nexus-suite**: Governance, attestation, and routing infrastructure for MCP tool ecosystems (Tags: attestation, governance, monorepo, routing)
+- **pathway**: Python journey engine for workflow progression tracking (Tags: journey, python, workflow)
+- **payroll-engine**: Comprehensive payroll processing and SaaS platform (Tags: hr, payroll, saas)
+- **prov-engine-js**: JavaScript/TypeScript provenance and traceability engine (Tags: provenance, traceability, typescript)
+- **runforge-desktop**: Windows desktop application for AI workflow execution (Tags: ai, desktop, windows, workflow)
+- **runforge-vscode**: VS Code extension for AI workflow execution (Tags: ai, extension, vscode, workflow)
+- **stresskit-mcp**: MCP stress testing toolkit with configurable load patterns (Tags: load, mcp, stress-testing)
+- **synthesis**: Composable tool framework for building complex AI workflows (Tags: composition, tools, workflow)
+- **tool-compass**: Discovery, classification, and ranking utilities for MCP-compatible tools (Tags: catalog, discovery, ranking)
+- **tool-scan**: Static inspection utilities for MCP tools and repositories (Tags: inspection, security, static-analysis)
+- **training-studio**: TensorFlow.js ML bundle validator with security-first design and zero code execution (Tags: ml, security, tensorflowjs, validation)
+- **venvkit**: Python virtual environment diagnostics and utilities (Tags: diagnostics, python, venv)
+- **voice-soundboard**: TTS and audio generation with voice cloning support (Tags: audio, cloning, tts, voice)
+- **websketch-cli**: Command-line interface for web component analysis (Tags: analysis, cli, web)
+- **websketch-demo**: Interactive demo showcasing WebSketch capabilities (Tags: demo, visualization, web)
+- **websketch-extension**: Browser extension for web page analysis and code generation (Tags: analysis, browser, extension)
+- **websketch-ir**: Intermediate representation library for web component analysis (Tags: core, ir, library)
+- **websketch-mcp**: MCP server for AI-assisted web analysis (Tags: ai, mcp-server, web)
+- **winget-pkgs**: Windows Package Manager manifests for mcp-tool-shop packages (Tags: packaging, windows, winget)
+- **witness**: Attestation witness and verification tooling (Tags: attestation, security, verification)
