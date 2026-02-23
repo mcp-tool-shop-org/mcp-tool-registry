@@ -18,7 +18,12 @@
       "unified",
       "wcag"
     ],
-    "tags": ["accessibility", "compliance", "monorepo", "wcag"],
+    "tags": [
+      "accessibility",
+      "compliance",
+      "monorepo",
+      "wcag"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -36,7 +41,11 @@
       "framework",
       "python"
     ],
-    "tags": ["accessibility", "demo", "python"],
+    "tags": [
+      "accessibility",
+      "demo",
+      "python"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -61,8 +70,14 @@
       "time",
       "workflows"
     ],
-    "tags": ["evaluation", "experimentation", "metrics"],
-    "bundle_membership": ["evaluation"],
+    "tags": [
+      "evaluation",
+      "experimentation",
+      "metrics"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
     "capabilities": []
   },
   {
@@ -80,7 +95,11 @@
       "management",
       "system"
     ],
-    "tags": ["audio", "ebook", "generation"],
+    "tags": [
+      "audio",
+      "ebook",
+      "generation"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -101,8 +120,14 @@
       "structured",
       "through"
     ],
-    "tags": ["evaluation", "feedback", "iteration"],
-    "bundle_membership": ["evaluation"],
+    "tags": [
+      "evaluation",
+      "feedback",
+      "iteration"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
     "capabilities": []
   },
   {
@@ -130,8 +155,15 @@
       "test",
       "testing"
     ],
-    "tags": ["ai", "code-analysis", "mcp-server", "testing"],
-    "bundle_membership": ["evaluation"],
+    "tags": [
+      "ai",
+      "code-analysis",
+      "mcp-server",
+      "testing"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
     "capabilities": []
   },
   {
@@ -150,7 +182,11 @@
       "scientific",
       "verification"
     ],
-    "tags": ["cryptography", "dotnet", "provenance"],
+    "tags": [
+      "cryptography",
+      "dotnet",
+      "provenance"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -174,8 +210,14 @@
       "the",
       "workflows"
     ],
-    "tags": ["agents", "claude", "collaboration"],
-    "bundle_membership": ["agents"],
+    "tags": [
+      "agents",
+      "claude",
+      "collaboration"
+    ],
+    "bundle_membership": [
+      "agents"
+    ],
     "capabilities": []
   },
   {
@@ -193,8 +235,14 @@
       "tool",
       "visualization"
     ],
-    "tags": ["coverage", "testing", "visualization"],
-    "bundle_membership": ["evaluation"],
+    "tags": [
+      "coverage",
+      "testing",
+      "visualization"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
     "capabilities": []
   },
   {
@@ -217,8 +265,14 @@
       "protocol",
       "suite"
     ],
-    "tags": ["coverage", "monorepo", "protocol"],
-    "bundle_membership": ["evaluation"],
+    "tags": [
+      "coverage",
+      "monorepo",
+      "protocol"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
     "capabilities": []
   },
   {
@@ -237,8 +291,14 @@
       "for",
       "vscode"
     ],
-    "tags": ["coverage", "extension", "vscode"],
-    "bundle_membership": ["evaluation"],
+    "tags": [
+      "coverage",
+      "extension",
+      "vscode"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
     "capabilities": []
   },
   {
@@ -256,7 +316,11 @@
       "legacy",
       "suite)"
     ],
-    "tags": ["cli", "code-analysis", "legacy"],
+    "tags": [
+      "cli",
+      "code-analysis",
+      "legacy"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -281,7 +345,11 @@
       "tools",
       "with"
     ],
-    "tags": ["code-analysis", "monorepo", "protocol"],
+    "tags": [
+      "code-analysis",
+      "monorepo",
+      "protocol"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -303,8 +371,15 @@
       "without",
       "workflows"
     ],
-    "tags": ["automation", "comfyui", "headless", "image"],
-    "bundle_membership": ["ops"],
+    "tags": [
+      "automation",
+      "comfyui",
+      "headless",
+      "image"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
     "capabilities": []
   },
   {
@@ -328,8 +403,16 @@
       "window",
       "windows"
     ],
-    "tags": ["context", "memory", "rag", "tokens"],
-    "bundle_membership": ["agents", "core"],
+    "tags": [
+      "context",
+      "memory",
+      "rag",
+      "tokens"
+    ],
+    "bundle_membership": [
+      "agents",
+      "core"
+    ],
     "capabilities": []
   },
   {
@@ -349,8 +432,14 @@
       "room",
       "tool"
     ],
-    "tags": ["admin", "dashboard", "monitoring"],
-    "bundle_membership": ["ops"],
+    "tags": [
+      "admin",
+      "dashboard",
+      "monitoring"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
     "capabilities": []
   },
   {
@@ -369,7 +458,11 @@
       "provenance",
       "verification"
     ],
-    "tags": ["attestation", "dotnet", "provenance"],
+    "tags": [
+      "attestation",
+      "dotnet",
+      "provenance"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -392,8 +485,15 @@
       "search",
       "system"
     ],
-    "tags": ["filesystem", "navigation", "search"],
-    "bundle_membership": ["agents", "core"],
+    "tags": [
+      "filesystem",
+      "navigation",
+      "search"
+    ],
+    "bundle_membership": [
+      "agents",
+      "core"
+    ],
     "capabilities": []
   },
   {
@@ -408,8 +508,14 @@
       "framework",
       "workflow"
     ],
-    "tags": ["automation", "framework", "workflow"],
-    "bundle_membership": ["ops"],
+    "tags": [
+      "automation",
+      "framework",
+      "workflow"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
     "capabilities": []
   },
   {
@@ -433,8 +539,15 @@
       "wheel",
       "wheels"
     ],
-    "tags": ["packaging", "python", "release", "wheels"],
-    "bundle_membership": ["ops"],
+    "tags": [
+      "packaging",
+      "python",
+      "release",
+      "wheels"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
     "capabilities": []
   },
   {
@@ -454,8 +567,14 @@
       "shop",
       "tool"
     ],
-    "tags": ["homebrew", "macos", "packaging"],
-    "bundle_membership": ["ops"],
+    "tags": [
+      "homebrew",
+      "macos",
+      "packaging"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
     "capabilities": []
   },
   {
@@ -478,7 +597,11 @@
       "structure",
       "ui"
     ],
-    "tags": ["framework", "gradio", "ui"],
+    "tags": [
+      "framework",
+      "gradio",
+      "ui"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -502,7 +625,12 @@
       "suite",
       "unified"
     ],
-    "tags": ["cryptography", "dotnet", "monorepo", "provenance"],
+    "tags": [
+      "cryptography",
+      "dotnet",
+      "monorepo",
+      "provenance"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -522,7 +650,11 @@
       "tool",
       "website"
     ],
-    "tags": ["documentation", "organization", "website"],
+    "tags": [
+      "documentation",
+      "organization",
+      "website"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -541,7 +673,11 @@
       "tools",
       "workspaces"
     ],
-    "tags": ["examples", "mcp", "templates"],
+    "tags": [
+      "examples",
+      "mcp",
+      "templates"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -566,7 +702,11 @@
       "tool",
       "utilities"
     ],
-    "tags": ["concurrency", "load-testing", "performance"],
+    "tags": [
+      "concurrency",
+      "load-testing",
+      "performance"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -588,7 +728,11 @@
       "tools",
       "utilities"
     ],
-    "tags": ["cli", "mcp", "tools"],
+    "tags": [
+      "cli",
+      "mcp",
+      "tools"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -606,7 +750,12 @@
       "next",
       "windows"
     ],
-    "tags": ["desktop", "gallery", "images", "windows"],
+    "tags": [
+      "desktop",
+      "gallery",
+      "images",
+      "windows"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -629,7 +778,12 @@
       "suite",
       "tool"
     ],
-    "tags": ["attestation", "governance", "monorepo", "routing"],
+    "tags": [
+      "attestation",
+      "governance",
+      "monorepo",
+      "routing"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -648,7 +802,11 @@
       "tracking",
       "workflow"
     ],
-    "tags": ["journey", "python", "workflow"],
+    "tags": [
+      "journey",
+      "python",
+      "workflow"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -667,7 +825,11 @@
       "processing",
       "saas"
     ],
-    "tags": ["hr", "payroll", "saas"],
+    "tags": [
+      "hr",
+      "payroll",
+      "saas"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -685,7 +847,11 @@
       "traceability",
       "typescript"
     ],
-    "tags": ["provenance", "traceability", "typescript"],
+    "tags": [
+      "provenance",
+      "traceability",
+      "typescript"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -704,7 +870,12 @@
       "windows",
       "workflow"
     ],
-    "tags": ["ai", "desktop", "windows", "workflow"],
+    "tags": [
+      "ai",
+      "desktop",
+      "windows",
+      "workflow"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -723,7 +894,12 @@
       "vscode",
       "workflow"
     ],
-    "tags": ["ai", "extension", "vscode", "workflow"],
+    "tags": [
+      "ai",
+      "extension",
+      "vscode",
+      "workflow"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -744,7 +920,11 @@
       "toolkit",
       "with"
     ],
-    "tags": ["load", "mcp", "stress-testing"],
+    "tags": [
+      "load",
+      "mcp",
+      "stress-testing"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -766,7 +946,11 @@
       "workflow",
       "workflows"
     ],
-    "tags": ["composition", "tools", "workflow"],
+    "tags": [
+      "composition",
+      "tools",
+      "workflow"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -789,8 +973,15 @@
       "tools",
       "utilities"
     ],
-    "tags": ["catalog", "discovery", "ranking"],
-    "bundle_membership": ["agents", "core"],
+    "tags": [
+      "catalog",
+      "discovery",
+      "ranking"
+    ],
+    "bundle_membership": [
+      "agents",
+      "core"
+    ],
     "capabilities": []
   },
   {
@@ -812,8 +1003,14 @@
       "tools",
       "utilities"
     ],
-    "tags": ["inspection", "security", "static-analysis"],
-    "bundle_membership": ["core"],
+    "tags": [
+      "inspection",
+      "security",
+      "static-analysis"
+    ],
+    "bundle_membership": [
+      "core"
+    ],
     "capabilities": []
   },
   {
@@ -839,7 +1036,12 @@
       "with",
       "zero"
     ],
-    "tags": ["ml", "security", "tensorflowjs", "validation"],
+    "tags": [
+      "ml",
+      "security",
+      "tensorflowjs",
+      "validation"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -858,7 +1060,11 @@
       "venvkit",
       "virtual"
     ],
-    "tags": ["diagnostics", "python", "venv"],
+    "tags": [
+      "diagnostics",
+      "python",
+      "venv"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -878,7 +1084,12 @@
       "voice",
       "with"
     ],
-    "tags": ["audio", "cloning", "tts", "voice"],
+    "tags": [
+      "audio",
+      "cloning",
+      "tts",
+      "voice"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -898,7 +1109,11 @@
       "web",
       "websketch"
     ],
-    "tags": ["analysis", "cli", "web"],
+    "tags": [
+      "analysis",
+      "cli",
+      "web"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -916,7 +1131,11 @@
       "web",
       "websketch"
     ],
-    "tags": ["demo", "visualization", "web"],
+    "tags": [
+      "demo",
+      "visualization",
+      "web"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -937,7 +1156,11 @@
       "web",
       "websketch"
     ],
-    "tags": ["analysis", "browser", "extension"],
+    "tags": [
+      "analysis",
+      "browser",
+      "extension"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -958,7 +1181,11 @@
       "web",
       "websketch"
     ],
-    "tags": ["core", "ir", "library"],
+    "tags": [
+      "core",
+      "ir",
+      "library"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -978,7 +1205,11 @@
       "web",
       "websketch"
     ],
-    "tags": ["ai", "mcp-server", "web"],
+    "tags": [
+      "ai",
+      "mcp-server",
+      "web"
+    ],
     "bundle_membership": [],
     "capabilities": []
   },
@@ -1000,8 +1231,14 @@
       "windows",
       "winget"
     ],
-    "tags": ["packaging", "windows", "winget"],
-    "bundle_membership": ["ops"],
+    "tags": [
+      "packaging",
+      "windows",
+      "winget"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
     "capabilities": []
   },
   {
@@ -1017,7 +1254,11 @@
       "verification",
       "witness"
     ],
-    "tags": ["attestation", "security", "verification"],
+    "tags": [
+      "attestation",
+      "security",
+      "verification"
+    ],
     "bundle_membership": [],
     "capabilities": []
   }
