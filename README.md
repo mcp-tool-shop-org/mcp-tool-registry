@@ -2,10 +2,11 @@
 
 # mcp-tool-registry
 
-> Part of [MCP Tool Shop](https://mcptoolshop.com)
+> Part of [MCP Tool Shop](https://mcp-tool-shop.github.io/)
 
 **The metadata-only registry -- the single source of truth for all MCP Tool Shop tools.**
 
+[![CI](https://github.com/mcp-tool-shop-org/mcp-tool-registry/actions/workflows/ci.yml/badge.svg)](https://github.com/mcp-tool-shop-org/mcp-tool-registry/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@mcptoolshop/mcp-tool-registry)](https://www.npmjs.com/package/@mcptoolshop/mcp-tool-registry)
 [![license](https://img.shields.io/npm/l/@mcptoolshop/mcp-tool-registry)](LICENSE)
 [![v1 stable](https://img.shields.io/badge/contract-v1%20stable-brightgreen)](#versioning--compatibility)

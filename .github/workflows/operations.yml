@@ -1,17 +1,106 @@
-name: Submit Tool to PR
+name: Operations
+
 on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "dist/**"
+      - "scripts/build-site.mjs"
+      - ".github/workflows/operations.yml"
+  release:
+    types: [published]
   issues:
     types: [opened, edited]
-
-permissions:
-  contents: write
-  pull-requests: write
-  issues: write
+  workflow_dispatch:
 
 jobs:
-  create-pr:
-    if: contains(github.event.issue.labels.*.name, 'tool-submission')
+  deploy:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Derived Data
+        run: npm run build:derived
+
+      - name: Build Site
+        run: npm run build:site
+
+      - name: Smoke Test Site
+        run: npm run test:site
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./_site"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  publish:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run validation
+        run: npm run validate
+
+      - name: Build derived data
+        run: npm run build:derived
+
+      - name: Build bundles
+        run: npm run bundles:build
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  create-submission-pr:
+    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'tool-submission')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -112,12 +201,12 @@ jobs:
                 draft: isNew
               });
               prNumber = pr.data.number;
-              
+
               const labels = ['auto-generated', 'needs-review'];
               if (isNew) labels.push('needs-triage');
 
               await github.rest.issues.addLabels({
-                owner, repo, 
+                owner, repo,
                 issue_number: prNumber,
                 labels
               });
