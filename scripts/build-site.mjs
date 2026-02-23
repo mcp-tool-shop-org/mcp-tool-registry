@@ -57,7 +57,7 @@ async function buildSite() {
     // We copy the canonical version from dist/registry.llms.txt to output as LLMs.txt
     // This ensures consistency between the packaged artifact and the site file.
     console.log("🤖 Copying LLMs.txt...")
-    
+
     try {
       await copyFile(
         join(distSrc, "registry.llms.txt"),

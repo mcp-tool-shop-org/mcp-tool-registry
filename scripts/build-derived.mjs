@@ -234,7 +234,11 @@ async function buildDerived() {
     llmsTxt += `This file provides context for LLMs to understand the tools available in the registry.\n`
     llmsTxt += `The registry contains ${index.length} tools for Model Context Protocol.\n\n`
 
-    if (featuredData && featuredData.featured && featuredData.featured.length > 0) {
+    if (
+      featuredData &&
+      featuredData.featured &&
+      featuredData.featured.length > 0
+    ) {
       llmsTxt += `## Featured Tools\n`
       featuredData.featured.forEach(id => (llmsTxt += `- ${id}\n`))
       llmsTxt += `\n`
