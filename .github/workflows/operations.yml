@@ -4,9 +4,10 @@ on:
   push:
     branches: [main]
     paths:
-      - "site/**"
+      - "registry.json"
       - "dist/**"
-      - "scripts/build-site.mjs"
+      - "scripts/build-derived.mjs"
+      - "tests/site-smoke.mjs"
       - ".github/workflows/operations.yml"
   release:
     types: [published]
@@ -15,19 +16,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    if: github.event_name == 'push'
+  verify:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     concurrency:
-      group: "pages"
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,23 +38,8 @@ jobs:
       - name: Build Derived Data
         run: npm run build:derived
 
-      - name: Build Site
-        run: npm run build:site
-
-      - name: Smoke Test Site
+      - name: Smoke Test Registry Artifacts
         run: npm run test:site
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./_site"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
 
   publish:
     if: github.event_name == 'release'

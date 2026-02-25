@@ -5,29 +5,25 @@ import assert from "assert"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, "..")
-const siteDir = join(rootDir, "_site")
+const distDir = join(rootDir, "dist")
 
 async function runSmokeTests() {
-  console.log("🔥 Running site smoke tests...")
+  console.log("🔥 Running registry artifact smoke tests...")
 
   try {
-    // 1. Check Site Directory Existence
+    // 1. Check Dist Directory Existence
     try {
-      await access(siteDir)
+      await access(distDir)
     } catch {
       throw new Error(
-        `_site directory not found at ${siteDir}. Did you run build:site?`
+        `dist directory not found at ${distDir}. Did you run build:derived?`
       )
     }
-    console.log("   ✅ _site directory exists")
+    console.log("   ✅ dist directory exists")
 
-    // 2. Check Index HTML
-    await access(join(siteDir, "index.html"))
-    console.log("   ✅ index.html exists")
-
-    // 3. Check Data Artifacts in _site/dist
+    // 2. Check Search Index
     const indexContent = await readFile(
-      join(siteDir, "dist", "registry.index.json"),
+      join(distDir, "registry.index.json"),
       "utf-8"
     )
     const index = JSON.parse(indexContent)
@@ -35,14 +31,14 @@ async function runSmokeTests() {
     assert.ok(index.length > 0, "registry.index.json should not be empty")
     console.log("   ✅ registry.index.json is valid")
 
-    // 4. Check Known Tool (Deterministic)
+    // 3. Check Known Tool (Deterministic)
     const knownTool = index.find(t => t.id === "accessibility-suite")
     assert.ok(knownTool, 'Must contain known tool "accessibility-suite"')
     console.log("   ✅ Known tool accessibility-suite found")
 
-    // 5. Check LLMs.txt
+    // 4. Check LLMs.txt
     const llmsTxt = await readFile(
-      join(siteDir, "dist", "registry.llms.txt"),
+      join(distDir, "registry.llms.txt"),
       "utf-8"
     )
     assert.ok(
@@ -51,7 +47,7 @@ async function runSmokeTests() {
     )
     console.log("   ✅ registry.llms.txt is valid")
 
-    console.log("🎉 Site smoke tests passed!")
+    console.log("🎉 Registry artifact smoke tests passed!")
   } catch (error) {
     console.error("❌ Smoke test failed:", error.message)
     process.exit(1)
