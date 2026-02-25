@@ -13,11 +13,11 @@
   <a href="https://mcp-tool-shop-org.github.io/mcp-tool-registry/"><img src="https://img.shields.io/badge/Landing_Page-live-blue" alt="Landing Page"></a>
 </p>
 
-**The metadata-only registry — the single source of truth for all MCP Tool Shop tools.**
+**仅包含元数据的注册表——所有 MCP Tool Shop 工具的唯一权威来源。**
 
-Schema-validated on every commit. Opinionated bundles built by rules. Pre-built search index ships in the package. Pin a version, get deterministic metadata every time.
+每次提交都会进行模式验证。工具按照规则构建成预定义的集合。预构建的搜索索引包含在软件包中。固定一个版本，每次都能获得确定的元数据。
 
-## Quick Start
+## 快速入门
 
 ```bash
 npm install @mcptoolshop/mcp-tool-registry
@@ -29,33 +29,33 @@ import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type:
 console.log(`${registry.tools.length} tools registered`)
 ```
 
-## At a Glance
+## 概述
 
-- **Data-only** — no executable code, just JSON metadata for every tool in the ecosystem
-- **Schema-validated** — every entry checked against JSON Schema on commit and in CI
-- **Bundle system** — tools grouped into opinionated bundles (`core`, `agents`, `ops`, `evaluation`) by rules, not manual curation
-- **Fast discovery** — pre-built search index with keywords and facets ships inside the package
-- **Least privilege** — tools default to zero capabilities; side-effects are opt-in and declared explicitly
-- **Reproducible** — pin a registry version and get deterministic metadata every time
+- **仅包含数据**——不包含任何可执行代码，仅包含生态系统中每个工具的 JSON 元数据。
+- **模式验证**——每个条目在提交和 CI 过程中都会根据 JSON Schema 进行检查。
+- **集合系统**——工具按照规则划分为预定义的集合（`core`、`agents`、`ops`、`evaluation`），而不是手动进行整理。
+- **快速发现**——预构建的搜索索引，包含关键词和筛选条件，包含在软件包中。
+- **最小权限**——工具默认情况下没有任何权限；副作用是可选的，并且必须明确声明。
+- **可重现性**——固定一个注册表版本，每次都能获得确定的元数据。
 
-## Consumers
+## 用户
 
-### Full registry
+### 完整注册表
 
 ```javascript
 import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" }
 ```
 
-### Bundles
+### 集合
 
 ```javascript
 import coreBundle from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" }
 import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { type: "json" }
 ```
 
-Available bundles: `core`, `agents`, `ops`, `evaluation`.
+可用的集合：`core`、`agents`、`ops`、`evaluation`。
 
-### Search index
+### 搜索索引
 
 ```javascript
 import toolIndex from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" }
@@ -63,23 +63,23 @@ import toolIndex from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" 
 const hits = toolIndex.filter(t => t.keywords.includes("accessibility"))
 ```
 
-### LLM context
+### LLM 上下文
 
 ```javascript
 // Plain-text context file for LLM RAG pipelines
 import llmContext from "@mcptoolshop/mcp-tool-registry/dist/registry.llms.txt"
 ```
 
-## Bundles
+## 集合
 
-| Bundle         | Description                              | Selection logic                            |
-| -------------- | ---------------------------------------- | ------------------------------------------ |
-| **core**       | Essential utilities                      | Explicit ID list                           |
-| **agents**     | Agent orchestration, navigation, context | Explicit IDs + `agents` tag                |
-| **ops**        | DevOps, infrastructure, deployment       | Tags: `automation`, `packaging`, `release` |
-| **evaluation** | Testing, benchmarking, coverage          | Tags: `testing`, `evaluation`, `benchmark` |
+| 集合           | 描述                   | 选择逻辑                                   |
+| -------------- | ---------------------- | ------------------------------------------ |
+| **core**       | 基本实用工具           | 显式 ID 列表                               |
+| **agents**     | 代理编排、导航、上下文 | 显式 ID + `agents` 标签                    |
+| **ops**        | DevOps、基础设施、部署 | 标签：`automation`、`packaging`、`release` |
+| **evaluation** | 测试、基准测试、覆盖率 | 标签：`testing`、`evaluation`、`benchmark` |
 
-## Structure
+## 结构
 
 ```
 mcp-tool-registry/
@@ -94,22 +94,22 @@ mcp-tool-registry/
 └── curation/featured.json     # Featured tools and collections
 ```
 
-## Adding a Tool
+## 添加工具
 
-1. Read [docs/registry-guidelines.md](docs/registry-guidelines.md)
-2. Add an entry to `registry.json` (keep sorted by `id`)
-3. Run `npm run validate` and `npm run policy`
-4. Submit a Pull Request
+1. 阅读 [docs/registry-guidelines.md](docs/registry-guidelines.md)
+2. 在 `registry.json` 中添加一个条目（按 `id` 排序）。
+3. 运行 `npm run validate` 和 `npm run policy`。
+4. 提交一个 Pull Request。
 
-## Versioning
+## 版本控制
 
-The v1 contract is stable. New optional fields may be added in minor versions; required fields and existing field shapes will not change within a major version.
+v1 版本的规范是稳定的。在次版本中可能会添加新的可选字段；在主版本中，必需字段和现有字段的结构不会发生变化。
 
-## Ecosystem
+## 生态系统
 
-- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** — discover, install, and run tools
-- **[Submit a Tool](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** — add your tool to the ecosystem
+- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** —— 发现、安装和运行工具。
+- **[提交工具](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** —— 将您的工具添加到生态系统中。
 
-## License
+## 许可证
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT —— 详情请参见 [LICENSE](LICENSE)。
