@@ -37,10 +37,7 @@ async function runSmokeTests() {
     console.log("   ✅ Known tool accessibility-suite found")
 
     // 4. Check LLMs.txt
-    const llmsTxt = await readFile(
-      join(distDir, "registry.llms.txt"),
-      "utf-8"
-    )
+    const llmsTxt = await readFile(join(distDir, "registry.llms.txt"), "utf-8")
     assert.ok(
       llmsTxt.includes("MCP Tool Registry Context"),
       "llms.txt has correct header"
