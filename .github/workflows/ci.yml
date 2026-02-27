@@ -54,6 +54,17 @@ jobs:
             dist/registry.report.json
             dist/REGISTRY_HEALTH.md
 
+  dep-audit:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm audit --omit=dev || true
+
   ecosystem:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest

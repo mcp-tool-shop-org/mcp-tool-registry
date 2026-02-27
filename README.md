@@ -105,6 +105,14 @@ mcp-tool-registry/
 
 The v1 contract is stable. New optional fields may be added in minor versions; required fields and existing field shapes will not change within a major version.
 
+## Security & Data Scope
+
+This is a **data-only** package — no executable code ships. Consumers import JSON metadata.
+
+- **Data touched:** tool names, descriptions, tags, and repo URLs in `registry.json`; derived search indices in `dist/`
+- **Data NOT touched:** no user files, no OS credentials, no network requests at runtime
+- **No telemetry** is collected or sent — see [SECURITY.md](SECURITY.md) for the full policy
+
 ## Ecosystem
 
 - **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** — discover, install, and run tools
@@ -113,3 +121,7 @@ The v1 contract is stable. New optional fields may be added in minor versions; r
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+Built by [MCP Tool Shop](https://mcp-tool-shop.github.io/)

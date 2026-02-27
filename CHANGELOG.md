@@ -2,6 +2,17 @@
 
 All notable changes to the MCP Tool Registry will be documented in this file.
 
+## [1.1.4] - 2026-02-27
+
+### Added
+
+- SECURITY.md with real data scope and response timeline
+- README threat model paragraph (Security & Data Scope section)
+- `verify` script for one-command validation + build + pack check
+- `engines.node` field (>=18) in package.json
+- Dependency audit job in CI
+- SHIP_GATE.md and SCORECARD.md (Shipcheck compliance)
+
 ## [1.1.0] - 2026-02-18
 
 ### Added
