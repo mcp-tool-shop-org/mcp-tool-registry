@@ -18,7 +18,7 @@ export const config: SiteConfig = {
     description:
       "The metadata-only single source of truth for all MCP Tool Shop tools. Schema-validated on every commit. Opinionated bundles built by rules, not manual curation. Pre-built search index ships inside the package. Pin a version — get deterministic metadata every time.",
     primaryCta: { href: "#get-started", label: "Get started" },
-    secondaryCta: { href: "#bundles", label: "Browse bundles" },
+    secondaryCta: { href: "handbook/", label: "Read the Handbook" },
     previews: [
       {
         label: "Install",
