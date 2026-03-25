@@ -2,6 +2,16 @@
 
 All notable changes to the MCP Tool Registry will be documented in this file.
 
+## [1.1.5] - 2026-03-25
+
+### Added
+
+- Registry integrity test suite using `node:test` (16 tests across 4 suites)
+
+### Changed
+
+- SHA-pin all CI workflow actions (checkout, setup-node, upload-artifact, deploy-pages, github-script) for supply chain security
+
 ## [1.1.4] - 2026-02-27
 
 ### Added
