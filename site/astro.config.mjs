@@ -11,19 +11,23 @@ export default defineConfig({
       title: "MCP Tool Registry",
       description: "MCP Tool Registry handbook",
       social: [
-        { icon: "github", label: "GitHub", href: "https://github.com/mcp-tool-shop-org/mcp-tool-registry" },
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/mcp-tool-shop-org/mcp-tool-registry"
+        }
       ],
       sidebar: [
         {
           label: "Handbook",
-          autogenerate: { directory: "handbook" },
-        },
+          autogenerate: { directory: "handbook" }
+        }
       ],
       customCss: ["./src/styles/starlight-custom.css"],
-      disable404Route: true,
-    }),
+      disable404Route: true
+    })
   ],
   vite: {
-    plugins: [tailwindcss()],
-  },
+    plugins: [tailwindcss()]
+  }
 })
