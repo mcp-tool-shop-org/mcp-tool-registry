@@ -16,13 +16,19 @@ sidebar:
 
 Every tool entry must include:
 
-- **id** — Unique, lowercase, hyphen-separated identifier
-- **name** — Human-readable name
-- **description** — Clear description of what the tool does (minimum quality bar enforced)
-- **repository** — HTTPS GitHub URL
-- **install** — Installation method and package reference
-- **capabilities** — List of capabilities the tool requires (defaults to none)
-- **tags** — Categorization tags for search and bundle membership
+- **id** — Unique, lowercase, hyphen-separated identifier (must match `^[a-z0-9]+(-[a-z0-9]+)*$`)
+- **name** — Human-readable display name
+- **description** — Clear description of what the tool does (minimum 10 characters, no TODO placeholders)
+- **repo** — HTTPS GitHub URL to the source repository
+- **install** — Installation method (`type`, `url`, `default_ref` are all required inside this object)
+- **tags** — Array of lowercase keywords for search and bundle membership
+
+Optional fields:
+
+- **ecosystem** — Sub-ecosystem the tool belongs to (e.g., `accessibility`, `python`)
+- **defaults** — Safe defaults for the tool (e.g., `{ "safe_run": true }`)
+- **verification** — Validation level: `none` (default), `community`, or `official`
+- **deprecated** / **deprecated_at** / **sunset_at** / **deprecation_reason** — Lifecycle fields (see the [lifecycle policy](https://github.com/mcp-tool-shop-org/mcp-tool-registry/blob/main/docs/lifecycle.md))
 
 ## Validation
 

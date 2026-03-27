@@ -72,12 +72,12 @@ import llmContext from "@mcptoolshop/mcp-tool-registry/dist/registry.llms.txt"
 
 ## Bundles
 
-| Bundle         | Description                              | Selection logic                            |
-| -------------- | ---------------------------------------- | ------------------------------------------ |
-| **core**       | Essential utilities                      | Explicit ID list                           |
-| **agents**     | Agent orchestration, navigation, context | Explicit IDs + `agents` tag                |
-| **ops**        | DevOps, infrastructure, deployment       | Tags: `automation`, `packaging`, `release` |
-| **evaluation** | Testing, benchmarking, coverage          | Tags: `testing`, `evaluation`, `benchmark` |
+| Bundle         | Description                              | Selection logic                                          |
+| -------------- | ---------------------------------------- | -------------------------------------------------------- |
+| **core**       | Essential utilities                      | Explicit ID list                                         |
+| **agents**     | Agent orchestration, navigation, context | Explicit IDs + `agents` tag                              |
+| **ops**        | DevOps, infrastructure, deployment       | Tags: `automation`, `packaging`, `release`, `monitoring` |
+| **evaluation** | Testing, benchmarking, coverage          | Tags: `testing`, `evaluation`, `benchmark`, `coverage`   |
 
 ## Structure
 

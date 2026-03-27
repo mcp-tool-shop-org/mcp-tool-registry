@@ -51,8 +51,42 @@ For RAG pipelines, import the plain-text context file:
 import llmContext from "@mcptoolshop/mcp-tool-registry/dist/registry.llms.txt"
 ```
 
+## Search locally
+
+The package ships with CLI scripts for searching and exploring the registry without any network requests:
+
+```bash
+# Keyword search (ranked by relevance)
+node scripts/query.mjs --q "testing"
+
+# Filter by bundle
+node scripts/query.mjs --bundle core
+
+# Filter by tag
+node scripts/query.mjs --tag accessibility
+
+# JSON output for scripting
+node scripts/query.mjs --q "agent" --json
+
+# Show why results matched
+node scripts/query.mjs --q "file" --explain
+
+# View top tags, bundle counts, and ecosystem stats
+node scripts/facets.mjs
+```
+
 ## Pinning
 
-Pin a registry version in your workspace and get identical metadata on every install. The registry hash in `dist/derived.meta.json` lets you verify the exact state of any pinned version.
+Pin a registry version in your `package.json` and get identical metadata on every install:
+
+```json
+{
+  "dependencies": {
+    "@mcptoolshop/mcp-tool-registry": "1.1.5"
+  }
+}
+```
+
+The registry hash in `dist/derived.meta.json` lets you verify the exact state of any pinned version.
 
 The v1 contract is stable — new optional fields may appear in minor versions, but no existing required fields will change within a major version.

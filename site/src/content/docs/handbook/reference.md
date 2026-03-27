@@ -36,18 +36,55 @@ This is a **data-only** package — no executable code ships.
 
 ```javascript
 // Full registry
-import registry from "@mcptoolshop/mcp-tool-registry/registry.json"
+import registry from "@mcptoolshop/mcp-tool-registry/registry.json" with { type: "json" }
 
 // Individual bundles
-import core from "@mcptoolshop/mcp-tool-registry/bundles/core.json"
-import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json"
-import ops from "@mcptoolshop/mcp-tool-registry/bundles/ops.json"
-import evaluation from "@mcptoolshop/mcp-tool-registry/bundles/evaluation.json"
+import core from "@mcptoolshop/mcp-tool-registry/bundles/core.json" with { type: "json" }
+import agents from "@mcptoolshop/mcp-tool-registry/bundles/agents.json" with { type: "json" }
+import ops from "@mcptoolshop/mcp-tool-registry/bundles/ops.json" with { type: "json" }
+import evaluation from "@mcptoolshop/mcp-tool-registry/bundles/evaluation.json" with { type: "json" }
 
 // Derived artifacts
-import index from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json"
-import caps from "@mcptoolshop/mcp-tool-registry/dist/capabilities.json"
-import meta from "@mcptoolshop/mcp-tool-registry/dist/derived.meta.json"
+import index from "@mcptoolshop/mcp-tool-registry/dist/registry.index.json" with { type: "json" }
+import caps from "@mcptoolshop/mcp-tool-registry/dist/capabilities.json" with { type: "json" }
+import meta from "@mcptoolshop/mcp-tool-registry/dist/derived.meta.json" with { type: "json" }
 ```
 
-All imports use `with { type: "json" }` for JSON modules in ESM contexts.
+All JSON imports require the `with { type: "json" }` import attribute in ESM contexts (Node 22+, modern bundlers).
+
+## Health report and SLO gates
+
+The registry includes a health report system that tracks quality metrics and enforces service-level objectives:
+
+```bash
+# Generate the health report (JSON + Markdown)
+npm run report:health
+
+# Generate and enforce SLO gates (used in CI)
+npm run report:health -- --check-slo
+```
+
+SLO gates enforced in CI:
+
+| Gate                                | Threshold      | Severity             |
+| ----------------------------------- | -------------- | -------------------- |
+| Missing `description` or `repo`     | > 5% of tools  | Error (blocks merge) |
+| Missing `tags` or `ecosystem`       | > 10% of tools | Warning              |
+| Description quality issues          | > 5% of tools  | Error (blocks merge) |
+| Deprecated tool budget              | > 20% of tools | Error (blocks merge) |
+| Core bundle present and non-trivial | < 5 tools      | Warning              |
+
+Reports are written to `dist/registry.report.json` (machine-readable) and `dist/REGISTRY_HEALTH.md` (human-readable).
+
+## Lifecycle policy
+
+Tools follow a three-stage lifecycle: **Active**, **Deprecated**, and **Removed (Archived)**.
+
+To deprecate a tool, add these fields to its entry in `registry.json`:
+
+- `deprecated: true` (required)
+- `deprecation_reason` (required) — why the tool is deprecated
+- `deprecated_at` (required) — ISO 8601 date when the deprecation took effect
+- `sunset_at` (optional) — ISO 8601 date when the tool will be removed from the registry
+
+Deprecated tools remain in the registry indefinitely unless `sunset_at` is set. After sunset, a tool may be moved to the `archived` array. Retired tool IDs are never reused.

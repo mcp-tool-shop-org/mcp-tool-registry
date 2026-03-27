@@ -51,3 +51,16 @@ These artifacts are generated at publish time from the canonical `registry.json`
 **Least privilege** — Tools default to zero capabilities. Side-effects are opt-in and must be declared explicitly in the schema. Deprecated tools are automatically excluded from all bundles.
 
 **Reproducible** — Pin a version, get deterministic metadata every time.
+
+## How bundle rules work
+
+Bundle membership is declared in `bundles/rules/<name>.rules.json`. Each rule file contains:
+
+- **rules** — An array of inclusion rules. Each rule can specify:
+  - `ids` — An explicit list of tool IDs to include.
+  - `tags` — A list of tags to match. The `operator` field controls matching: `"OR"` (default) includes any tool with at least one matching tag, `"AND"` requires all tags to match.
+- **exclude** — An object for exclusion logic:
+  - `deprecated: true` — Automatically removes deprecated tools from the bundle.
+  - `ids` — An explicit list of tool IDs to exclude.
+
+Bundles are regenerated deterministically by `scripts/build-bundles.mjs` whenever you run `npm run bundles:build`. The output is sorted alphabetically by tool ID for stable diffs.

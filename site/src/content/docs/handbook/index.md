@@ -13,5 +13,6 @@ Welcome to the MCP Tool Registry handbook — the complete guide to the metadata
 - **[Bundles & Structure](/mcp-tool-registry/handbook/bundles-and-structure/)** — How bundles work and what ships in the package
 - **[Adding a Tool](/mcp-tool-registry/handbook/adding-a-tool/)** — Submit your tool to the registry
 - **[Reference](/mcp-tool-registry/handbook/reference/)** — Schemas, versioning, and derived artifacts
+- **[Beginners](/mcp-tool-registry/handbook/beginners/)** — New to MCP Tool Registry? Start here
 
 [Back to landing page](/mcp-tool-registry/)
