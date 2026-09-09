@@ -1,0 +1,1335 @@
+{
+  "version": 1,
+  "entries": {
+    "4019a00be8552b49": {
+      "translation": "**メタデータのみを登録するリポジトリ。MCP Tool Shop のすべてのツールに関する唯一の信頼できる情報源です。**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "6eaad3ac58704fce": {
+      "translation": "コミットごとにスキーマ検証が行われます。ルールに基づいて構築された、あらかじめ定義されたツールセットです。検索インデックスがパッケージに同梱されています。バージョンを固定すると、毎回同じメタデータが取得できます。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "d182d24c54cc50a7": {
+      "translation": "クイックスタート",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "6de5d61029c43de7": {
+      "translation": "概要",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "3c371e0f320512ad": {
+      "translation": "- **データのみ**：実行可能なコードは含まれておらず、エコシステム内のすべてのツールに関する JSON メタデータのみが含まれています。\n- **スキーマ検証済み**：すべてのエントリが、コミット時および CI 環境で JSON スキーマに対して検証されます。\n- **ツールセットシステム**：ツールは、手動でのキュレーションではなく、ルールに基づいて `core`、`agents`、`ops`、`evaluation` などのツールセットにグループ化されます。\n- **高速な検索**：キーワードとファセットを含む、あらかじめ構築された検索インデックスがパッケージに含まれています。\n- **最小権限**：ツールはデフォルトで最小限の機能しか持っていません。副作用はオプションであり、明示的に宣言する必要があります。\n- **再現性**：リポジトリのバージョンを固定すると、毎回同じメタデータが取得できます。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "29d860a90b3195eb": {
+      "translation": "利用対象者",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "38e8bdba3366f39c": {
+      "translation": "完全なリポジトリ",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "535c71e7d7aef6ff": {
+      "translation": "ツールセット",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "642c440f41835437": {
+      "translation": "利用可能なツールセット：`core`、`agents`、`ops`、`evaluation`。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "3a0d3612b3ad775e": {
+      "translation": "検索インデックス",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "f59701a49f506b41": {
+      "translation": "LLM コンテキスト",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410915
+    },
+    "50099fa5a2fef075": {
+      "translation": "ツールセット",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "67731479bd4e364b": {
+      "translation": "説明",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "d6625647054d3806": {
+      "translation": "選択ロジック",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "9d7cee119080e668": {
+      "translation": "--------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "651826877e732548": {
+      "translation": "-------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "b0e27d1a98f08b56": {
+      "translation": "-----------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "b6b20803e65382d4": {
+      "translation": "**core**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "be898004a0fa2751": {
+      "translation": "基本的なユーティリティ",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "5780e9bcbfc5e46d": {
+      "translation": "明示的な ID リスト",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "490bbd61b0622ca8": {
+      "translation": "**agents**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "cce750c68d59bb9c": {
+      "translation": "エージェントのオーケストレーション、ナビゲーション、コンテキスト",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "4309d5c32594d57d": {
+      "translation": "明示的な ID と `agents` タグ",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "5283a2ca86edf1a0": {
+      "translation": "**ops**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "2dfa9c66a2daa99e": {
+      "translation": "DevOps、インフラストラクチャ、デプロイメント",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "b1b5deba455eb0f0": {
+      "translation": "タグ：`automation`、`packaging`、`release`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "d9ea3ed3214297f7": {
+      "translation": "**evaluation**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "a551691a4530b896": {
+      "translation": "テスト、ベンチマーク、カバレッジ",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "6c3219aa96bab014": {
+      "translation": "タグ：`testing`、`evaluation`、`benchmark`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "1205d7da6d430209": {
+      "translation": "構造",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "becedc47d447c9cd": {
+      "translation": "ツールの追加",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "038815f2be976fc9": {
+      "translation": "1. [docs/registry-guidelines.md](docs/registry-guidelines.md) を参照してください。\n2. `registry.json` にエントリを追加します（`id` でソートされた状態を維持してください）。\n3. `npm run validate` と `npm run policy` を実行します。\n4. プルリクエストを送信します。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "3bb20f3367c4f7bb": {
+      "translation": "バージョン管理",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "298ca4ba24ce40c0": {
+      "translation": "v1 の仕様は安定しています。マイナーバージョンで新しいオプションフィールドが追加される可能性がありますが、必須フィールドおよび既存のフィールドの構造は、メジャーバージョン内では変更されません。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "19af8c54e90c7b69": {
+      "translation": "エコシステム",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "1e765090adda3220": {
+      "translation": "- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)**：ツールを発見、インストール、実行します。\n- **[ツールの登録](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)**：ツールをエコシステムに追加します。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "08ea9dfbe36d981b": {
+      "translation": "ライセンス",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "07888d799dad4c8e": {
+      "translation": "MIT — 詳細については、[LICENSE](LICENSE) を参照してください。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031410916
+    },
+    "53e6894bde024481": {
+      "translation": "**仅包含元数据的注册表——所有 MCP Tool Shop 工具的唯一权威来源。**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "5d4c67f1dc042fb5": {
+      "translation": "每次提交都会进行模式验证。工具按照规则构建成预定义的集合。预构建的搜索索引包含在软件包中。固定一个版本，每次都能获得确定的元数据。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "3e6394397900eaa1": {
+      "translation": "快速入门",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "095216ac7532923c": {
+      "translation": "概述",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "d4b2690718586a82": {
+      "translation": "- **仅包含数据**——不包含任何可执行代码，仅包含生态系统中每个工具的 JSON 元数据。\n- **模式验证**——每个条目在提交和 CI 过程中都会根据 JSON Schema 进行检查。\n- **集合系统**——工具按照规则划分为预定义的集合（`core`、`agents`、`ops`、`evaluation`），而不是手动进行整理。\n- **快速发现**——预构建的搜索索引，包含关键词和筛选条件，包含在软件包中。\n- **最小权限**——工具默认情况下没有任何权限；副作用是可选的，并且必须明确声明。\n- **可重现性**——固定一个注册表版本，每次都能获得确定的元数据。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "afd2b735570957f7": {
+      "translation": "用户",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "bdc84583b066520f": {
+      "translation": "完整注册表",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "05247854ecf2b79a": {
+      "translation": "集合",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "eb9262f71c3d085f": {
+      "translation": "可用的集合：`core`、`agents`、`ops`、`evaluation`。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "2a2fccadfc877205": {
+      "translation": "搜索索引",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "71147510b8c1b70f": {
+      "translation": "LLM 上下文",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "67b2da0b75fbfa1d": {
+      "translation": "集合",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "601d6e570e22e932": {
+      "translation": "描述",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "9f5f8a90b62901b4": {
+      "translation": "选择逻辑",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "15d90ade51a88a14": {
+      "translation": "--------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "dd5b28ff24f8cbdb": {
+      "translation": "-------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "8dcd33a6d382512c": {
+      "translation": "-----------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "6cb71de9e622aefd": {
+      "translation": "**core**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "c3b91a7d1fc1e5c1": {
+      "translation": "基本实用工具",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "6e7c29b9eb9c421c": {
+      "translation": "显式 ID 列表",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "1c7e492cbfb38672": {
+      "translation": "**agents**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "bb710b4798f6c63e": {
+      "translation": "代理编排、导航、上下文",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "589c71afa1f9b85a": {
+      "translation": "显式 ID + `agents` 标签",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "37c146d015d12af7": {
+      "translation": "**ops**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "0abde8178807888f": {
+      "translation": "DevOps、基础设施、部署",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "ca7199c3ee6ab7f9": {
+      "translation": "标签：`automation`、`packaging`、`release`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "840e10b2d4838c7c": {
+      "translation": "**evaluation**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "b57a32a5462df8b7": {
+      "translation": "测试、基准测试、覆盖率",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "c096797d8d5d6e87": {
+      "translation": "标签：`testing`、`evaluation`、`benchmark`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "182cd3c0c59bda55": {
+      "translation": "结构",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "166ad054234861c3": {
+      "translation": "添加工具",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "6a5fde5f24f00ede": {
+      "translation": "1. 阅读 [docs/registry-guidelines.md](docs/registry-guidelines.md)\n2. 在 `registry.json` 中添加一个条目（按 `id` 排序）。\n3. 运行 `npm run validate` 和 `npm run policy`。\n4. 提交一个 Pull Request。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "a73cb0951cdb3aca": {
+      "translation": "版本控制",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "123138e66760c040": {
+      "translation": "v1 版本的规范是稳定的。在次版本中可能会添加新的可选字段；在主版本中，必需字段和现有字段的结构不会发生变化。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "a6b2f7fa517bdb4e": {
+      "translation": "生态系统",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "c6e0746bb98222a4": {
+      "translation": "- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** —— 发现、安装和运行工具。\n- **[提交工具](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** —— 将您的工具添加到生态系统中。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "1fb815b9a436fadb": {
+      "translation": "许可证",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "08d9c57fd8c551cf": {
+      "translation": "MIT —— 详情请参见 [LICENSE](LICENSE)。",
+      "model": "translategemma:12b",
+      "timestamp": 1772031430836
+    },
+    "80a989ade7d43349": {
+      "translation": "**El registro, que contiene solo metadatos, es la única fuente de información confiable para todas las herramientas de MCP Tool Shop.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "09d9b848de07cc42": {
+      "translation": "El esquema se valida en cada confirmación. Los paquetes se crean según reglas predefinidas. El índice de búsqueda precompilado se incluye en el paquete. Fije una versión y obtenga metadatos deterministas cada vez.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "785321ff8279266b": {
+      "translation": "Inicio rápido",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "5c3a23ef5ea9f9f8": {
+      "translation": "Resumen",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "ad59b07d1bed63eb": {
+      "translation": "- **Solo datos:** no hay código ejecutable, solo metadatos JSON para cada herramienta del ecosistema.\n- **Validación de esquema:** cada entrada se verifica contra el esquema JSON al confirmar y en el entorno de integración continua (CI).\n- **Sistema de paquetes:** las herramientas se agrupan en paquetes predefinidos (`core`, `agents`, `ops`, `evaluation`) según reglas, no mediante curación manual.\n- **Descubrimiento rápido:** el índice de búsqueda precompilado, con palabras clave y filtros, se incluye en el paquete.\n- **Privilegios mínimos:** las herramientas tienen, por defecto, capacidades nulas; los efectos secundarios son opcionales y se declaran explícitamente.\n- **Reproducible:** fije una versión del registro y obtenga metadatos deterministas cada vez.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "ce0bf6b2ebe41a9b": {
+      "translation": "Usuarios",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "bd2ae6a4b381777b": {
+      "translation": "Registro completo",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "5a57adbbdb379795": {
+      "translation": "Paquetes",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "28ecfb798b492613": {
+      "translation": "Paquetes disponibles: `core`, `agents`, `ops`, `evaluation`.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "5184b5efb717094e": {
+      "translation": "Índice de búsqueda",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "aa241f66d4741ebc": {
+      "translation": "Contexto para modelos de lenguaje (LLM)",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "7e4db09ed6bf6a5b": {
+      "translation": "Paquete",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "a0102622d03d4c0f": {
+      "translation": "Descripción",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "b5a787343f5622aa": {
+      "translation": "Lógica de selección",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "eeb36bd7b5ceedf9": {
+      "translation": "--------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "184e6ce2c9237895": {
+      "translation": "-------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "a0324d67f77cc3ed": {
+      "translation": "-----------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "916a4bd8d85b67ec": {
+      "translation": "**core**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "174de7ded7f16a97": {
+      "translation": "Utilidades esenciales",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "07bc36df8895d51b": {
+      "translation": "Lista de ID explícitos",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "1e12395bc2940c1f": {
+      "translation": "**agents**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "d57ee78093f65904": {
+      "translation": "Orquestación, navegación y contexto de agentes",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "3c4054ba39ea0c16": {
+      "translation": "ID explícitos + etiqueta `agents`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "dd037635fb6062ff": {
+      "translation": "**ops**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "fe3d994009662177": {
+      "translation": "DevOps, infraestructura, despliegue",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "9ecdb892d9155baa": {
+      "translation": "Etiquetas: `automation`, `packaging`, `release`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "14b29e10fcd2e94e": {
+      "translation": "**evaluation**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "85671b7ac4435ead": {
+      "translation": "Pruebas, evaluación comparativa, cobertura",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "7740d7d0f5e062d9": {
+      "translation": "Etiquetas: `testing`, `evaluation`, `benchmark`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "282ed3768934e355": {
+      "translation": "Estructura",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "d9c8d66027aa7cb9": {
+      "translation": "Añadir una herramienta",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "df1094bce544e824": {
+      "translation": "1. Lea [docs/registry-guidelines.md](docs/registry-guidelines.md)\n2. Añada una entrada a `registry.json` (mantenga el orden por `id`)\n3. Ejecute `npm run validate` y `npm run policy`\n4. Envíe una solicitud de extracción (Pull Request)",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "bda80556d2c69063": {
+      "translation": "Versionado",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "beaa36dc0339e52b": {
+      "translation": "El contrato de la versión 1 es estable. Se pueden añadir nuevos campos opcionales en versiones menores; los campos obligatorios y la estructura de los campos existentes no cambiarán dentro de una versión mayor.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "621f0d3fca5dce94": {
+      "translation": "Ecosistema",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "d93903fdbe0f6ec8": {
+      "translation": "- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)**: descubre, instala y ejecuta herramientas.\n- **[Enviar una herramienta](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)**: añada su herramienta al ecosistema.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "9572f74b6d3f62b1": {
+      "translation": "Licencia",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "a4dc999d2b79672b": {
+      "translation": "MIT: consulte [LICENSE](LICENSE) para obtener más detalles.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031452607
+    },
+    "0d234ae1f6de535c": {
+      "translation": "**Le registre contenant uniquement les métadonnées — la source unique de vérité pour tous les outils de MCP Tool Shop.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "62570d7408a4d550": {
+      "translation": "Validation du schéma à chaque commit. Groupes d'outils prédéfinis, créés selon des règles. Un index de recherche préconfiguré est inclus dans le package. Fixez une version et obtenez des métadonnées cohérentes à chaque fois.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "caef1b750e85e405": {
+      "translation": "Démarrage rapide",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "3bbbe551691b0611": {
+      "translation": "Aperçu",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "1fa05b60191eb66c": {
+      "translation": "- **Uniquement des données** — aucun code exécutable, seulement des métadonnées JSON pour chaque outil de l'écosystème.\n- **Validation du schéma** — chaque entrée est vérifiée par rapport au schéma JSON lors du commit et dans l'intégration continue (CI).\n- **Système de groupes** — les outils sont regroupés en groupes prédéfinis (`core`, `agents`, `ops`, `evaluation`) selon des règles, et non par une curation manuelle.\n- **Découverte rapide** — un index de recherche préconfiguré avec des mots-clés et des facettes est inclus dans le package.\n- **Privilèges minimaux** — les outils ont par défaut des capacités nulles ; les effets secondaires sont optionnels et déclarés explicitement.\n- **Reproductible** — fixez une version du registre et obtenez des métadonnées cohérentes à chaque fois.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "f5a33acfd1e7df72": {
+      "translation": "Utilisateurs",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "9022a31019f4b47c": {
+      "translation": "Registre complet",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "1c370c5197657580": {
+      "translation": "Groupes",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "44840ce0baa02ad1": {
+      "translation": "Groupes disponibles : `core`, `agents`, `ops`, `evaluation`.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "846b356260b88b31": {
+      "translation": "Index de recherche",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "90097b2040fc5ce2": {
+      "translation": "Contexte LLM",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "4ed2c5a21c51db27": {
+      "translation": "Groupe",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "9a51c5b4f05710c0": {
+      "translation": "Description",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "5bbe14b72c3f8b77": {
+      "translation": "Logique de sélection",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "f4a92f03e0709542": {
+      "translation": "--------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "42738f280dbf39b2": {
+      "translation": "-------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "fa2cf08685d4cc07": {
+      "translation": "-----------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "2a91f5f25e57129a": {
+      "translation": "**core**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "10a3400679b3e767": {
+      "translation": "Utilitaires essentiels",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "142d482d58a10a26": {
+      "translation": "Liste explicite d'identifiants",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "ca13b0c93b37cbf7": {
+      "translation": "**agents**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "41bac6dc94d6af1e": {
+      "translation": "Orchestration, navigation et contexte des agents",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "22be011168151af4": {
+      "translation": "Identifiants explicites + balise `agents`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "5dfa3da1a37d12c3": {
+      "translation": "**ops**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "75164868c9e937e3": {
+      "translation": "DevOps, infrastructure, déploiement",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "fbda6d6cbbdf26dd": {
+      "translation": "Balises : `automation`, `packaging`, `release`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "b5c647759ef9a69a": {
+      "translation": "**evaluation**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "62c8fd1f9df4123d": {
+      "translation": "Tests, benchmarks, couverture",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "cd059fc6ff9a28b7": {
+      "translation": "Balises : `testing`, `evaluation`, `benchmark`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "71c8dca2cf8f2d24": {
+      "translation": "Structure",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "ff9cbe087263f1ee": {
+      "translation": "Ajouter un outil",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "d2bacfbf1940b0b9": {
+      "translation": "1. Lisez [docs/registry-guidelines.md](docs/registry-guidelines.md)\n2. Ajoutez une entrée à `registry.json` (maintenez l'ordre par `id`)\n3. Exécutez `npm run validate` et `npm run policy`\n4. Soumettez une demande de tirage (Pull Request)",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "9391655294d89f08": {
+      "translation": "Gestion des versions",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "48f89d2d5f8c76fe": {
+      "translation": "Le contrat de la version 1 est stable. De nouveaux champs optionnels peuvent être ajoutés dans les versions mineures ; les champs obligatoires et la structure des champs existants ne changeront pas dans une version majeure.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "0d0a9182c8e6fc13": {
+      "translation": "Écosystème",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "7e481f7c463c449e": {
+      "translation": "- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** — découvrez, installez et exécutez des outils.\n- **[Soumettre un outil](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** — ajoutez votre outil à l'écosystème.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "0174ffc9d6992c72": {
+      "translation": "Licence",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "f4dba4ea4c277886": {
+      "translation": "MIT — voir [LICENSE](LICENSE) pour plus de détails.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031475042
+    },
+    "6c130048ebe9c2d3": {
+      "translation": "**यह केवल मेटाडेटा वाली रजिस्ट्री है—यह सभी MCP टूल शॉप उपकरणों के लिए एकमात्र विश्वसनीय स्रोत है।**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "cc8925d9edd51dce": {
+      "translation": "प्रत्येक बदलाव के साथ स्कीमा के अनुसार सत्यापित। नियमों के आधार पर तैयार किए गए बंडल। पहले से तैयार खोज अनुक्रमणिका पैकेज में शामिल है। किसी संस्करण को 'पिन' करें, और हर बार आपको एक समान मेटाडेटा मिलेगा।",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "abb619d8b0588257": {
+      "translation": "शुरुआत कैसे करें",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "7980aa8a02ee565e": {
+      "translation": "एक नज़र में",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "27c3e4f4180db128": {
+      "translation": "- **केवल डेटा:** कोई भी निष्पादन योग्य कोड नहीं, बल्कि पारिस्थितिकी तंत्र में मौजूद प्रत्येक उपकरण के लिए केवल JSON मेटाडेटा।\n- **स्कीमा-सत्यापित:** प्रत्येक प्रविष्टि को कमिट और CI में JSON स्कीमा के अनुसार जांचा जाता है।\n- **बंडल प्रणाली:** उपकरण नियमों के आधार पर 'कोर', 'एजेंट', 'ऑप्स', और 'मूल्यांकन' जैसे पूर्वनिर्धारित बंडलों में समूहीकृत किए जाते हैं, न कि मैन्युअल रूप से।\n- **त्वरित खोज:** पहले से तैयार खोज अनुक्रमणिका, जिसमें कीवर्ड और पहलू शामिल हैं, पैकेज के अंदर उपलब्ध है।\n- **न्यूनतम विशेषाधिकार:** डिफ़ॉल्ट रूप से, उपकरणों में कोई भी क्षमता नहीं होती है; साइड-इफेक्ट वैकल्पिक हैं और स्पष्ट रूप से घोषित किए जाते हैं।\n- **पुनरुत्पादित:** रजिस्ट्री के किसी संस्करण को 'पिन' करें और हर बार आपको एक समान मेटाडेटा मिलेगा।",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "c6951bba63446463": {
+      "translation": "उपयोगकर्ता",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "531893a01e806db7": {
+      "translation": "पूरी रजिस्ट्री",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "ead11d7adef4cbc1": {
+      "translation": "बंडल",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "a3d50f9846b4ec03": {
+      "translation": "उपलब्ध बंडल: `core`, `agents`, `ops`, `evaluation`.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "6ddd91ccfb038f79": {
+      "translation": "खोज अनुक्रमणिका",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "c8a1119ed30f952f": {
+      "translation": "LLM संदर्भ",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "4a78142a7e6e1c9f": {
+      "translation": "बंडल",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "b8423b5b4842cbda": {
+      "translation": "विवरण",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "0a3d65b915c77177": {
+      "translation": "चयन तर्क",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "a6f6b2d3b00b064b": {
+      "translation": "--------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "bc35e1f9228e8622": {
+      "translation": "-------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "dd6357ea097c51bd": {
+      "translation": "-----------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "b07aa7862f49d4db": {
+      "translation": "**core**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "5da0eb164d33aa9c": {
+      "translation": "आवश्यक उपयोगिताएँ",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "de6a8b7488e5af2d": {
+      "translation": "स्पष्ट आईडी सूची",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "14b0c2c1773d65e4": {
+      "translation": "**agents**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "9e3c543b064cb415": {
+      "translation": "एजेंट ऑर्केस्ट्रेशन, नेविगेशन, संदर्भ",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "38f75c91e48f156d": {
+      "translation": "स्पष्ट आईडी + `agents` टैग",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "9edc76f9ed609929": {
+      "translation": "**ops**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "469c5b1a45f66896": {
+      "translation": "डेवऑप्स, इंफ्रास्ट्रक्चर, परिनियोजन",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "e054a37dbea3efeb": {
+      "translation": "टैग: `automation`, `packaging`, `release`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "be5da421ac1a8da2": {
+      "translation": "**evaluation**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "274b517574f6c460": {
+      "translation": "परीक्षण, बेंचमार्किंग, कवरेज",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "28104ed4a95dc1b1": {
+      "translation": "टैग: `testing`, `evaluation`, `benchmark`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "2b467b10651210df": {
+      "translation": "संरचना",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "7b0107207795ecb4": {
+      "translation": "एक उपकरण जोड़ना",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "92705978a2847eee": {
+      "translation": "1. [docs/registry-guidelines.md](docs/registry-guidelines.md) पढ़ें।\n2. `registry.json` में एक प्रविष्टि जोड़ें (इसे `id` के अनुसार क्रमबद्ध रखें)।\n3. `npm run validate` और `npm run policy` चलाएं।\n4. एक पुल अनुरोध सबमिट करें।",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "ca0f5e850716c662": {
+      "translation": "संस्करण",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "25752dac0a6b3b22": {
+      "translation": "v1 संस्करण स्थिर है। नए वैकल्पिक फ़ील्ड छोटे संस्करणों में जोड़े जा सकते हैं; आवश्यक फ़ील्ड और मौजूदा फ़ील्ड संरचना किसी भी प्रमुख संस्करण में नहीं बदलेंगी।",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "23b027dc69f64b8e": {
+      "translation": "पारिस्थितिकी तंत्र",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "385b038f5bbf81c0": {
+      "translation": "- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** — उपकरणों की खोज करें, स्थापित करें और चलाएं।\n- **[एक उपकरण सबमिट करें](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** — अपने उपकरण को पारिस्थितिकी तंत्र में जोड़ें।",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "cfbc372f8058f151": {
+      "translation": "लाइसेंस",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "7b11abfdfd634361": {
+      "translation": "MIT — विवरण के लिए [LICENSE](LICENSE) देखें।",
+      "model": "translategemma:12b",
+      "timestamp": 1772031498006
+    },
+    "c3c5ca439c80362f": {
+      "translation": "**Il registro contiene solo metadati: è la fonte di riferimento unica per tutti gli strumenti di MCP Tool Shop.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "187de9dc8957b7a3": {
+      "translation": "Lo schema viene validato ad ogni commit. Pacchetti predefiniti creati secondo regole. L'indice di ricerca predefinito è incluso nel pacchetto. Blocca una versione e ottieni metadati deterministici ogni volta.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "d7e9780fb2074bec": {
+      "translation": "Guida rapida",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "610cd7e854f9c8e9": {
+      "translation": "Panoramica",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "92c12cb524b9067c": {
+      "translation": "- **Solo dati** — nessun codice eseguibile, solo metadati JSON per ogni strumento nell'ecosistema.\n- **Validato tramite schema** — ogni voce viene controllata rispetto allo schema JSON durante il commit e nell'integrazione continua (CI).\n- **Sistema di pacchetti** — gli strumenti sono raggruppati in pacchetti predefiniti (`core`, `agents`, `ops`, `evaluation`) secondo regole, non tramite selezione manuale.\n- **Ricerca rapida** — l'indice di ricerca predefinito, con parole chiave e filtri, è incluso nel pacchetto.\n- **Minimo privilegio** — gli strumenti hanno di default zero funzionalità; gli effetti collaterali sono opzionali e devono essere dichiarati esplicitamente.\n- **Riproducibile** — blocca una versione del registro e ottieni metadati deterministici ogni volta.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "e3f176dc87071ef9": {
+      "translation": "Utenti",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "f00886ab3476c553": {
+      "translation": "Registro completo",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "ce3b4ff8d7acd288": {
+      "translation": "Pacchetti",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "b1fd43e4e5fd637b": {
+      "translation": "Pacchetti disponibili: `core`, `agents`, `ops`, `evaluation`.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "0403cbbc7c678392": {
+      "translation": "Indice di ricerca",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "803072b148cd58eb": {
+      "translation": "Contesto LLM",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "3486c209418b6ccf": {
+      "translation": "Pacchetto",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "3af38881e7f28db0": {
+      "translation": "Descrizione",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "43777a2f9c2ce7ed": {
+      "translation": "Logica di selezione",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "52634ac8aa73733d": {
+      "translation": "--------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "5acc6809afb159f0": {
+      "translation": "-------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520249
+    },
+    "0a5ab8a18268e424": {
+      "translation": "-----------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "e996b0f688e2f990": {
+      "translation": "**core**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "d7199ad88c354fc0": {
+      "translation": "Utilità essenziali",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "baa51befcc96ffce": {
+      "translation": "Elenco ID esplicito",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "5a2f610e9a0cec7e": {
+      "translation": "**agents**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "7ba23acd183eab93": {
+      "translation": "Orchestrazione, navigazione e contesto degli agenti.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "a197041709bec28b": {
+      "translation": "ID espliciti + tag `agents`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "69ee67cd6b1df90c": {
+      "translation": "**ops**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "da28dd6ef568f87f": {
+      "translation": "DevOps, infrastruttura, deployment.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "ff3d13e8c96096d7": {
+      "translation": "Tag: `automation`, `packaging`, `release`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "329783d95d3ba4bb": {
+      "translation": "**evaluation**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "08a543a465bafa12": {
+      "translation": "Test, benchmark, copertura.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "d5ee5c089da9a473": {
+      "translation": "Tag: `testing`, `evaluation`, `benchmark`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "a5e273d900ab4231": {
+      "translation": "Struttura",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "9e9ad223a6d9d845": {
+      "translation": "Aggiunta di uno strumento",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "5cfa1966973e7dc2": {
+      "translation": "1. Leggi [docs/registry-guidelines.md](docs/registry-guidelines.md)\n2. Aggiungi una voce a `registry.json` (mantieni l'ordine in base all'`id`)\n3. Esegui `npm run validate` e `npm run policy`\n4. Invia una Pull Request",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "b2a5c5997c6d9c46": {
+      "translation": "Versioning",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "87d6a62a56c3d6ef": {
+      "translation": "Il contratto della versione 1 è stabile. Nuovi campi opzionali possono essere aggiunti nelle versioni minori; i campi obbligatori e la struttura dei campi esistenti non cambieranno all'interno di una versione maggiore.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "45ad60afd85dd598": {
+      "translation": "Ecosistema",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "a14f45680fcb393d": {
+      "translation": "- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** — scopri, installa ed esegui gli strumenti.\n- **[Invia uno strumento](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** — aggiungi il tuo strumento all'ecosistema.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "0870aa1dcfea97cc": {
+      "translation": "Licenza",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "d5dbd1cf4dd8f6b4": {
+      "translation": "MIT — consulta [LICENSE](LICENSE) per i dettagli.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031520250
+    },
+    "356cecd3216ddc78": {
+      "translation": "**O registro de metadados — a única fonte de informação confiável para todas as ferramentas do MCP Tool Shop.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "345ad9338d402946": {
+      "translation": "Validação de esquema a cada commit. Pacotes criados com base em regras predefinidas. Índice de pesquisa pré-construído incluído no pacote. Fixe uma versão e obtenha metadados consistentes sempre.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "c88bcdb0dd505b6b": {
+      "translation": "Início Rápido",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "90ec8c1f7e335928": {
+      "translation": "Visão Geral",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "82f77eb8fdbbc334": {
+      "translation": "- **Apenas dados** — sem código executável, apenas metadados JSON para cada ferramenta no ecossistema.\n- **Validação de esquema** — cada entrada é verificada em relação ao JSON Schema a cada commit e no CI (Integração Contínua).\n- **Sistema de pacotes** — ferramentas agrupadas em pacotes predefinidos (`core`, `agents`, `ops`, `evaluation`) com base em regras, e não em curadoria manual.\n- **Descoberta rápida** — índice de pesquisa pré-construído com palavras-chave e filtros incluído no pacote.\n- **Privilégios mínimos** — as ferramentas têm, por padrão, zero permissões; efeitos colaterais são opcionais e devem ser declarados explicitamente.\n- **Reprodutível** — fixe uma versão do registro e obtenha metadados consistentes sempre.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "3d981e1c269f04ec": {
+      "translation": "Usuários",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "9dd007c6139dffe8": {
+      "translation": "Registro completo",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "c2c070a09236f1c4": {
+      "translation": "Pacotes",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "89556b7671bb87f7": {
+      "translation": "Pacotes disponíveis: `core`, `agents`, `ops`, `evaluation`.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "cde970ceef676158": {
+      "translation": "Índice de pesquisa",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "26a66b9166376abb": {
+      "translation": "Contexto para LLM (Large Language Models)",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "536217a7fe5f8709": {
+      "translation": "Pacote",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "4fe83802bbc45fcc": {
+      "translation": "Descrição",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "387747e3d507ebac": {
+      "translation": "Lógica de seleção",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "da4f8834bba48670": {
+      "translation": "--------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "7561209f94247c19": {
+      "translation": "-------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "3e8302fbfbe3f201": {
+      "translation": "-----------------",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "cfb892618fa7fe0f": {
+      "translation": "**core**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "3069ed20b1e8d64a": {
+      "translation": "Utilitários essenciais",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "432c35fd5ed01f15": {
+      "translation": "Lista de IDs explícitos",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "84fa5f144bf005a7": {
+      "translation": "**agents**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "0283902fe62b3e43": {
+      "translation": "Orquestração, navegação e contexto de agentes",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "959aa9f2774551c4": {
+      "translation": "IDs explícitos + tag `agents`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "314331df7e9fa272": {
+      "translation": "**ops**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "71507dc054f053d5": {
+      "translation": "DevOps, infraestrutura, implantação",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "a36682303ce2a1ad": {
+      "translation": "Tags: `automation`, `packaging`, `release`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "39ab32554d46dcfa": {
+      "translation": "**evaluation**",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "48378155be421b5e": {
+      "translation": "Testes, benchmarks, cobertura",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "0524f841700a5b74": {
+      "translation": "Tags: `testing`, `evaluation`, `benchmark`",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "e3bae9219539ec9e": {
+      "translation": "Estrutura",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "4521169eb421fb98": {
+      "translation": "Adicionando uma Ferramenta",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "e64635e8586a26ab": {
+      "translation": "1. Leia [docs/registry-guidelines.md](docs/registry-guidelines.md)\n2. Adicione uma entrada em `registry.json` (mantenha a ordem por `id`)\n3. Execute `npm run validate` e `npm run policy`\n4. Envie um Pull Request",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "8945ac8c73487d06": {
+      "translation": "Versionamento",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "9c97b4d5d028ebc6": {
+      "translation": "O contrato da versão 1 é estável. Novos campos opcionais podem ser adicionados em versões menores; campos obrigatórios e a estrutura dos campos existentes não serão alterados dentro de uma versão principal.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "0adfd963fb4bfc56": {
+      "translation": "Ecossistema",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "8a294df66b9718f2": {
+      "translation": "- **[mcpt CLI](https://github.com/mcp-tool-shop-org/mcpt)** — descubra, instale e execute ferramentas.\n- **[Enviar uma Ferramenta](https://github.com/mcp-tool-shop-org/mcp-tool-registry/issues/new/choose)** — adicione sua ferramenta ao ecossistema.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "2aca9b0e72841008": {
+      "translation": "Licença",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    },
+    "046dc8a12527121a": {
+      "translation": "MIT — veja [LICENSE](LICENSE) para detalhes.",
+      "model": "translategemma:12b",
+      "timestamp": 1772031541969
+    }
+  }
+}

@@ -1,7 +1,7 @@
 # MCP Tool Registry Context
 
 This file provides context for LLMs to understand the tools available in the registry.
-The registry contains 8 tools for Model Context Protocol.
+The registry contains 9 tools for Model Context Protocol.
 
 ## Featured Tools
 - accessibility-suite
@@ -21,3 +21,4 @@ The registry contains 8 tools for Model Context Protocol.
 - **mcp-stress-test**: Load and stress testing utilities for MCP servers and tool ecosystems (Tags: concurrency, load-testing, performance)
 - **synthesis**: Composable tool framework for building complex AI workflows (Tags: composition, tools, workflow)
 - **tool-compass**: Discovery, classification, and ranking utilities for MCP-compatible tools (Tags: catalog, discovery, ranking)
+- **xrpl-camp**: Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger (Tags: blockchain, cli, education, workshop, xrpl)

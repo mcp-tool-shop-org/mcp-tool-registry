@@ -1,11 +1,11 @@
 {
   "stats": {
-    "generated_at": "2026-09-09T01:46:23.125Z",
-    "registry_hash": "f34806446f89ff403999a3a0f307f4cdbd2f7b048925f0ec2279a2ddb3c13f5e",
+    "generated_at": "2026-09-09T07:30:33.877Z",
+    "registry_hash": "813bc572fd134021e56c1357cc049c2a1279470e5b437e6e06f532280b0f3e61",
     "totals": {
-      "tools": 8,
+      "tools": 9,
       "bundles": 4,
-      "active": 8,
+      "active": 9,
       "deprecated": 0
     },
     "bundles": {
@@ -52,7 +52,12 @@
       "tools": 1,
       "discovery": 1,
       "ranking": 1,
-      "catalog": 1
+      "catalog": 1,
+      "xrpl": 1,
+      "education": 1,
+      "blockchain": 1,
+      "workshop": 1,
+      "cli": 1
     },
     "ecosystems": {
       "accessibility": 1,
@@ -63,7 +68,7 @@
     "missing_fields": {
       "description": 0,
       "tags": 0,
-      "ecosystem": 6,
+      "ecosystem": 7,
       "repo": 0
     },
     "description_issues": []
