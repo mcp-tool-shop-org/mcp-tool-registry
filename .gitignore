@@ -4,3 +4,6 @@ _site/
 site/.astro/
 site/node_modules/
 site/dist/
+
+# Polyglot translation cache (regenerated per run, never committed)
+.polyglot-cache.json
