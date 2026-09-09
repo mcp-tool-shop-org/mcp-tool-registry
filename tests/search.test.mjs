@@ -1,5 +1,6 @@
 import { execSync } from "child_process"
 import assert from "assert"
+import { readFileSync } from "fs"
 import { join, dirname } from "path"
 import { fileURLToPath } from "url"
 
@@ -29,11 +30,19 @@ assert.strictEqual(idResults[0].id, "accessibility-suite", "ID should match")
 console.log("  ✅ ID filter works")
 
 // Test 2: Bundle filter works (core bundle should have tools)
+// Assert against the bundle definition rather than a hardcoded id. The previous
+// version expected tool-scan, which went away with the other ghost entries in
+// 004edcf and left this test failing against every later registry.
+const coreBundle = JSON.parse(
+  readFileSync(join(rootDir, "bundles", "core.json"), "utf-8")
+)
 const bundleResults = runQuery("--bundle core")
 assert.ok(bundleResults.length > 0, "Core bundle should not be empty")
-// Check one tool in core bundle (e.g. tool-scan or file-compass)
-const expectedTool = bundleResults.find(t => t.id === "tool-scan")
-assert.ok(expectedTool, "Core bundle should contain tool-scan")
+assert.deepStrictEqual(
+  bundleResults.map(t => t.id).sort(),
+  [...coreBundle.tools].sort(),
+  "Bundle filter should return exactly the tools the core bundle declares"
+)
 console.log("  ✅ Bundle filter works")
 
 // Test 3: Keyword search ranking
