@@ -1,7 +1,6 @@
 {
   "featured": [
-    "accessibility-suite",
-    "codeteam"
+    "accessibility-suite"
   ],
   "collections": [
     {
@@ -9,18 +8,7 @@
       "name": "Accessibility",
       "description": "Ensure your products are usable by everyone.",
       "tools": [
-        "accessibility-suite",
-        "ally-demo-python"
-      ]
-    },
-    {
-      "id": "starter-pack",
-      "name": "Starter Pack",
-      "description": "Essential tools for everyday agent operations.",
-      "tools": [
-        "aspire-ai",
-        "brain-dev",
-        "file-compass"
+        "accessibility-suite"
       ]
     }
   ]

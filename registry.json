@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "generated_at": "2026-04-16",
+  "generated_at": "2026-09-08",
   "organization": "mcp-tool-shop-org",
   "tools": [
     {
@@ -50,22 +50,6 @@
       }
     },
     {
-      "id": "claim-ledger",
-      "name": "ClaimLedger",
-      "description": "Scientific claim provenance and verification ledger",
-      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop-org/ClaimLedger.git",
-        "default_ref": "main"
-      },
-      "ecosystem": "ledger",
-      "tags": ["provenance", "cryptography", "dotnet"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
       "id": "codecomfy-vscode",
       "name": "CodeComfy VS Code",
       "description": "VS Code extension for code analysis and coverage display",
@@ -92,22 +76,6 @@
         "default_ref": "main"
       },
       "tags": ["comfyui", "headless", "automation", "image"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
-      "id": "creator-ledger",
-      "name": "CreatorLedger",
-      "description": "Creator attestation proofs and authorship verification",
-      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop-org/CreatorLedger.git",
-        "default_ref": "main"
-      },
-      "ecosystem": "ledger",
-      "tags": ["provenance", "attestation", "dotnet"],
       "defaults": {
         "safe_run": true
       }
@@ -218,6 +186,16 @@
       "id": "nexus-router-adapter-stdout",
       "note": "Consolidated into nexus-suite",
       "repo": "https://github.com/mcp-tool-shop-org/nexus-router-adapter-stdout"
+    },
+    {
+      "id": "claim-ledger",
+      "note": "Repository deleted from the organization",
+      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger"
+    },
+    {
+      "id": "creator-ledger",
+      "note": "Repository deleted from the organization",
+      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger"
     }
   ],
   "ecosystems": {
