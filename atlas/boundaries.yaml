@@ -1,0 +1,54 @@
+summary: ""
+boundaries:
+  - name: .github
+    globs:
+      - .github/**
+    role: config
+  - name: .husky
+    globs:
+      - .husky/**
+    role: config
+  - name: assets
+    globs:
+      - assets/**
+    role: data
+  - name: bundles
+    globs:
+      - bundles/**
+    role: data
+  - name: curation
+    globs:
+      - curation/**
+    role: data
+  - name: dist
+    globs:
+      - dist/**
+    role: data
+  - name: docs
+    globs:
+      - docs/**
+    role: docs
+  - name: fixtures
+    globs:
+      - fixtures/**
+    role: data
+  - name: root
+    globs:
+      - "*"
+    role: config
+  - name: schema
+    globs:
+      - schema/**
+    role: data
+  - name: scripts
+    globs:
+      - scripts/**
+    role: code
+  - name: site
+    globs:
+      - site/**
+    role: site
+  - name: tests
+    globs:
+      - tests/**
+    role: test
