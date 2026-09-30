@@ -33,7 +33,7 @@
           "path": ".github/pull_request_template.md"
         },
         {
-          "hash": "78cc70d6d4eb242780f44f7805d6876e17af47f46fb9fb17b360d9074a464643",
+          "hash": "a1bc80dfeb87669084078c2553ce1ff7422815c0ce4530a261d2dd57fd91a963",
           "path": ".github/workflows/ci.yml"
         },
         {
@@ -151,7 +151,7 @@
       ],
       "importConfidence": "full",
       "name": "bundles",
-      "origin": "generated",
+      "origin": "mixed",
       "role": "data",
       "testedBy": 0,
       "unresolvedSites": 0
@@ -237,7 +237,7 @@
       ],
       "importConfidence": "full",
       "name": "dist",
-      "origin": "authored",
+      "origin": "mixed",
       "role": "data",
       "testedBy": 0,
       "unresolvedSites": 0
@@ -460,7 +460,8 @@
       "name": "root",
       "origin": "mixed",
       "role": "config",
-      "testedBy": 0,
+      "testedBy": 1,
+      "testedByScript": true,
       "unresolvedSites": 0
     },
     {
@@ -501,6 +502,13 @@
         {
           "entry": "buildBundles",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "buildBundles",
+              "kind": "catch",
+              "line": 103
+            }
+          ],
           "hash": "69c76424248753d73703164a7636103e3449d5cfd9db910bde11a6a297083ec1",
           "path": "scripts/build-bundles.mjs",
           "sequences": []
@@ -508,6 +516,28 @@
         {
           "entry": "buildDerived",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "buildDerived",
+              "kind": "catch",
+              "line": 32
+            },
+            {
+              "in": "buildDerived",
+              "kind": "catch",
+              "line": 45
+            },
+            {
+              "in": "buildDerived",
+              "kind": "catch",
+              "line": 128
+            },
+            {
+              "in": "buildDerived",
+              "kind": "catch",
+              "line": 262
+            }
+          ],
           "hash": "930928f15058d1a755fcac2940ab0dfcf564f65284a2e6469e203c5de6726442",
           "path": "scripts/build-derived.mjs",
           "sequences": []
@@ -515,17 +545,53 @@
         {
           "entry": "buildSite",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "buildSite",
+              "kind": "catch",
+              "line": 42
+            },
+            {
+              "in": "buildSite",
+              "kind": "catch",
+              "line": 52
+            },
+            {
+              "in": "buildSite",
+              "kind": "catch",
+              "line": 67
+            },
+            {
+              "in": "buildSite",
+              "kind": "catch",
+              "line": 72
+            }
+          ],
           "hash": "7a6eb7233b89aad80074cc3071608cb2787bee9a3ba279c80fa0703a2287f69c",
           "path": "scripts/build-site.mjs",
           "sequences": []
         },
         {
+          "failurePaths": [
+            {
+              "in": "main",
+              "kind": "catch",
+              "line": 67
+            }
+          ],
           "hash": "40f51967c2b5ca6c53fd74ac3348021c35d1b059f007bf2ee577220d531d7657",
           "path": "scripts/facets.mjs"
         },
         {
           "entry": "generateHealthReport",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "generateHealthReport",
+              "kind": "catch",
+              "line": 228
+            }
+          ],
           "hash": "3a2028ce9ac51268f06d69bf0f37883da2b0f4b0ea2d0ea7edbb16c7c3449041",
           "path": "scripts/health-report.mjs",
           "sequences": []
@@ -533,6 +599,38 @@
         {
           "entry": "main",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "main",
+              "kind": "throw",
+              "line": 20
+            },
+            {
+              "in": "main",
+              "kind": "throw",
+              "line": 28
+            },
+            {
+              "in": "main",
+              "kind": "throw",
+              "line": 31
+            },
+            {
+              "in": "main",
+              "kind": "catch",
+              "line": 55
+            },
+            {
+              "in": "main",
+              "kind": "throw",
+              "line": 56
+            },
+            {
+              "in": "main",
+              "kind": "catch",
+              "line": 103
+            }
+          ],
           "hash": "6e950a4d793a406c6c5958e1c3e7b8a0f0e4d89a6a216ea9dda464f264f2a0ab",
           "path": "scripts/patch-registry.mjs",
           "sequences": []
@@ -540,28 +638,119 @@
         {
           "entry": "checkPolicy",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "checkPolicy",
+              "kind": "catch",
+              "line": 132
+            }
+          ],
           "hash": "ba00bf3f038a7137460f403c5f8148c72f27109e833cc69145316f16f3d5585e",
           "path": "scripts/policy-check.mjs",
           "sequences": []
         },
         {
+          "entry": "main",
+          "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "main",
+              "kind": "catch",
+              "line": 185
+            }
+          ],
           "hash": "7d0e6b4f335d2b0d8ee07fc6fb6e7718fdbe06fdae16f1ed5f7ce0dfc33ac6d6",
-          "path": "scripts/query.mjs"
+          "path": "scripts/query.mjs",
+          "sequences": []
         },
         {
           "entry": "runGh",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "runGh",
+              "kind": "catch",
+              "line": 20
+            },
+            {
+              "in": "runGh",
+              "kind": "throw",
+              "line": 22
+            },
+            {
+              "kind": "catch",
+              "line": 77
+            }
+          ],
           "hash": "a7610fa31bd321a9f66f544ab080b92d58664b6550cd421f8b3e78dbbc86decf",
           "path": "scripts/submission-guard.mjs",
           "sequences": []
         },
         {
+          "failurePaths": [
+            {
+              "kind": "throw",
+              "line": 40
+            },
+            {
+              "kind": "throw",
+              "line": 50
+            },
+            {
+              "kind": "throw",
+              "line": 56
+            },
+            {
+              "kind": "throw",
+              "line": 59
+            },
+            {
+              "kind": "throw",
+              "line": 67
+            },
+            {
+              "kind": "catch",
+              "line": 72
+            }
+          ],
           "hash": "9237dbcbf5e2eb143fb5382df288a7eead10e84b46bc4e799f52a017deb1fe8d",
           "path": "scripts/test-compat.mjs"
         },
         {
           "entry": "validate",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "validate",
+              "kind": "catch",
+              "line": 56
+            },
+            {
+              "in": "validate",
+              "kind": "throw",
+              "line": 60
+            },
+            {
+              "in": "validate",
+              "kind": "catch",
+              "line": 122
+            },
+            {
+              "in": "validate",
+              "kind": "catch",
+              "line": 155
+            },
+            {
+              "in": "validate",
+              "kind": "catch",
+              "line": 176
+            },
+            {
+              "in": "validate",
+              "kind": "catch",
+              "line": 185
+            }
+          ],
           "hash": "7a4b34a82442d1ac9c8ad4bd4d0bfdfdb281462c2b2c70639fcf75c72b0be394",
           "path": "scripts/validate.mjs",
           "sequences": []
@@ -573,6 +762,18 @@
         {
           "entry": "verifyPack",
           "entryRule": 1,
+          "failurePaths": [
+            {
+              "in": "verifyPack",
+              "kind": "throw",
+              "line": 20
+            },
+            {
+              "in": "verifyPack",
+              "kind": "catch",
+              "line": 52
+            }
+          ],
           "hash": "248d31c0e9c11aa1c2fba48f82b89ebf9f1c28eafdf9151294d9428db9977492",
           "path": "scripts/verify-pack.mjs",
           "sequences": []
@@ -595,8 +796,12 @@
       ],
       "outsideReads": 3,
       "role": "code",
-      "testedBy": 0,
-      "unresolvedSites": 1
+      "testRunners": [
+        "node"
+      ],
+      "testedBy": 1,
+      "testedThroughSpawn": true,
+      "unresolvedSites": 0
     },
     {
       "dynamicReads": 0,
@@ -607,7 +812,7 @@
       "externals": 0,
       "files": [
         {
-          "hash": "171f651d24d83a8334b4eb9a01893cf6349b69f927fdb0c3855607dc69300eef",
+          "hash": "0cbe018caf130ddeca1020b67ec8720dd656dcf02c4f75d9490597c6c9bafcbb",
           "path": "site/astro.config.mjs"
         },
         {
@@ -619,6 +824,7 @@
           "path": "site/package.json"
         },
         {
+          "constantOnly": true,
           "hash": "96ef3f9daeb3d45093e61972a50132af53d0f85d3f81542f130352c4bc930a90",
           "path": "site/src/content.config.ts"
         },
@@ -648,9 +854,18 @@
         },
         {
           "hash": "391533713539035d3c92282579d43de0f137067867fdb502d7eaea3c74601d2a",
+          "importOrder": [
+            "site/src/styles/global.css",
+            "site/src/site-config.ts"
+          ],
+          "importsFiles": [
+            "site/src/site-config.ts",
+            "site/src/styles/global.css"
+          ],
           "path": "site/src/pages/index.astro"
         },
         {
+          "constantOnly": true,
           "hash": "6b09d68f8eb6df2027c6925a95e7e66aa9f7af84a3e5856b852104a91ca1f32e",
           "path": "site/src/site-config.ts"
         },
@@ -679,22 +894,26 @@
     },
     {
       "dynamicReads": 0,
-      "dynamicSpawns": 1,
-      "dynamicSpawnsInTests": 1,
+      "dynamicSpawns": 0,
+      "dynamicSpawnsInTests": 0,
       "dynamicWrites": 0,
       "entryPoints": [],
       "externals": 0,
       "files": [
         {
           "hash": "3a7530a486afb154c0540fc926035e50d661a83aed250c7f54b6015fa0f773d2",
-          "path": "tests/registry-integrity.test.mjs"
+          "path": "tests/registry-integrity.test.mjs",
+          "testFramework": "node --test"
         },
         {
           "entry": "runQuery",
           "entryRule": 1,
           "hash": "ba77c1ced6e3edabe40b545dd671ee6dd300f8aaae6b6246f82a557ed2d2ae15",
           "path": "tests/search.test.mjs",
-          "sequences": []
+          "sequences": [],
+          "spawns": [
+            "scripts/query.mjs"
+          ]
         },
         {
           "entry": "runSmokeTests",
@@ -711,6 +930,9 @@
       "name": "tests",
       "origin": "authored",
       "role": "test",
+      "testRunners": [
+        "node"
+      ],
       "testedBy": 0,
       "unresolvedSites": 0
     }
@@ -720,75 +942,230 @@
       "checksCount": 0,
       "commands": [
         {
+          "dir": "",
           "job": "validate",
-          "step": "Atlas check",
-          "text": "npx --yes @dogfood-lab/atlas@1.20.0 check"
+          "programs": [
+            "npx"
+          ],
+          "step": "Atlas check"
         },
         {
+          "dir": "",
           "job": "validate",
-          "step": "4",
-          "text": "npm ci"
+          "programs": [
+            "npm"
+          ],
+          "step": "4"
         },
         {
+          "dir": "",
           "job": "validate",
-          "step": "5",
-          "text": "npm run validate"
+          "programs": [
+            "npm"
+          ],
+          "step": "5"
         },
         {
+          "dir": "",
           "job": "validate",
-          "step": "6",
-          "text": "npm run build:derived"
+          "programs": [
+            "npm"
+          ],
+          "step": "6"
         },
         {
+          "dir": "",
           "job": "validate",
-          "step": "7",
-          "text": "npm run report:health"
+          "programs": [
+            "npm"
+          ],
+          "step": "7"
         },
         {
+          "dir": "",
           "job": "validate",
-          "step": "8",
-          "text": "npm run test:search"
+          "programs": [
+            "npm"
+          ],
+          "step": "8"
         },
         {
+          "dir": "",
           "job": "validate",
-          "step": "9",
-          "text": "npm run verify-pack"
+          "programs": [
+            "npm"
+          ],
+          "step": "9"
         },
         {
+          "dir": "",
           "job": "validate",
-          "step": "10",
-          "text": "npm run format:check"
+          "programs": [
+            "npm"
+          ],
+          "step": "10"
         },
         {
+          "dir": "",
           "job": "dep-audit",
-          "step": "2",
-          "text": "npm audit --omit=dev || true"
+          "programs": [
+            "npm"
+          ],
+          "step": "2"
         },
         {
+          "dir": "",
           "job": "ecosystem",
-          "step": "Install Dependencies",
-          "text": "npm ci"
+          "programs": [
+            "npm"
+          ],
+          "step": "Install Dependencies"
         },
         {
+          "dir": "",
           "job": "ecosystem",
-          "step": "Build Registry Artifacts",
-          "text": "npm run prepack"
+          "programs": [
+            "npm"
+          ],
+          "step": "Build Registry Artifacts"
         },
         {
+          "dir": "",
           "job": "ecosystem",
-          "step": "Verify Site Build",
-          "text": "npm run build:site"
+          "programs": [
+            "npm"
+          ],
+          "step": "Verify Site Build"
         },
         {
+          "dir": "",
           "job": "ecosystem",
-          "step": "Test Consumer - mcpt CLI",
-          "text": "# Simulate install/run of mcpt against local registry file\n# We assume npx @mcptoolshop/mcpt is the consumer\n# This step fails if the CLI cannot parse the registry.json\necho \"Simulating mcpt consumption...\"\nif [ -f \"registry.json\" ]; then\n   echo \"Registry file exists.\"\n   # In a real scenario: npx @mcptoolshop/mcpt check --registry ./registry.json\nelse\n   echo \"Registry file missing!\"\n   exit 1\nfi\n"
+          "programs": [
+            "echo"
+          ],
+          "step": "Test Consumer - mcpt CLI"
         }
       ],
       "elsewhere": [],
       "file": ".github/workflows/ci.yml",
+      "jobs": [
+        {
+          "basis": "declared",
+          "name": "validate",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "22",
+                  "range": ">=22.0.0 <23.0.0-0"
+                }
+              ],
+              "step": "Set up Node for the Atlas check",
+              "uses": "actions/setup-node",
+              "version": "22"
+            },
+            {
+              "ranges": [
+                {
+                  "from": "20",
+                  "range": ">=20.0.0 <21.0.0-0"
+                }
+              ],
+              "step": "3",
+              "uses": "actions/setup-node",
+              "version": "20"
+            }
+          ]
+        },
+        {
+          "basis": "declared",
+          "name": "dep-audit",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "20",
+                  "range": ">=20.0.0 <21.0.0-0"
+                }
+              ],
+              "step": "1",
+              "uses": "actions/setup-node",
+              "version": "20"
+            }
+          ]
+        },
+        {
+          "basis": "declared",
+          "name": "ecosystem",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "20",
+                  "range": ">=20.0.0 <21.0.0-0"
+                }
+              ],
+              "step": "Setup Node",
+              "uses": "actions/setup-node",
+              "version": "20"
+            }
+          ]
+        }
+      ],
+      "landingGates": [
+        {
+          "target": "bundles/*.json",
+          "when": {
+            "byHand": true,
+            "event": "schedule"
+          }
+        }
+      ],
       "landings": [
-        "bundles"
+        "bundles/*.json",
+        "dist/REGISTRY_HEALTH.md",
+        "dist/capabilities.json",
+        "dist/derived.meta.json",
+        "dist/featured.json",
+        "dist/registry.index.json",
+        "dist/registry.llms.txt",
+        "dist/registry.report.json"
       ],
       "mentions": [
         {
@@ -806,7 +1183,7 @@
         {
           "boundary": "scripts",
           "depth": 0,
-          "files": 6
+          "files": 7
         },
         {
           "boundary": "tests",
@@ -816,66 +1193,114 @@
       ],
       "readers": [
         {
-          "by": "scripts/build-bundles.mjs",
-          "call": "readFile",
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
           "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/build-bundles.mjs",
-          "call": "readdir",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/build-derived.mjs",
-          "call": "readFile",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/build-derived.mjs",
-          "call": "readdir",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/health-report.mjs",
-          "call": "readFile",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/health-report.mjs",
-          "call": "readdir",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/validate.mjs",
-          "call": "literal",
-          "confidence": "ast",
-          "target": "bundles"
+          "target": "dist/REGISTRY_HEALTH.md"
         },
         {
           "by": "scripts/verify-pack.mjs",
           "call": "literal",
           "confidence": "ast",
-          "target": "bundles"
+          "target": "dist/REGISTRY_HEALTH.md"
         },
         {
-          "by": "tests/registry-integrity.test.mjs",
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/capabilities.json"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
           "call": "literal",
           "confidence": "ast",
-          "fromTests": true,
-          "target": "bundles"
+          "target": "dist/capabilities.json"
         },
         {
-          "by": "tests/search.test.mjs",
-          "call": "readFileSync",
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/derived.meta.json"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/derived.meta.json"
+        },
+        {
+          "by": "scripts/build-site.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "target": "dist/featured.json"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/featured.json"
+        },
+        {
+          "by": "scripts/query.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "tests/site-smoke.mjs",
+          "call": "readFile",
           "confidence": "ast",
           "fromTests": true,
-          "target": "bundles"
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "scripts/build-site.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/registry.llms.txt"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/registry.llms.txt"
+        },
+        {
+          "by": "tests/site-smoke.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "fromTests": true,
+          "target": "dist/registry.llms.txt"
+        },
+        {
+          "by": "scripts/facets.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "target": "dist/registry.report.json"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/registry.report.json"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/registry.report.json"
         }
       ],
       "runs": [
@@ -884,59 +1309,44 @@
           "path": "scripts/build-bundles.mjs",
           "runKind": "executes",
           "when": {
-            "except": [
-              "pull_request",
-              "push"
-            ]
+            "byHand": true,
+            "event": "schedule"
           }
         },
         {
           "job": "ecosystem",
           "path": "scripts/build-derived.mjs",
-          "runKind": "executes",
-          "when": {
-            "except": [
-              "pull_request",
-              "push"
-            ]
-          }
+          "runKind": "executes"
         },
         {
           "job": "validate",
           "path": "scripts/build-derived.mjs",
-          "runKind": "executes",
-          "when": {
-            "except": [
-              "schedule"
-            ]
-          }
+          "runKind": "executes"
         },
         {
           "job": "ecosystem",
           "path": "scripts/build-site.mjs",
           "runKind": "executes",
           "when": {
-            "except": [
-              "pull_request",
-              "push"
-            ]
+            "byHand": true,
+            "event": "schedule"
           }
         },
         {
           "job": "ecosystem",
           "path": "scripts/health-report.mjs",
-          "runKind": "executes",
-          "when": {
-            "except": [
-              "pull_request",
-              "push"
-            ]
-          }
+          "runKind": "executes"
         },
         {
           "job": "validate",
           "path": "scripts/health-report.mjs",
+          "runKind": "executes"
+        },
+        {
+          "job": "validate",
+          "path": "scripts/query.mjs",
           "runKind": "executes",
+          "via": "tests/search.test.mjs",
           "when": {
             "except": [
               "schedule"
@@ -974,7 +1384,7 @@
           }
         }
       ],
-      "runsCount": 7,
+      "runsCount": 8,
       "secrets": [],
       "sends": {
         "deploysPages": false,
@@ -987,6 +1397,17 @@
         "releases": false
       },
       "stages": [],
+      "tests": [
+        {
+          "files": 1,
+          "job": "validate",
+          "runner": "node",
+          "step": "8",
+          "through": [
+            "npm run test:search"
+          ]
+        }
+      ],
       "triggers": [
         {
           "event": "pull_request",
@@ -1028,8 +1449,7 @@
         }
       ],
       "untrackedLandings": [
-        "_site/",
-        "dist/"
+        "_site/"
       ],
       "uses": [
         "actions/checkout",
@@ -1042,74 +1462,117 @@
       "checksCount": 0,
       "commands": [
         {
+          "dir": "",
           "job": "verify",
-          "step": "Install Dependencies",
-          "text": "npm ci"
+          "programs": [
+            "npm"
+          ],
+          "step": "Install Dependencies"
         },
         {
+          "dir": "",
           "job": "verify",
-          "step": "Build Derived Data",
-          "text": "npm run build:derived"
+          "programs": [
+            "npm"
+          ],
+          "step": "Build Derived Data"
         },
         {
+          "dir": "",
           "job": "verify",
-          "step": "Smoke Test Registry Artifacts",
-          "text": "npm run test:site"
+          "programs": [
+            "npm"
+          ],
+          "step": "Smoke Test Registry Artifacts"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "Install dependencies",
-          "text": "npm ci"
+          "programs": [
+            "npm"
+          ],
+          "step": "Install dependencies"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "Run validation",
-          "text": "npm run validate"
+          "programs": [
+            "npm"
+          ],
+          "step": "Run validation"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "Build derived data",
-          "text": "npm run build:derived"
+          "programs": [
+            "npm"
+          ],
+          "step": "Build derived data"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "Build bundles",
-          "text": "npm run bundles:build"
+          "programs": [
+            "npm"
+          ],
+          "step": "Build bundles"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "Publish to npm",
-          "text": "npm publish --provenance --access public"
+          "programs": [
+            "npm"
+          ],
+          "step": "Publish to npm"
         },
         {
+          "dir": "",
           "job": "create-submission-pr",
-          "step": "Submission Guard",
-          "text": "node scripts/submission-guard.mjs"
+          "programs": [
+            "node"
+          ],
+          "step": "Submission Guard"
         },
         {
+          "dir": "",
           "job": "create-submission-pr",
-          "step": "Create Branch",
-          "text": "git config user.name \"github-actions[bot]\"\ngit config user.email \"github-actions[bot]@users.noreply.github.com\"\ngit checkout -b \"tool/${{ steps.parse.outputs.tool_id }}\"\n"
+          "programs": [
+            "git"
+          ],
+          "step": "Create Branch"
         },
         {
+          "dir": "",
           "job": "create-submission-pr",
-          "step": "Patch Registry",
-          "text": "node scripts/patch-registry.mjs"
+          "programs": [
+            "node"
+          ],
+          "step": "Patch Registry"
         },
         {
+          "dir": "",
           "job": "create-submission-pr",
-          "step": "Format Code (Prettier)",
-          "text": "npm run format || true"
+          "programs": [
+            "npm"
+          ],
+          "step": "Format Code (Prettier)"
         },
         {
+          "dir": "",
           "job": "create-submission-pr",
-          "step": "Commit Changes",
-          "text": "git add registry.json\ngit commit -m \"feat: add/update tool ${{ steps.parse.outputs.tool_id }}\" || echo \"No changes to commit\"\n"
+          "programs": [
+            "echo",
+            "git"
+          ],
+          "step": "Commit Changes"
         },
         {
+          "dir": "",
           "job": "create-submission-pr",
-          "step": "Push Branch",
-          "text": "git push -f origin \"tool/${{ steps.parse.outputs.tool_id }}\""
+          "programs": [
+            "git"
+          ],
+          "step": "Push Branch"
         }
       ],
       "elsewhere": [],
@@ -1121,7 +1584,9 @@
           ],
           "pushes": false,
           "pushesForReview": true,
-          "sends": [],
+          "sends": [
+            "opensPullRequests"
+          ],
           "stages": [
             "registry.json"
           ],
@@ -1144,8 +1609,156 @@
           }
         }
       ],
+      "jobs": [
+        {
+          "basis": "declared",
+          "name": "verify",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "20",
+                  "range": ">=20.0.0 <21.0.0-0"
+                }
+              ],
+              "step": "Setup Node",
+              "uses": "actions/setup-node",
+              "version": "20"
+            }
+          ]
+        },
+        {
+          "basis": "declared",
+          "name": "publish",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "20",
+                  "range": ">=20.0.0 <21.0.0-0"
+                }
+              ],
+              "step": "1",
+              "uses": "actions/setup-node",
+              "version": "20"
+            }
+          ]
+        },
+        {
+          "basis": "declared",
+          "name": "create-submission-pr",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "20",
+                  "range": ">=20.0.0 <21.0.0-0"
+                }
+              ],
+              "step": "Setup Node",
+              "uses": "actions/setup-node",
+              "version": "20"
+            }
+          ]
+        }
+      ],
+      "landingGates": [
+        {
+          "target": "bundles/*.json",
+          "when": {
+            "event": "release"
+          }
+        },
+        {
+          "target": "dist/capabilities.json",
+          "when": {
+            "except": [
+              "issues"
+            ]
+          }
+        },
+        {
+          "target": "dist/derived.meta.json",
+          "when": {
+            "except": [
+              "issues"
+            ]
+          }
+        },
+        {
+          "target": "dist/featured.json",
+          "when": {
+            "except": [
+              "issues"
+            ]
+          }
+        },
+        {
+          "target": "dist/registry.index.json",
+          "when": {
+            "except": [
+              "issues"
+            ]
+          }
+        },
+        {
+          "target": "dist/registry.llms.txt",
+          "when": {
+            "except": [
+              "issues"
+            ]
+          }
+        },
+        {
+          "target": "registry.json",
+          "when": {
+            "event": "issues"
+          }
+        }
+      ],
       "landings": [
-        "bundles",
+        "bundles/*.json",
+        "dist/capabilities.json",
+        "dist/derived.meta.json",
+        "dist/featured.json",
+        "dist/registry.index.json",
+        "dist/registry.llms.txt",
         "registry.json"
       ],
       "mentions": [],
@@ -1175,69 +1788,88 @@
       ],
       "readers": [
         {
-          "by": "scripts/build-bundles.mjs",
-          "call": "readFile",
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
           "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/build-bundles.mjs",
-          "call": "readdir",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/build-derived.mjs",
-          "call": "readFile",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/build-derived.mjs",
-          "call": "readdir",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/health-report.mjs",
-          "call": "readFile",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/health-report.mjs",
-          "call": "readdir",
-          "confidence": "ast",
-          "target": "bundles"
-        },
-        {
-          "by": "scripts/validate.mjs",
-          "call": "literal",
-          "confidence": "ast",
-          "target": "bundles"
+          "target": "dist/capabilities.json"
         },
         {
           "by": "scripts/verify-pack.mjs",
           "call": "literal",
           "confidence": "ast",
-          "target": "bundles"
+          "target": "dist/capabilities.json"
         },
         {
-          "by": "tests/registry-integrity.test.mjs",
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/derived.meta.json"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
           "call": "literal",
           "confidence": "ast",
-          "fromTests": true,
-          "target": "bundles"
+          "target": "dist/derived.meta.json"
         },
         {
-          "by": "tests/search.test.mjs",
-          "call": "readFileSync",
+          "by": "scripts/build-site.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "target": "dist/featured.json"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/featured.json"
+        },
+        {
+          "by": "scripts/query.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "tests/site-smoke.mjs",
+          "call": "readFile",
           "confidence": "ast",
           "fromTests": true,
-          "target": "bundles"
+          "target": "dist/registry.index.json"
+        },
+        {
+          "by": "scripts/build-site.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/registry.llms.txt"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/registry.llms.txt"
+        },
+        {
+          "by": "tests/site-smoke.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "fromTests": true,
+          "target": "dist/registry.llms.txt"
         },
         {
           "by": ".github/workflows/ci.yml",
+          "confidence": "config",
           "target": "registry.json"
         },
         {
@@ -1316,7 +1948,9 @@
           "path": "scripts/build-derived.mjs",
           "runKind": "executes",
           "when": {
-            "event": "release"
+            "except": [
+              "issues"
+            ]
           }
         },
         {
@@ -1325,8 +1959,7 @@
           "runKind": "executes",
           "when": {
             "except": [
-              "issues",
-              "release"
+              "issues"
             ]
           }
         },
@@ -1359,10 +1992,11 @@
           "path": "tests/site-smoke.mjs",
           "runKind": "executes",
           "when": {
-            "except": [
-              "issues",
-              "release"
-            ]
+            "branches": [
+              "main"
+            ],
+            "byHand": true,
+            "event": "push"
           }
         }
       ],
@@ -1382,6 +2016,17 @@
         "releases": false
       },
       "stages": [],
+      "tests": [
+        {
+          "files": 1,
+          "job": "verify",
+          "runner": "node",
+          "step": "Smoke Test Registry Artifacts",
+          "through": [
+            "npm run test:site"
+          ]
+        }
+      ],
       "triggers": [
         {
           "event": "issues",
@@ -1413,9 +2058,6 @@
           "event": "workflow_dispatch"
         }
       ],
-      "untrackedLandings": [
-        "dist/"
-      ],
       "uses": [
         "actions/checkout",
         "actions/github-script",
@@ -1427,18 +2069,74 @@
       "checksCount": 0,
       "commands": [
         {
+          "dir": "site",
           "job": "build",
-          "step": "Install site dependencies",
-          "text": "npm ci"
+          "programs": [
+            "npm"
+          ],
+          "step": "Install site dependencies"
         },
         {
+          "dir": "site",
           "job": "build",
-          "step": "Build site",
-          "text": "npm run build"
+          "programs": [
+            "npm"
+          ],
+          "step": "Build site"
         }
       ],
       "elsewhere": [],
       "file": ".github/workflows/pages.yml",
+      "jobs": [
+        {
+          "basis": "declared",
+          "name": "build",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "22",
+                  "range": ">=22.0.0 <23.0.0-0"
+                }
+              ],
+              "step": "1",
+              "uses": "actions/setup-node",
+              "version": "22"
+            }
+          ]
+        },
+        {
+          "basis": "declared",
+          "environment": {
+            "name": "github-pages"
+          },
+          "name": "deploy",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ]
+        }
+      ],
       "landings": [],
       "mentions": [],
       "name": "Deploy site to GitHub Pages",
@@ -1452,7 +2150,7 @@
         {
           "boundary": "site",
           "depth": 0,
-          "files": 3
+          "files": 5
         }
       ],
       "readers": [],
@@ -1513,29 +2211,76 @@
       "checksCount": 0,
       "commands": [
         {
+          "dir": "",
           "job": "publish",
-          "step": "Install dependencies",
-          "text": "if [ -f package-lock.json ]; then\n  npm ci\nelse\n  npm install\nfi\n"
+          "programs": [
+            "npm"
+          ],
+          "step": "Install dependencies"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "3",
-          "text": "npm run build --if-present"
+          "programs": [
+            "npm"
+          ],
+          "step": "3"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "4",
-          "text": "npm test --if-present"
+          "programs": [
+            "npm"
+          ],
+          "step": "4"
         },
         {
+          "dir": "",
           "job": "publish",
-          "step": "Publish to npm",
-          "text": "if [ -z \"$NODE_AUTH_TOKEN\" ]; then\n  echo \"::warning::NPM_TOKEN secret not set — skipping npm publish\"\n  exit 0\nfi\nnpm publish --provenance --access public\n"
+          "programs": [
+            "echo",
+            "npm"
+          ],
+          "step": "Publish to npm"
         }
       ],
       "elsewhere": [],
       "file": ".github/workflows/publish.yml",
-      "landings": [],
+      "jobs": [
+        {
+          "basis": "declared",
+          "name": "publish",
+          "runsOn": [
+            {
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "platform": {
+                "cpu": "x64",
+                "libc": "glibc",
+                "os": "linux"
+              }
+            }
+          ],
+          "setup": [
+            {
+              "ranges": [
+                {
+                  "from": "22",
+                  "range": ">=22.0.0 <23.0.0-0"
+                }
+              ],
+              "step": "1",
+              "uses": "actions/setup-node",
+              "version": "22"
+            }
+          ]
+        }
+      ],
+      "landings": [
+        "dist/REGISTRY_HEALTH.md",
+        "dist/registry.report.json"
+      ],
       "mentions": [
         {
           "job": "publish",
@@ -1555,7 +2300,38 @@
           "files": 4
         }
       ],
-      "readers": [],
+      "readers": [
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/REGISTRY_HEALTH.md"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/REGISTRY_HEALTH.md"
+        },
+        {
+          "by": "scripts/facets.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "target": "dist/registry.report.json"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast",
+          "target": "dist/registry.report.json"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast",
+          "target": "dist/registry.report.json"
+        }
+      ],
       "runs": [
         {
           "job": "publish",
@@ -1694,8 +2470,9 @@
     }
   ],
   "edges": [],
+  "engine": "1.24.0",
   "generatedFrom": {
-    "commit": "4fd9a954cb4acb06fe35b90781746e696ee3fb05",
+    "commit": "2bb195fa484d4e572d28ef756d371624b1efac32",
     "tracked": 105
   },
   "landings": [
@@ -1757,6 +2534,11 @@
         }
       ],
       "target": "bundles",
+      "writers": []
+    },
+    {
+      "readers": [],
+      "target": "bundles/*.json",
       "writers": [
         {
           "by": "scripts/build-bundles.mjs",
@@ -1847,12 +2629,205 @@
       "writers": []
     },
     {
-      "readers": [],
+      "readers": [
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        }
+      ],
       "target": "dist",
-      "tracked": false,
+      "writers": []
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/REGISTRY_HEALTH.md",
+      "writers": [
+        {
+          "by": "scripts/health-report.mjs",
+          "confidence": "ast"
+        }
+      ]
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/bundles/agents.index.json",
+      "writers": []
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/bundles/core.index.json",
+      "writers": []
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/bundles/evaluation.index.json",
+      "writers": []
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/bundles/ops.index.json",
+      "writers": []
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/capabilities.json",
       "writers": [
         {
           "by": "scripts/build-derived.mjs",
+          "confidence": "ast"
+        }
+      ]
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/derived.meta.json",
+      "writers": [
+        {
+          "by": "scripts/build-derived.mjs",
+          "confidence": "ast"
+        }
+      ]
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/build-site.mjs",
+          "call": "readFile",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/featured.json",
+      "writers": [
+        {
+          "by": "scripts/build-derived.mjs",
+          "confidence": "ast"
+        }
+      ]
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/query.mjs",
+          "call": "readFile",
+          "confidence": "ast"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast"
+        },
+        {
+          "by": "tests/site-smoke.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "fromTests": true
+        }
+      ],
+      "target": "dist/registry.index.json",
+      "writers": [
+        {
+          "by": "scripts/build-derived.mjs",
+          "confidence": "ast"
+        }
+      ]
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/build-site.mjs",
+          "call": "literal",
+          "confidence": "ast"
+        },
+        {
+          "by": "scripts/verify-exports.js",
+          "call": "existsSync",
+          "confidence": "ast"
+        },
+        {
+          "by": "tests/site-smoke.mjs",
+          "call": "readFile",
+          "confidence": "ast",
+          "fromTests": true
+        }
+      ],
+      "target": "dist/registry.llms.txt",
+      "writers": [
+        {
+          "by": "scripts/build-derived.mjs",
+          "confidence": "ast"
+        }
+      ]
+    },
+    {
+      "readers": [
+        {
+          "by": "scripts/facets.mjs",
+          "call": "readFile",
+          "confidence": "ast"
+        },
+        {
+          "by": "scripts/verify-pack.mjs",
+          "call": "literal",
+          "confidence": "ast"
+        }
+      ],
+      "target": "dist/registry.report.json",
+      "writers": [
+        {
+          "by": "scripts/health-report.mjs",
           "confidence": "ast"
         }
       ]
@@ -1887,7 +2862,8 @@
     {
       "readers": [
         {
-          "by": ".github/workflows/publish.yml"
+          "by": ".github/workflows/publish.yml",
+          "confidence": "config"
         }
       ],
       "target": "package-lock.json",
@@ -1923,7 +2899,8 @@
     {
       "readers": [
         {
-          "by": ".github/workflows/ci.yml"
+          "by": ".github/workflows/ci.yml",
+          "confidence": "config"
         },
         {
           "by": "scripts/build-bundles.mjs",
@@ -2057,5 +3034,8 @@
   "submodules": [],
   "symlinks": [],
   "testFiles": 3,
+  "testsNotRun": [
+    "tests/registry-integrity.test.mjs"
+  ],
   "unassigned": []
 }

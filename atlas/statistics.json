@@ -209,7 +209,7 @@
       "confidence": "low",
       "highWater": null,
       "name": "tests",
-      "qualifyingSourceCommits": 3,
+      "qualifyingSourceCommits": 1,
       "rebaseline": null
     }
   ],
@@ -217,24 +217,9 @@
     "definition": "commits is how many commits in the window touch the file, including merges and commits dropped from coupling. lines is added plus deleted in those commits.",
     "files": [
       {
-        "commits": 3,
-        "lines": 34,
+        "commits": 2,
+        "lines": 12,
         "path": ".github/workflows/ci.yml"
-      },
-      {
-        "commits": 2,
-        "lines": 32,
-        "path": ".github/workflows/operations.yml"
-      },
-      {
-        "commits": 2,
-        "lines": 14,
-        "path": ".github/workflows/pages.yml"
-      },
-      {
-        "commits": 2,
-        "lines": 8,
-        "path": ".github/workflows/publish.yml"
       },
       {
         "commits": 1,
@@ -248,13 +233,33 @@
       },
       {
         "commits": 1,
-        "lines": 10,
-        "path": "CHANGELOG.md"
+        "lines": 1,
+        "path": ".prettierignore"
       },
       {
         "commits": 1,
-        "lines": 12,
-        "path": "README.md"
+        "lines": 87,
+        "path": "atlas/README.md"
+      },
+      {
+        "commits": 1,
+        "lines": 54,
+        "path": "atlas/boundaries.yaml"
+      },
+      {
+        "commits": 1,
+        "lines": 377,
+        "path": "atlas/page.json"
+      },
+      {
+        "commits": 1,
+        "lines": 440,
+        "path": "atlas/statistics.json"
+      },
+      {
+        "commits": 1,
+        "lines": 2061,
+        "path": "atlas/structure.json"
       },
       {
         "commits": 2,
@@ -312,23 +317,13 @@
         "path": "dist/registry.report.json"
       },
       {
-        "commits": 1,
-        "lines": 4,
-        "path": "package-lock.json"
-      },
-      {
-        "commits": 1,
-        "lines": 2,
-        "path": "package.json"
-      },
-      {
         "commits": 3,
         "lines": 608,
         "path": "registry.json"
       },
       {
         "commits": 2,
-        "lines": 20,
+        "lines": 4,
         "path": "site/astro.config.mjs"
       },
       {
@@ -343,46 +338,6 @@
       },
       {
         "commits": 1,
-        "lines": 10,
-        "path": "site/src/content.config.ts"
-      },
-      {
-        "commits": 1,
-        "lines": 20,
-        "path": "site/src/content/docs/handbook/adding-a-tool.md"
-      },
-      {
-        "commits": 1,
-        "lines": 147,
-        "path": "site/src/content/docs/handbook/beginners.md"
-      },
-      {
-        "commits": 1,
-        "lines": 13,
-        "path": "site/src/content/docs/handbook/bundles-and-structure.md"
-      },
-      {
-        "commits": 1,
-        "lines": 36,
-        "path": "site/src/content/docs/handbook/getting-started.md"
-      },
-      {
-        "commits": 1,
-        "lines": 1,
-        "path": "site/src/content/docs/handbook/index.md"
-      },
-      {
-        "commits": 1,
-        "lines": 55,
-        "path": "site/src/content/docs/handbook/reference.md"
-      },
-      {
-        "commits": 2,
-        "lines": 298,
-        "path": "tests/registry-integrity.test.mjs"
-      },
-      {
-        "commits": 1,
         "lines": 15,
         "path": "tests/search.test.mjs"
       }
@@ -390,15 +345,15 @@
   },
   "confidence": {
     "level": "low",
-    "reason": "fewer than 30 qualifying commits in the window, and fewer than 20 source files reach 10 revisions"
+    "reason": "fewer than 30 qualifying commits in the window, and fewer than 25 source files reach 10 revisions"
   },
-  "generatedAt": "2026-09-25T02:09:43.986Z",
+  "generatedAt": "2026-09-30T20:10:25.359Z",
   "generatedFrom": {
-    "commit": "4fd9a954cb4acb06fe35b90781746e696ee3fb05"
+    "commit": "2bb195fa484d4e572d28ef756d371624b1efac32"
   },
   "pairs": [],
   "parameters": {
-    "appliedChangesetLimit": 26.25,
+    "appliedChangesetLimit": 27.5,
     "changeset": 50,
     "changesetFraction": 0.25,
     "cohesionDrop": 0.2,
@@ -407,16 +362,16 @@
     "floor": "fallen",
     "floorHeld": false,
     "floorTrigger": "both",
-    "headDate": "2026-09-17T18:05:55-07:00",
-    "inScopeFiles": 105,
+    "headDate": "2026-09-24T19:26:07-07:00",
+    "inScopeFiles": 110,
     "pinnedStart": null,
-    "priorFloor": null,
-    "qualifyingCommits": 13,
+    "priorFloor": "fallen",
+    "qualifyingCommits": 10,
     "qualifyingMinimum": 30,
     "revisions": 5,
     "shared": 10,
     "sharedFloorUsed": 3,
-    "since": "2026-03-22T01:05:55.000Z",
+    "since": "2026-03-29T02:26:07.000Z",
     "sourceExtensions": [
       ".js",
       ".mjs",
